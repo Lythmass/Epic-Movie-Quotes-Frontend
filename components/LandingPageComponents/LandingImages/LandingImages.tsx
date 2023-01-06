@@ -7,8 +7,7 @@ export default function LandingImages(props: {
     return (
       <LandingImage
         key={image.name}
-        src={`/assets/images/${image.name}.png`}
-        alt={image.name}
+        src={image.name}
         quote={image.quote}
         title={image.title}
       />
