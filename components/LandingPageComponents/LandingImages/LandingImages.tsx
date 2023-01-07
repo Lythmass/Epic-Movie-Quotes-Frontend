@@ -1,8 +1,7 @@
 import { LandingImage } from 'components';
+import { ImagesDataType } from 'types';
 
-export default function LandingImages(props: {
-  imagesData: { name: string; title: string; quote: string }[];
-}) {
+export default function LandingImages(props: ImagesDataType) {
   const displayImages = props.imagesData.map((image) => {
     return (
       <LandingImage

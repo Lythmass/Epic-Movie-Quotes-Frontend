@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-export default function LandingImage(props: {
-  src: string;
-  quote: string;
-  title: string;
-}) {
+import { LandingImageType } from 'types';
+
+export default function LandingImage(props: LandingImageType) {
   return (
     <div className='w-full h-[27rem]'>
       <div
