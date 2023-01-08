@@ -1,23 +1,21 @@
 /* eslint-disable @next/next/no-img-element */
-export default function LandingImage(props: {
-  src: string;
-  alt: string;
-  quote: string;
-  title: string;
-}) {
+import { LandingImageType } from 'types';
+
+export default function LandingImage(props: LandingImageType) {
   return (
-    <div className='w-full relative'>
-      <div className='absolute right-1/2 translate-x-1/2 bottom-1/2 translate-y-1/2 flex flex-col gap-2 w-[80%] justify-center'>
-        <h1 className='text-left text-white text-xl font-bold'>
-          “{props.quote}”
-        </h1>
-        <p className='text-left text-zinc-300 font-bold'>{props.title}</p>
+    <div className='w-full h-[27rem]'>
+      <div
+        className={`bg-[url('/assets/images/${props.src}.png')] bg-fixed bg-cover bg-center w-full h-full flex flex-col justify-center items-center`}
+      >
+        <div className='w-[80%] flex flex-col gap-2 justify-center items-start'>
+          <h1 className='relative text-left text-white text-xl font-bold'>
+            ― “{props.quote}”
+          </h1>
+          <p className='relative text-left text-zinc-300 font-bold'>
+            {props.title}
+          </p>
+        </div>
       </div>
-      <img
-        className='w-full h-[27rem] object-cover'
-        src={props.src}
-        alt={props.alt}
-      />
     </div>
   );
 }
