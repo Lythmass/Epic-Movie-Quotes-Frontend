@@ -1,12 +1,9 @@
 import { Button } from 'components';
-import { useEffect, useState } from 'react';
 import { LanguageChanger } from 'components';
+import { useWindowWidth } from 'hooks';
 
 export default function NavBar() {
-  const [getWindowWidth, setGetWindowWidth] = useState(0);
-  useEffect(() => {
-    setGetWindowWidth(window.innerWidth);
-  }, []);
+  const getWindowWidth = useWindowWidth();
   return (
     <div className='w-full flex justify-between items-center px-10 lg:px-16'>
       <h1 className='text-skin-color'>MOVIE QUOTES</h1>
