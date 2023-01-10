@@ -13,7 +13,7 @@ export default function Home() {
         } w-full h-screen flex flex-col justify-start items-center bg-dark-bg pt-6`}
       >
         <div className='w-full h-full flex flex-col justify-center items-center'>
-          <NavBar />
+          <NavBar setShowRegistrationModal={setShowRegistrationModal} />
           <div className='w-[75%] h-[50vh] text-center flex flex-col justify-center items-center gap-10'>
             <h1 className='text-skin-color text-2xl lg:text-3xl 2xl:text-6xl font-bold lg:px-[30%] 2xl:px-[20rem] lg:leading-[3rem] 2xl:leading-[5.8rem]'>
               Find any quote in millions of movie lines
