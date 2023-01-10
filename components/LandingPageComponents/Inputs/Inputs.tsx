@@ -1,17 +1,12 @@
 import { InputsType } from 'types';
-import { useFormContext, useWatch } from 'react-hook-form';
+import { useFormContext } from 'react-hook-form';
 import { validation } from 'helpers';
+import { usePasswordConfirmation } from 'hooks';
 
 export default function InputLayout(props: InputsType) {
   const methods: any = useFormContext();
-  const watchPassword = useWatch({
-    name: 'password',
-    control: methods.control,
-  });
-  const validatePasswordConfirmation = {
-    validate: (value: string) =>
-      value === watchPassword || "Entered password doesn't match.",
-  };
+  const validatePasswordConfirmation = usePasswordConfirmation(methods);
+
   return (
     <div className='flex flex-col w-full'>
       <label className='text-white' htmlFor={props.label}>
