@@ -6,9 +6,7 @@ export default function Home() {
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
   return (
     <>
-      <div className='overflow-hidden'>
-        {showRegistrationModal && <RegistrationModal />}
-      </div>
+      {showRegistrationModal && <RegistrationModal />}
       <section
         className={`${
           showRegistrationModal && 'overflow-hidden'
