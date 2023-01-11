@@ -3,7 +3,7 @@ import { ButtonType } from 'types';
 export default function Button(props: ButtonType) {
   return (
     <button
-      onClick={() => props.setShowRegistrationModal(true)}
+      onClick={() => props.setShowModal(true)}
       className={`border ${
         props.color === 'red'
           ? 'border-button-red bg-button-red'

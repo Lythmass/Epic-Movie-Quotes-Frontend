@@ -1,5 +1,5 @@
 export type ButtonType = {
   text: string;
   color: string;
-  setShowRegistrationModal: (value: boolean) => void;
+  setShowModal: (value: boolean) => void;
 };
