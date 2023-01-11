@@ -4,6 +4,7 @@ import { useWindowWidth } from 'hooks';
 
 export default function NavBar(props: {
   setShowRegistrationModal: (value: boolean) => void;
+  setShowLoginModal: (value: boolean) => void;
 }) {
   const getWindowWidth = useWindowWidth();
   return (
@@ -13,12 +14,16 @@ export default function NavBar(props: {
         {getWindowWidth >= 1024 && <LanguageChanger />}
         {getWindowWidth >= 1024 && (
           <Button
-            setShowRegistrationModal={props.setShowRegistrationModal}
+            setShowModal={props.setShowRegistrationModal}
             text='Sign up'
             color='red'
           />
         )}
-        <Button text='Log in' color='none' />
+        <Button
+          setShowModal={props.setShowLoginModal}
+          text='Log in'
+          color='none'
+        />
       </div>
     </div>
   );

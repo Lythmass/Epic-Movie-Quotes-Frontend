@@ -7,5 +7,7 @@ export {
   RegistrationModal,
   Inputs,
   ModalButton,
+  ModalLayout,
+  LoginModal,
 } from './LandingPageComponents';
 export { default as Button } from './Button';

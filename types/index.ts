@@ -6,3 +6,4 @@ export type { InputsType } from './InputsType';
 export type { ButtonType } from './ButtonType';
 export type { ModalButtonType } from './ModalButtonType';
 export type { ValidationType } from './ValidationType';
+export type { ModalLayoutType } from './ModalLayoutType';
