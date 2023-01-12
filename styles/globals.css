@@ -1,3 +1,52 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Helvetica Georgian */
+@font-face {
+  font-family: 'helvetica-geo';
+  src: url('../public/assets/fonts/Georgian/Helvetica Neue LT GEO 45 Light.ttf') format("truetype");
+  font-weight: 300;
+}
+@font-face {
+  font-family: 'helvetica-geo';
+  src: url('../public/assets/fonts/Georgian/helvetica-neue-lt-geo-55-roman.ttf') format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'helvetica-geo';
+  src: url('../public/assets/fonts/Georgian/Helvetica Neue LT GEO 65 Medium.ttf') format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'helvetica-geo';
+  src: url('../public/assets/fonts/Georgian/Helvetica Neue LT GEO 95 Black.ttf') format("truetype");
+  font-weight: 600;
+}
+@font-face {
+  font-family: 'helvetica-geo';
+  src: url('../public/assets/fonts/Georgian/Helvetica Neue LT GEO 75 Bold.ttf') format("truetype");
+  font-weight: 700;
+}
+
+
+
+
+
+
+/* Helvetica English */
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('../public/assets/fonts/English/HelveticaNeue.ttf') format("truetype");
+  font-weight: 400;
+}
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('../public/assets/fonts/English/HelveticaNeue Medium.ttf') format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: 'HelveticaNeue';
+  src: url('../public/assets/fonts/English/Helvetica Neu Bold.ttf') format("truetype");
+  font-weight: 600;
+}

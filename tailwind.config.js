@@ -17,6 +17,10 @@ module.exports = {
         'modal-bg':
           'linear-gradient(187.16deg, #181623 0.07%, #191725 51.65%, #0D0B14 98.75%)',
       },
+      fontFamily: {
+        'helvetica-geo': 'helvetica-geo',
+        'helvetica-eng': 'HelveticaNeue',
+      },
     },
   },
   plugins: [],
