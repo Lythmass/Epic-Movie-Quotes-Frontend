@@ -16,10 +16,13 @@ export default function Home() {
     setShowLoginModal,
     setShowRegistrationModal,
   } = useSwitchModals();
-  const { t } = useTranslation();
-
+  const { t, i18n } = useTranslation();
   return (
-    <>
+    <div
+      className={`${
+        i18n.language === 'ka' ? 'font-helvetica-geo' : 'font-helvetica-eng'
+      } font-medium`}
+    >
       {showRegistrationModal && (
         <RegistrationModal setShowLoginModal={setShowLoginModal} />
       )}
@@ -37,7 +40,7 @@ export default function Home() {
             setShowRegistrationModal={setShowRegistrationModal}
           />
           <div className='w-[75%] h-[50vh] 2xl:h-[70vh] 2xl:py-[20rem] text-center flex flex-col justify-center items-center gap-10'>
-            <h1 className='text-skin-color text-2xl lg:text-3xl 2xl:text-6xl font-bold lg:px-[30%] 2xl:px-[20rem] lg:leading-[3rem] 2xl:leading-[5.8rem]'>
+            <h1 className='text-skin-color text-2xl lg:text-3xl 2xl:text-6xl font-bold lg:px-[30%] 2xl:px-[13rem] lg:leading-[3rem] 2xl:leading-[5.8rem]'>
               {t('header')}
             </h1>
             <Button
@@ -54,6 +57,6 @@ export default function Home() {
           <p className='text-skin-color text-xs'>© 2023 {t('footer')}</p>
         </footer>
       </section>
-    </>
+    </div>
   );
 }
