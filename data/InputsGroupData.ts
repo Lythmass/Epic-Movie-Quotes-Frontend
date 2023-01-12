@@ -1,27 +1,31 @@
 const InputsGroupData = [
   {
     isOptional: false,
-    label: 'Name',
+    label: 'registrationModal.name',
     type: 'Text',
-    placeholder: 'Enter your name',
+    placeholder: 'registrationModal.name-placeholder',
+    validationIndex: 'registrationModal.name',
   },
   {
     isOptional: false,
-    label: 'Email',
+    label: 'registrationModal.email',
     type: 'mail',
-    placeholder: 'Enter your email',
+    placeholder: 'registrationModal.email-placeholder',
+    validationIndex: 'registrationModal.email',
   },
   {
     isOptional: false,
-    label: 'Password',
+    label: 'registrationModal.password',
     type: 'password',
-    placeholder: 'Password',
+    placeholder: 'registrationModal.password',
+    validationIndex: 'registrationModal.password',
   },
   {
     isOptional: false,
-    label: 'Confirm password',
+    label: 'registrationModal.confirm-password',
     type: 'password',
-    placeholder: 'Password',
+    placeholder: 'registrationModal.password',
+    validationIndex: 'registrationModal.confirm-password',
   },
 ];
 

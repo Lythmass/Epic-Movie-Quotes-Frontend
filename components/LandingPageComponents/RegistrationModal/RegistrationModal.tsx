@@ -2,29 +2,36 @@ import { Inputs, ModalButton, ModalLayout } from 'components';
 import { InputsType } from 'types';
 import { InputsGroupData } from 'data';
 import { useForm, FormProvider } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 export default function RegistrationModal(props: {
   setShowLoginModal: (value: boolean) => void;
 }) {
   const InputsGroup: InputsType[] = InputsGroupData;
   const methods = useForm({ mode: 'all' });
+  const { t } = useTranslation();
 
   const displayInputs = InputsGroup.map((input) => {
     return (
       <Inputs
         key={input.label}
         isOptional={input.isOptional}
-        label={input.label}
+        label={t(input.label)}
+        validationIndex={input.label}
         type={input.type}
-        placeholder={input.placeholder}
+        placeholder={t(input.placeholder)}
       />
     );
   });
   const submitHandler = () => {
     console.log('haha');
   };
+
   return (
-    <ModalLayout title='Create an account' message='Start your journey!'>
+    <ModalLayout
+      title={t('registrationModal.title')}
+      message={t('registrationModal.message')}
+    >
       <>
         <FormProvider {...methods}>
           <form
@@ -33,18 +40,21 @@ export default function RegistrationModal(props: {
           >
             {displayInputs}
             <div className='w-full pt-5 flex flex-col gap-4 items-center justify-center'>
-              <ModalButton text='Get started' color='red' />
-              <ModalButton text='Sign up with Google' color='white' />
+              <ModalButton
+                text={t('registrationModal.get-started')}
+                color='red'
+              />
+              <ModalButton text={t('registrationModal.google')} color='white' />
             </div>
           </form>
         </FormProvider>
         <p className='text-[#6C757D] mt-4'>
-          Already have an account?{' '}
+          {t('registrationModal.question')}{' '}
           <span
             onClick={() => props.setShowLoginModal(true)}
             className='text-[#0D6EFD] underline cursor-pointer'
           >
-            Log in
+            {t('buttons.log-in')}
           </span>
         </p>
       </>

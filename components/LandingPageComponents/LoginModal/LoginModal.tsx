@@ -2,21 +2,27 @@ import { ModalLayout, Inputs, ModalButton } from 'components';
 import { FormProvider, useForm } from 'react-hook-form';
 import { InputsGroupData } from 'data';
 import { InputsType } from 'types';
+import { useTranslation } from 'react-i18next';
 
 export default function LoginModal(props: {
   setShowRegistrationModal: (value: boolean) => void;
 }) {
   const InputsGroup: InputsType[] = InputsGroupData;
   const methods = useForm({ mode: 'all' });
+  const { t } = useTranslation();
   const displayInputs = InputsGroup.map((input) => {
-    if (input.label === 'Email' || input.label === 'Password') {
+    if (
+      t(input.label) === t('registrationModal.email') ||
+      t(input.label) === t('registrationModal.password')
+    ) {
       return (
         <Inputs
           key={input.label}
           isOptional={input.isOptional}
-          label={input.label}
+          label={t(input.label)}
+          validationIndex={input.label}
           type={input.type}
-          placeholder={input.placeholder}
+          placeholder={t(input.placeholder)}
         />
       );
     }
@@ -26,8 +32,8 @@ export default function LoginModal(props: {
   };
   return (
     <ModalLayout
-      title='Login to your account'
-      message='Welcome back! Please enter your details.'
+      title={t('loginModal.title')}
+      message={t('loginModal.message')}
     >
       <>
         <FormProvider {...methods}>
@@ -37,18 +43,18 @@ export default function LoginModal(props: {
           >
             {displayInputs}
             <div className='w-full pt-5 flex flex-col gap-4 items-center justify-center'>
-              <ModalButton text='Sign in' color='red' />
-              <ModalButton text='Sign in with Google' color='white' />
+              <ModalButton text={t('loginModal.sign-in')} color='red' />
+              <ModalButton text={t('loginModal.google')} color='white' />
             </div>
           </form>
         </FormProvider>
         <p className='text-[#6C757D] mt-4'>
-          Missing an account?{' '}
+          {t('loginModal.question')}{' '}
           <span
             onClick={() => props.setShowRegistrationModal(true)}
             className='text-[#0D6EFD] underline cursor-pointer'
           >
-            Sign up
+            {t('buttons.sign-up')}
           </span>
         </p>
       </>

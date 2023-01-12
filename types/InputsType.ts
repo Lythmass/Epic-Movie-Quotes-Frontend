@@ -3,4 +3,5 @@ export type InputsType = {
   placeholder: string;
   type: string;
   isOptional: boolean;
+  validationIndex: string;
 };
