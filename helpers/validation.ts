@@ -1,41 +1,41 @@
 import { ValidationType } from 'types';
 const validation: ValidationType = {
   name: {
-    required: 'Please fill out the field.',
+    required: 'validation.required',
     minLength: {
       value: 3,
-      message: 'Please enter at least 3 characters.',
+      message: 'validation.min-name',
     },
     maxLength: {
       value: 15,
-      message: 'Please do not enter more than 15 characters',
+      message: 'validation.max',
     },
     pattern: {
       value: /^[a-z0-9]+$/,
-      message: 'Please enter only lowercase letters and numbers',
+      message: 'validation.pattern',
     },
   },
   email: {
-    required: 'Please fill out the field.',
+    required: 'validation.required',
     pattern: {
       value:
         /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?(?:\.[a-zA-Z0-9](?:[a-zA-Z0-9-]{0,61}[a-zA-Z0-9])?)*$/,
-      message: 'Please enter a valid email format',
+      message: 'validation.valid-email',
     },
   },
   password: {
-    required: 'Please fill out the field.',
+    required: 'validation.required',
     minLength: {
       value: 8,
-      message: 'Please enter at least 8 characters',
+      message: 'validation.min-pass',
     },
     maxLength: {
       value: 15,
-      message: 'Please do not enter more than 15 characters',
+      message: 'validation.max',
     },
     pattern: {
       value: /^[a-z0-9]+$/,
-      message: 'Please enter only lowercase letters and numbers',
+      message: 'validation.pattern',
     },
   },
 };

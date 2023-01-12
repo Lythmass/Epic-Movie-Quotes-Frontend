@@ -7,6 +7,7 @@ import {
 } from 'components';
 import { imagesData } from 'data';
 import { useSwitchModals } from 'hooks';
+import { useTranslation } from 'react-i18next';
 
 export default function Home() {
   const {
@@ -15,6 +16,7 @@ export default function Home() {
     setShowLoginModal,
     setShowRegistrationModal,
   } = useSwitchModals();
+  const { t } = useTranslation();
 
   return (
     <>
@@ -34,13 +36,13 @@ export default function Home() {
             setShowLoginModal={setShowLoginModal}
             setShowRegistrationModal={setShowRegistrationModal}
           />
-          <div className='w-[75%] h-[50vh] text-center flex flex-col justify-center items-center gap-10'>
+          <div className='w-[75%] h-[50vh] 2xl:h-[70vh] 2xl:py-[20rem] text-center flex flex-col justify-center items-center gap-10'>
             <h1 className='text-skin-color text-2xl lg:text-3xl 2xl:text-6xl font-bold lg:px-[30%] 2xl:px-[20rem] lg:leading-[3rem] 2xl:leading-[5.8rem]'>
-              Find any quote in millions of movie lines
+              {t('header')}
             </h1>
             <Button
               setShowModal={setShowRegistrationModal}
-              text='Get started'
+              text={t('buttons.get-started')}
               color='red'
             />
           </div>
@@ -49,9 +51,7 @@ export default function Home() {
           <LandingImages imagesData={imagesData} />
         </div>
         <footer className='w-full flex justify-center items-center lg:justify-start lg:px-16 bg-[#11101A] py-4'>
-          <p className='text-skin-color text-xs'>
-            © 2023 MOVIE QUOTES. ALL RIGHTS RESERVED.
-          </p>
+          <p className='text-skin-color text-xs'>© 2023 {t('footer')}</p>
         </footer>
       </section>
     </>
