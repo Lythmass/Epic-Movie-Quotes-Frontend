@@ -8,6 +8,7 @@ import {
 import { imagesData } from 'data';
 import { useSwitchModals } from 'hooks';
 import { useTranslation } from 'react-i18next';
+import { markEmailAsVerified } from 'services';
 
 export default function Home() {
   const {
@@ -59,4 +60,16 @@ export default function Home() {
       </section>
     </div>
   );
+}
+
+export async function getServerSideProps(context: any) {
+  if (context.query.email_verify_url !== undefined) {
+    const path =
+      context.query.email_verify_url?.substr(39) +
+      '&signature=' +
+      context.query.signature;
+    const response = await markEmailAsVerified(path);
+    return { props: { response: JSON.stringify(response.data.message) } };
+  }
+  return { props: {} };
 }

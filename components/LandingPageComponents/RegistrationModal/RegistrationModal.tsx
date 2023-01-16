@@ -3,6 +3,7 @@ import { InputsType } from 'types';
 import { InputsGroupData } from 'data';
 import { useForm, FormProvider } from 'react-hook-form';
 import { useTranslation } from 'react-i18next';
+import { useRegistrationSubmitHandler } from 'hooks';
 
 export default function RegistrationModal(props: {
   setShowLoginModal: (value: boolean) => void;
@@ -10,7 +11,6 @@ export default function RegistrationModal(props: {
   const InputsGroup: InputsType[] = InputsGroupData;
   const methods = useForm({ mode: 'all' });
   const { t } = useTranslation();
-
   const displayInputs = InputsGroup.map((input) => {
     return (
       <Inputs
@@ -23,9 +23,7 @@ export default function RegistrationModal(props: {
       />
     );
   });
-  const submitHandler = () => {
-    console.log('haha');
-  };
+  const submit = useRegistrationSubmitHandler(methods, t);
 
   return (
     <ModalLayout
@@ -35,7 +33,7 @@ export default function RegistrationModal(props: {
       <>
         <FormProvider {...methods}>
           <form
-            onSubmit={methods.handleSubmit(submitHandler)}
+            onSubmit={methods.handleSubmit(submit)}
             className='w-[80%] flex flex-col items-center justify-center gap-4'
           >
             {displayInputs}

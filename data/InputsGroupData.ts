@@ -22,10 +22,10 @@ const InputsGroupData = [
   },
   {
     isOptional: false,
-    label: 'registrationModal.confirm-password',
+    label: 'registrationModal.password_confirmation',
     type: 'password',
     placeholder: 'registrationModal.password',
-    validationIndex: 'registrationModal.confirm-password',
+    validationIndex: 'registrationModal.password_confirmation',
   },
 ];
 
