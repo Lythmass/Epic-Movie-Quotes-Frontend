@@ -24,11 +24,7 @@ export default function RegistrationModal(props: {
       />
     );
   });
-  const submit = useRegistrationSubmitHandler(
-    methods,
-    t,
-    props.setHasRegistered
-  );
+  const submit = useRegistrationSubmitHandler(methods, props.setHasRegistered);
 
   return (
     <ModalLayout
