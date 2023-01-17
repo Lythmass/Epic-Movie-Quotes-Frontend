@@ -1,14 +1,14 @@
 import { createUser, fetchCSRFToken } from 'services';
-
+import { useTranslation } from 'react-i18next';
 export default function useRegistrationSubmitHandler(
   methods: any,
-  t: any,
   setHasRegistered: (value: boolean) => void
 ) {
+  const { t, i18n } = useTranslation();
   const submit = async (data: any) => {
     try {
       await fetchCSRFToken();
-      const response = await createUser(data);
+      const response = await createUser({ ...data, locale: i18n.language });
       if (response.data.message === 'Registered Successfully!') {
         setHasRegistered(true);
       }
