@@ -61,6 +61,17 @@ i18next.use(initReactI18next).init({
           'email-taken': 'The email has already been taken.',
           'name-taken': 'Name has already been taken.',
         },
+        emailActivatedModal: {
+          title: 'Thank you!',
+          description: 'Your account has been activated',
+          action: 'Go to my news feed',
+        },
+        emailSentModal: {
+          title: 'Thank you!',
+          description:
+            'Please check your email and follow the instructions to activate your account.',
+          action: 'Go to my email',
+        },
       },
     },
     ka: {
@@ -118,6 +129,17 @@ i18next.use(initReactI18next).init({
           'pass-confirm': 'შეყვანილი პაროლები არ ემთხვევა ერთმანეთს.',
           'email-taken': 'ელ-ფოსტა უკვე გამოყენებულია.',
           'name-taken': 'სახელი უკვე გამოყენებულია.',
+        },
+        emailActivatedModal: {
+          title: 'გმადლობთ!',
+          description: 'თქვენი ანგარიში გააქტიურებულია.',
+          action: 'სიახლეების გვერდზე გადასვლა',
+        },
+        emailSentModal: {
+          title: 'გმადლობთ!',
+          description:
+            'გთხოვთ შეამოწმეთ თქვენი ელ-ფოსტა და მიჰყევით ინტრუქციებს რომ გააქტიუროთ ანგარიში.',
+          action: 'ჩემს ელ-ფოსტაზე გადასვლა',
         },
       },
     },

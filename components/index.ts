@@ -9,5 +9,7 @@ export {
   ModalButton,
   ModalLayout,
   LoginModal,
+  FeedbackModal,
+  ConditionalModals,
 } from './LandingPageComponents';
 export { default as Button } from './Button';

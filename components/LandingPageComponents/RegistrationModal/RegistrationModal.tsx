@@ -7,6 +7,7 @@ import { useRegistrationSubmitHandler } from 'hooks';
 
 export default function RegistrationModal(props: {
   setShowLoginModal: (value: boolean) => void;
+  setHasRegistered: (value: boolean) => void;
 }) {
   const InputsGroup: InputsType[] = InputsGroupData;
   const methods = useForm({ mode: 'all' });
@@ -23,7 +24,11 @@ export default function RegistrationModal(props: {
       />
     );
   });
-  const submit = useRegistrationSubmitHandler(methods, t);
+  const submit = useRegistrationSubmitHandler(
+    methods,
+    t,
+    props.setHasRegistered
+  );
 
   return (
     <ModalLayout
