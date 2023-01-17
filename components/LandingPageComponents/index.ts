@@ -7,3 +7,5 @@ export { Inputs } from './Inputs';
 export { ModalButton } from './ModalButton';
 export { ModalLayout } from './ModalLayout';
 export { LoginModal } from './LoginModal';
+export { FeedbackModal } from './FeedbackModals';
+export { ConditionalModals } from './ConditionalModals';

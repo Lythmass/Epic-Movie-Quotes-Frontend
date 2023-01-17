@@ -1,38 +1,42 @@
-import {
-  NavBar,
-  Button,
-  LandingImages,
-  RegistrationModal,
-  LoginModal,
-} from 'components';
+import { NavBar, Button, LandingImages, ConditionalModals } from 'components';
 import { imagesData } from 'data';
 import { useSwitchModals } from 'hooks';
 import { useTranslation } from 'react-i18next';
 import { markEmailAsVerified } from 'services';
 
-export default function Home() {
+export default function Home(props: { response: string }) {
   const {
     showLoginModal,
     showRegistrationModal,
+    hasRegistered,
     setShowLoginModal,
     setShowRegistrationModal,
+    setHasRegistered,
   } = useSwitchModals();
   const { t, i18n } = useTranslation();
+
   return (
     <div
       className={`${
         i18n.language === 'ka' ? 'font-helvetica-geo' : 'font-helvetica-eng'
       } font-medium`}
     >
-      {showRegistrationModal && (
-        <RegistrationModal setShowLoginModal={setShowLoginModal} />
-      )}
-      {showLoginModal && (
-        <LoginModal setShowRegistrationModal={setShowRegistrationModal} />
-      )}
+      <ConditionalModals
+        showRegistrationModal={showRegistrationModal}
+        setShowLoginModal={setShowLoginModal}
+        showLoginModal={showLoginModal}
+        setShowRegistrationModal={setShowRegistrationModal}
+        hasRegistered={hasRegistered}
+        setHasRegistered={setHasRegistered}
+        response={props.response}
+      />
       <section
         className={`${
-          (showRegistrationModal || showLoginModal) && 'overflow-hidden'
+          (showRegistrationModal ||
+            showLoginModal ||
+            hasRegistered ||
+            props.response === '"Successfully verified!"') &&
+          'overflow-hidden'
         } w-full h-screen flex flex-col justify-start items-center bg-dark-bg pt-6`}
       >
         <div className='w-full h-full flex flex-col justify-center items-center'>
