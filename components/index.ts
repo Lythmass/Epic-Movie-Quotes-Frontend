@@ -11,5 +11,6 @@ export {
   LoginModal,
   FeedbackModal,
   ConditionalModals,
+  RememberMe,
 } from './LandingPageComponents';
 export { default as Button } from './Button';

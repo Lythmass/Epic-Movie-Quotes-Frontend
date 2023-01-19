@@ -23,3 +23,8 @@ export const markEmailAsVerified = async (path: string) => {
   const response = await instance.get(`/api/email/verify/${path}`);
   return response;
 };
+
+export const authenticateUser = async (data: any) => {
+  const response = await instance.post('/api/login', data);
+  return response;
+};

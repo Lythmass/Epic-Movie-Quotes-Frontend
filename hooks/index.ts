@@ -3,3 +3,4 @@ export { default as useChangeLanguage } from './useChangeLanguage';
 export { default as usePasswordConfirmation } from './usePasswordConfirmation';
 export { default as useSwitchModals } from './useSwitchModals';
 export { default as useRegistrationSubmitHandler } from './useRegistrationSubmitHandler';
+export { default as useAuthorizationSubmitHandler } from './useAuthorizationSubmitHandler';
