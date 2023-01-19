@@ -2,12 +2,12 @@ import { InputsType } from 'types';
 import { useFormContext } from 'react-hook-form';
 import { validation, registerParameters } from 'helpers';
 import { usePasswordConfirmation } from 'hooks';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 export default function InputLayout(props: InputsType) {
   const methods: any = useFormContext();
   const validatePasswordConfirmation = usePasswordConfirmation(methods);
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
 
   const [registerName, validationRule] = registerParameters(
     t,

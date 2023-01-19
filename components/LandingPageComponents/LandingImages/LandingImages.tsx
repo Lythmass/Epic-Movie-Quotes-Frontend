@@ -1,9 +1,9 @@
 import { LandingImage } from 'components';
 import { ImagesDataType } from 'types';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 export default function LandingImages(props: ImagesDataType) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const displayImages = props.imagesData.map((image) => {
     return (
       <LandingImage

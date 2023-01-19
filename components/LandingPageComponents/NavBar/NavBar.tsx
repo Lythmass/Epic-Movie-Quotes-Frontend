@@ -1,14 +1,14 @@
 import { Button } from 'components';
 import { LanguageChanger } from 'components';
 import { useWindowWidth } from 'hooks';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 export default function NavBar(props: {
   setShowRegistrationModal: (value: boolean) => void;
   setShowLoginModal: (value: boolean) => void;
 }) {
   const getWindowWidth = useWindowWidth();
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   return (
     <div className='w-full flex justify-between items-center px-10 lg:px-16'>
       <div className='flex flex-col justify-center items-start w-[55%]'>

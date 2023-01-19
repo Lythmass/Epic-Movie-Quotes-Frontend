@@ -2,7 +2,7 @@ import { Inputs, ModalButton, ModalLayout } from 'components';
 import { InputsType } from 'types';
 import { InputsGroupData } from 'data';
 import { useForm, FormProvider } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { useRegistrationSubmitHandler } from 'hooks';
 
 export default function RegistrationModal(props: {
@@ -11,7 +11,7 @@ export default function RegistrationModal(props: {
 }) {
   const InputsGroup: InputsType[] = InputsGroupData;
   const methods = useForm({ mode: 'all' });
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const displayInputs = InputsGroup.map((input) => {
     return (
       <Inputs
