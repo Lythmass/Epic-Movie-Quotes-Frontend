@@ -1,9 +1,9 @@
 import { RegistrationModal, LoginModal, FeedbackModal } from 'components';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { ConditionalModalsType } from 'types';
 
 export default function ConditionalModals(props: ConditionalModalsType) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   return (
     <>
       {props.showRegistrationModal && (

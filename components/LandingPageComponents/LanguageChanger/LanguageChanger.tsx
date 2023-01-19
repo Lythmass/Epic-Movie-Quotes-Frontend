@@ -4,7 +4,6 @@ import { useChangeLanguage } from 'hooks';
 export default function LanguageChanger() {
   const [currentLanguage, setCurrentLanguage, optionsModal, clickHandler] =
     useChangeLanguage();
-
   return (
     <div className=' text-white pr-4'>
       <div

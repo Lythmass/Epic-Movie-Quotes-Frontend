@@ -1,8 +1,8 @@
 import { useWatch } from 'react-hook-form';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 export default function usePasswordConfirmation(methods: any) {
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const watchPassword = useWatch({
     name: 'password',
     control: methods.control,

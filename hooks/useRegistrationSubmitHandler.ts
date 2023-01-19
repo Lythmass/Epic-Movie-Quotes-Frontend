@@ -1,10 +1,10 @@
 import { createUser, fetchCSRFToken } from 'services';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 export default function useRegistrationSubmitHandler(
   methods: any,
   setHasRegistered: (value: boolean) => void
 ) {
-  const { t, i18n } = useTranslation();
+  const { t, i18n } = useTranslation('common');
   const submit = async (data: any) => {
     try {
       await fetchCSRFToken();

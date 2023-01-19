@@ -1,10 +1,13 @@
-import { setCookie } from 'cookies-next';
 export default function clickHandler(
   language: string,
-  setCurrentLanguage: (value: string) => void
+  setCurrentLanguage: (value: string) => void,
+  router: any,
+  pathname: string,
+  asPath: string,
+  query: object
 ) {
-  setCurrentLanguage(language);
-  setCookie('locale', language === 'Eng' ? 'en' : 'ka', {
-    sameSite: true,
+  router.push({ pathname, query }, asPath, {
+    locale: language === 'Geo' ? 'ka' : 'en',
   });
+  setCurrentLanguage(language);
 }

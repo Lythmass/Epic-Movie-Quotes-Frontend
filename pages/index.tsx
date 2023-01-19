@@ -1,8 +1,9 @@
 import { NavBar, Button, LandingImages, ConditionalModals } from 'components';
 import { imagesData } from 'data';
 import { useSwitchModals } from 'hooks';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 import { markEmailAsVerified } from 'services';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
 export default function Home(props: { response: string }) {
   const {
@@ -13,8 +14,7 @@ export default function Home(props: { response: string }) {
     setShowRegistrationModal,
     setHasRegistered,
   } = useSwitchModals();
-  const { t, i18n } = useTranslation();
-
+  const { t, i18n } = useTranslation('common');
   return (
     <div
       className={`${
@@ -73,7 +73,16 @@ export async function getServerSideProps(context: any) {
       '&signature=' +
       context.query.signature;
     const response = await markEmailAsVerified(path);
-    return { props: { response: JSON.stringify(response.data.message) } };
+    return {
+      props: {
+        response: JSON.stringify(response.data.message),
+        ...(await serverSideTranslations(context.locale, ['common'])),
+      },
+    };
   }
-  return { props: {} };
+  return {
+    props: {
+      ...(await serverSideTranslations(context.locale, ['common'])),
+    },
+  };
 }

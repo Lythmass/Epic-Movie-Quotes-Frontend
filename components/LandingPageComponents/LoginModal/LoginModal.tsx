@@ -2,14 +2,14 @@ import { ModalLayout, Inputs, ModalButton } from 'components';
 import { FormProvider, useForm } from 'react-hook-form';
 import { InputsGroupData } from 'data';
 import { InputsType } from 'types';
-import { useTranslation } from 'react-i18next';
+import { useTranslation } from 'next-i18next';
 
 export default function LoginModal(props: {
   setShowRegistrationModal: (value: boolean) => void;
 }) {
   const InputsGroup: InputsType[] = InputsGroupData;
   const methods = useForm({ mode: 'all' });
-  const { t } = useTranslation();
+  const { t } = useTranslation('common');
   const displayInputs = InputsGroup.map((input) => {
     if (
       t(input.label) === t('registrationModal.email') ||
