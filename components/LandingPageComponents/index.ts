@@ -9,3 +9,4 @@ export { ModalLayout } from './ModalLayout';
 export { LoginModal } from './LoginModal';
 export { FeedbackModal } from './FeedbackModals';
 export { ConditionalModals } from './ConditionalModals';
+export { RememberMe } from './LoginModal';

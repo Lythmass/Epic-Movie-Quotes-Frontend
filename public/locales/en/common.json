@@ -2,8 +2,9 @@
   "header": "Find any quote in millions of movie lines",
   "title": "MOVIE QUOTES",
   "footer": "MOVIE QUOTES. ALL RIGHTS RESERVED.",
+  "user-not-found": "The user was not found.",
   "buttons": {
-    "get-started": "Get started",
+          "get-started": "Get started",
           "sign-up": "Sign up",
           "log-in": "Log in"
         },
@@ -41,7 +42,9 @@
           "message": "Welcome back! Please enter your details.",
           "google": "Sign in with Google",
           "question": "Missing an account?",
-          "sign-in": "Sign in"
+          "sign-in": "Sign in",
+          "remember-me": "Remember me",
+          "forgot-password": "Forgot password"
         },
         "validation": {
           "required": "Please fill out the field.",
