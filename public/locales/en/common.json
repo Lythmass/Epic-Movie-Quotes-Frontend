@@ -37,6 +37,12 @@
           "question": "Already have an account?",
           "get-started": "Get started"
         },
+        "forgotPasswordModal": {
+          "title":"Forgot password?",
+          "message":"Enter the email and we’ll send an email with instructions to reset your password",
+          "button": "Send instructions",
+          "back-button":"Back to log in"
+        },
         "loginModal": {
           "title": "Log in to your account",
           "message": "Welcome back! Please enter your details.",
@@ -67,5 +73,21 @@
           "description":
             "Please check your email and follow the instructions to activate your account.",
             "action": "Go to my email"
+        },
+        "passwordResetSentModal": {
+          "title": "Check your email",
+          "description": "We have sent a password recover instructions to your email",
+          "action": "Go to my email",
+          "skip": "Skip, I'll confirm later"
+        },
+        "passwordResetModal": {
+          "title": "Create new password",
+          "description": "Your new password must be different from previous used passwords",
+          "action": "Reset password"
+        },
+        "successResetModal": {
+          "title": "Success!",
+          "description": "Your password has been reset!",
+          "action": "Go to news feed"
         }
 }

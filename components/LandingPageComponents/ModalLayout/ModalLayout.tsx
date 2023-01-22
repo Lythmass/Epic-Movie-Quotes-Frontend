@@ -9,7 +9,9 @@ export default function ModalLayout(props: ModalLayoutType) {
             <h1 className='text-white text-[2rem] font-medium'>
               {props.title}
             </h1>
-            <p className='text-[#6C757D]'>{props.message}</p>
+            <p className='text-[#6C757D] text-center w-[80%]'>
+              {props.message}
+            </p>
           </div>
           {props.children}
         </div>

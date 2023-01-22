@@ -28,3 +28,16 @@ export const authenticateUser = async (data: any) => {
   const response = await instance.post('/api/login', data);
   return response;
 };
+
+//Password resets
+export const sendForgotPassword = async (data: any) => {
+  const response = await instance.post('/api/forgot', data);
+  return response;
+};
+
+export const sendPasswordReset = async (data: any) => {
+  const response = await instance.post('/api/reset', data);
+  return response;
+};
+
+//End of password resets

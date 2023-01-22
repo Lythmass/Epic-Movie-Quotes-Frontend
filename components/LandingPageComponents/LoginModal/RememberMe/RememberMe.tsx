@@ -1,7 +1,9 @@
 import { useTranslation } from 'next-i18next';
 import { useFormContext } from 'react-hook-form';
 
-export default function RememberMe() {
+export default function RememberMe(props: {
+  setShowForgotPasswordModal: (value: boolean) => void;
+}) {
   const methods = useFormContext();
   const { t } = useTranslation('common');
   return (
@@ -16,9 +18,12 @@ export default function RememberMe() {
         />
         <label htmlFor='remember'>{t('loginModal.remember-me')}</label>
       </div>
-      <button className='text-[#0D6EFD] underline'>
+      <span
+        onClick={() => props.setShowForgotPasswordModal(true)}
+        className='text-[#0D6EFD] underline cursor-pointer'
+      >
         {t('loginModal.forgot-password')}
-      </button>
+      </span>
     </div>
   );
 }
