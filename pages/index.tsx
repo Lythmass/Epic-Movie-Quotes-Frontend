@@ -10,9 +10,17 @@ export default function Home(props: { response: string }) {
     showLoginModal,
     showRegistrationModal,
     hasRegistered,
+    showForgotPasswordModal,
+    resetSentModal,
+    passwordResetModal,
+    successResetModal,
     setShowLoginModal,
     setShowRegistrationModal,
     setHasRegistered,
+    setShowForgotPasswordModal,
+    setResetSentModal,
+    setPasswordResetModal,
+    setSuccessResetModal,
   } = useSwitchModals();
   const { t, i18n } = useTranslation('common');
   return (
@@ -22,12 +30,20 @@ export default function Home(props: { response: string }) {
       } font-medium`}
     >
       <ConditionalModals
+        resetSentModal={resetSentModal}
+        setResetSentModal={setResetSentModal}
         showRegistrationModal={showRegistrationModal}
         setShowLoginModal={setShowLoginModal}
         showLoginModal={showLoginModal}
         setShowRegistrationModal={setShowRegistrationModal}
         hasRegistered={hasRegistered}
         setHasRegistered={setHasRegistered}
+        showForgotPasswordModal={showForgotPasswordModal}
+        setShowForgotPasswordModal={setShowForgotPasswordModal}
+        passwordResetModal={passwordResetModal}
+        setPasswordResetModal={setPasswordResetModal}
+        setSuccessResetModal={setSuccessResetModal}
+        successResetModal={successResetModal}
         response={props.response}
       />
       <section
@@ -35,6 +51,10 @@ export default function Home(props: { response: string }) {
           (showRegistrationModal ||
             showLoginModal ||
             hasRegistered ||
+            showForgotPasswordModal ||
+            resetSentModal ||
+            passwordResetModal ||
+            successResetModal ||
             props.response === '"Successfully verified!"') &&
           'overflow-hidden'
         } w-full h-screen flex flex-col justify-start items-center bg-dark-bg pt-6`}
@@ -76,6 +96,17 @@ export async function getServerSideProps(context: any) {
     return {
       props: {
         response: JSON.stringify(response.data.message),
+        ...(await serverSideTranslations(context.locale, ['common'])),
+      },
+    };
+  }
+  if (
+    context.query.reset_token !== undefined &&
+    context.query.email !== undefined
+  ) {
+    return {
+      props: {
+        response: 'Reset password',
         ...(await serverSideTranslations(context.locale, ['common'])),
       },
     };

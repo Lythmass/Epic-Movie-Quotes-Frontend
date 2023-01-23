@@ -7,6 +7,7 @@ import { useAuthorizationSubmitHandler } from 'hooks';
 
 export default function LoginModal(props: {
   setShowRegistrationModal: (value: boolean) => void;
+  setShowForgotPasswordModal: (value: boolean) => void;
 }) {
   const InputsGroup: InputsType[] = InputsGroupData;
   const methods = useForm({ mode: 'all' });
@@ -41,7 +42,9 @@ export default function LoginModal(props: {
             className='w-[80%] flex flex-col items-center justify-center gap-4'
           >
             {displayInputs}
-            <RememberMe />
+            <RememberMe
+              setShowForgotPasswordModal={props.setShowForgotPasswordModal}
+            />
             <div className='w-full pt-5 flex flex-col gap-4 items-center justify-center'>
               <ModalButton text={t('loginModal.sign-in')} color='red' />
               <ModalButton text={t('loginModal.google')} color='white' />

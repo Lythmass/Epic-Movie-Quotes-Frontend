@@ -10,3 +10,5 @@ export { LoginModal } from './LoginModal';
 export { FeedbackModal } from './FeedbackModals';
 export { ConditionalModals } from './ConditionalModals';
 export { RememberMe } from './LoginModal';
+export { ForgotPasswordModal } from './ForgotPasswordModal';
+export { PasswordResetModal } from './PasswordResetModal';
