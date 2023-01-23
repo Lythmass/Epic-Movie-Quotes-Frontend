@@ -15,7 +15,11 @@ export default function usePasswordResetSubmitHandler(
     try {
       await fetchCSRFToken();
       const response = await sendPasswordReset(data);
-      if (response.status === 200) setSuccessResetModal(true);
+      if (response.status === 200) {
+        setSuccessResetModal(true);
+      } else {
+        throw 'error';
+      }
     } catch (error: any) {
       const errors = error.response.data.message;
       methods.setError('password_confirmation', {

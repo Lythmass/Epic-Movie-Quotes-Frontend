@@ -12,7 +12,11 @@ export default function useForgotPasswordSubmitHandler(
         ...data,
         locale: i18n.language,
       });
-      if (response.status === 200) setResetSentModal(true);
+      if (response.status === 200) {
+        setResetSentModal(true);
+      } else {
+        throw 'error';
+      }
     } catch (error: any) {
       const userNotFound = error.response.data.message;
       methods.setError('email', {
