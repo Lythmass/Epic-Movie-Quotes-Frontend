@@ -1,17 +1,13 @@
 import { ModalLayout, Inputs, ModalButton, RememberMe } from 'components';
-import { FormProvider, useForm } from 'react-hook-form';
-import { InputsGroupData } from 'data';
-import { InputsType } from 'types';
-import { useTranslation } from 'next-i18next';
-import { useAuthorizationSubmitHandler } from 'hooks';
+import { FormProvider } from 'react-hook-form';
+import { useAuthModalConfig } from 'hooks';
 
 export default function LoginModal(props: {
   setShowRegistrationModal: (value: boolean) => void;
   setShowForgotPasswordModal: (value: boolean) => void;
 }) {
-  const InputsGroup: InputsType[] = InputsGroupData;
-  const methods = useForm({ mode: 'all' });
-  const { t } = useTranslation('common');
+  const { InputsGroup, methods, t, submit, googleAuthHandler } =
+    useAuthModalConfig();
   const displayInputs = InputsGroup.map((input) => {
     if (
       t(input.label) === t('registrationModal.email') ||
@@ -29,7 +25,6 @@ export default function LoginModal(props: {
       );
     }
   });
-  const submit = useAuthorizationSubmitHandler(methods);
   return (
     <ModalLayout
       title={t('loginModal.title')}
@@ -47,7 +42,9 @@ export default function LoginModal(props: {
             />
             <div className='w-full pt-5 flex flex-col gap-4 items-center justify-center'>
               <ModalButton text={t('loginModal.sign-in')} color='red' />
-              <ModalButton text={t('loginModal.google')} color='white' />
+              <div className='w-full' onClick={googleAuthHandler}>
+                <ModalButton text={t('loginModal.google')} color='white' />
+              </div>
             </div>
           </form>
         </FormProvider>

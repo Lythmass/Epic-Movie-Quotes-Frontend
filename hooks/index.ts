@@ -8,3 +8,5 @@ export { default as useForgotPasswordSubmitHandler } from './useForgotPasswordSu
 export { default as usePasswordResetSubmitHandler } from './usePasswordResetSubmitHandler';
 export { default as useForgotPasswordModalConfig } from './useForgotPasswordModalConfig';
 export { default as usePasswordResetModalConfig } from './usePasswordResetModalConfig';
+export { default as useRegistrationModalConfig } from './useRegistrationModalConfig';
+export { default as useAuthModalConfig } from './useAuthModalConfig';

@@ -1,17 +1,13 @@
 import { Inputs, ModalButton, ModalLayout } from 'components';
-import { InputsType } from 'types';
-import { InputsGroupData } from 'data';
-import { useForm, FormProvider } from 'react-hook-form';
-import { useTranslation } from 'next-i18next';
-import { useRegistrationSubmitHandler } from 'hooks';
+import { FormProvider } from 'react-hook-form';
+import { useRegistrationModalConfig } from 'hooks';
 
 export default function RegistrationModal(props: {
   setShowLoginModal: (value: boolean) => void;
   setHasRegistered: (value: boolean) => void;
 }) {
-  const InputsGroup: InputsType[] = InputsGroupData;
-  const methods = useForm({ mode: 'all' });
-  const { t } = useTranslation('common');
+  const { InputsGroup, methods, t, submit, googleAuthHandler } =
+    useRegistrationModalConfig(props.setHasRegistered);
   const displayInputs = InputsGroup.map((input) => {
     return (
       <Inputs
@@ -24,8 +20,6 @@ export default function RegistrationModal(props: {
       />
     );
   });
-  const submit = useRegistrationSubmitHandler(methods, props.setHasRegistered);
-
   return (
     <ModalLayout
       title={t('registrationModal.title')}
@@ -43,7 +37,12 @@ export default function RegistrationModal(props: {
                 text={t('registrationModal.get-started')}
                 color='red'
               />
-              <ModalButton text={t('registrationModal.google')} color='white' />
+              <div className='w-full' onClick={googleAuthHandler}>
+                <ModalButton
+                  text={t('registrationModal.google')}
+                  color='white'
+                />
+              </div>
             </div>
           </form>
         </FormProvider>
