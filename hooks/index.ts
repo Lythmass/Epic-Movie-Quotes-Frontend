@@ -10,3 +10,4 @@ export { default as useForgotPasswordModalConfig } from './useForgotPasswordModa
 export { default as usePasswordResetModalConfig } from './usePasswordResetModalConfig';
 export { default as useRegistrationModalConfig } from './useRegistrationModalConfig';
 export { default as useAuthModalConfig } from './useAuthModalConfig';
+export { default as useInputsEffects } from './useInputsEffects';

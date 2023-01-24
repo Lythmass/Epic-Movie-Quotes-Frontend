@@ -1,21 +1,9 @@
 import { InputsType } from 'types';
-import { useFormContext } from 'react-hook-form';
-import { validation, registerParameters } from 'helpers';
-import { usePasswordConfirmation } from 'hooks';
-import { useTranslation } from 'next-i18next';
+import { useInputsEffects } from 'hooks';
 
 export default function InputLayout(props: InputsType) {
-  const methods: any = useFormContext();
-  const validatePasswordConfirmation = usePasswordConfirmation(methods);
-  const { t } = useTranslation('common');
-
-  const [registerName, validationRule] = registerParameters(
-    t,
-    props,
-    validation,
-    validatePasswordConfirmation
-  );
-
+  const { validationRule, registerName, methods, t, inputOutline, isCorrect } =
+    useInputsEffects(props);
   return (
     <div className='flex flex-col w-full'>
       <label className='text-white' htmlFor={props.label}>
@@ -25,7 +13,12 @@ export default function InputLayout(props: InputsType) {
       <input
         {...methods.register(registerName, validationRule)}
         autoComplete='off'
-        className='py-2 px-3 rounded-[0.25rem] bg-[#CED4DA] placeholder-[#6C757D]'
+        className={`${inputOutline}
+         ${isCorrect === 'true' && 'bg-input-correct '}
+          ${isCorrect === 'false' && 'bg-input-error '}
+          ${
+            isCorrect === '' && 'outline-none'
+          } bg-[right_1rem_center] bg-no-repeat bg-[length:1.5rem_1.5rem] py-2 px-3 focus:shadow-input-focus rounded-[0.25rem] bg-[#CED4DA] placeholder-[#6C757D]`}
         type={props.type}
         placeholder={props.placeholder}
       />
