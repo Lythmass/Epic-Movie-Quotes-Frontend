@@ -39,5 +39,4 @@ export const sendPasswordReset = async (data: any) => {
   const response = await instance.post('/api/reset', data);
   return response;
 };
-
 //End of password resets
