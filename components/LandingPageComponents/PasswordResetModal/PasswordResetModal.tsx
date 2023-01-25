@@ -7,6 +7,7 @@ import { InputsType } from 'types';
 export default function PasswordResetModal(props: {
   setShowLoginModal: (value: boolean) => void;
   setSuccessResetModal: (value: boolean) => void;
+  setPasswordResetModal: (value: boolean) => void;
 }) {
   const { methods, displayInputs, t, submit } = usePasswordResetModalConfig(
     props.setSuccessResetModal
@@ -27,6 +28,7 @@ export default function PasswordResetModal(props: {
     <ModalLayout
       title={t('passwordResetModal.title')}
       message={t('passwordResetModal.description')}
+      modal={props.setPasswordResetModal}
     >
       <FormProvider {...methods}>
         <form

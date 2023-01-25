@@ -11,3 +11,4 @@ export { default as usePasswordResetModalConfig } from './usePasswordResetModalC
 export { default as useRegistrationModalConfig } from './useRegistrationModalConfig';
 export { default as useAuthModalConfig } from './useAuthModalConfig';
 export { default as useInputsEffects } from './useInputsEffects';
+export { default as useCloseModal } from './useCloseModal';

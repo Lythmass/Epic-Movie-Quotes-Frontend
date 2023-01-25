@@ -1,9 +1,17 @@
 import { ModalLayoutType } from 'types';
-
+import { useCloseModal } from 'hooks';
 export default function ModalLayout(props: ModalLayoutType) {
+  const { modalRef, closeModal } = useCloseModal(props.modal);
+
   return (
-    <div className='w-full overflow-auto h-full z-20 fixed flex justify-center items-center bg-frozen-bg backdrop-blur-sm'>
-      <div className='w-full h-full lg:w-[35%] lg:h-auto flex justify-center items-center'>
+    <div
+      onClick={closeModal}
+      className='w-full overflow-auto h-full z-20 fixed flex justify-center items-center bg-frozen-bg backdrop-blur-sm'
+    >
+      <div
+        className='w-full h-full lg:w-[35%] lg:h-auto flex justify-center items-center'
+        ref={modalRef}
+      >
         <div className='flex rounded-[0.625rem] overflow-auto pt-20 pb-24 flex-col items-center justify-start gap-8 w-full h-full lg:h-auto z-20 bg-modal-bg'>
           <div className='flex flex-col items-center gap-3'>
             <h1 className='text-white text-[2rem] font-medium'>

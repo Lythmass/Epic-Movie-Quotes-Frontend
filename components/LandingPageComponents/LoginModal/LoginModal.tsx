@@ -5,6 +5,7 @@ import { useAuthModalConfig } from 'hooks';
 export default function LoginModal(props: {
   setShowRegistrationModal: (value: boolean) => void;
   setShowForgotPasswordModal: (value: boolean) => void;
+  setShowLoginModal: (value: boolean) => void;
 }) {
   const { InputsGroup, methods, t, submit, googleAuthHandler } =
     useAuthModalConfig();
@@ -29,6 +30,7 @@ export default function LoginModal(props: {
     <ModalLayout
       title={t('loginModal.title')}
       message={t('loginModal.message')}
+      modal={props.setShowLoginModal}
     >
       <>
         <FormProvider {...methods}>
