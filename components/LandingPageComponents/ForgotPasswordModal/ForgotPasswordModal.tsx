@@ -6,6 +6,7 @@ import { useForgotPasswordModalConfig } from 'hooks';
 export default function ForgotPasswordModal(props: {
   setShowLoginModal: (value: boolean) => void;
   setResetSentModal: (value: boolean) => void;
+  setShowForgotPasswordModal: (value: boolean) => void;
 }) {
   const { methods, email, t, submit } = useForgotPasswordModalConfig(
     props.setResetSentModal
@@ -14,6 +15,7 @@ export default function ForgotPasswordModal(props: {
     <ModalLayout
       title={t('forgotPasswordModal.title')}
       message={t('forgotPasswordModal.message')}
+      modal={props.setShowForgotPasswordModal}
     >
       <FormProvider {...methods}>
         <form

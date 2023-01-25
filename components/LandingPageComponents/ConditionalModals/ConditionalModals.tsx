@@ -22,12 +22,14 @@ export default function ConditionalModals(props: ConditionalModalsType) {
         <RegistrationModal
           setHasRegistered={props.setHasRegistered}
           setShowLoginModal={props.setShowLoginModal}
+          setShowRegistrationModal={props.setShowRegistrationModal}
         />
       )}
       {props.showLoginModal && (
         <LoginModal
           setShowForgotPasswordModal={props.setShowForgotPasswordModal}
           setShowRegistrationModal={props.setShowRegistrationModal}
+          setShowLoginModal={props.setShowLoginModal}
         />
       )}
       {props.response === '"Successfully verified!"' && (
@@ -43,6 +45,7 @@ export default function ConditionalModals(props: ConditionalModalsType) {
         <PasswordResetModal
           setSuccessResetModal={props.setSuccessResetModal}
           setShowLoginModal={props.setShowLoginModal}
+          setPasswordResetModal={props.setPasswordResetModal}
         />
       )}
       {props.hasRegistered === true && (
@@ -58,6 +61,7 @@ export default function ConditionalModals(props: ConditionalModalsType) {
         <ForgotPasswordModal
           setResetSentModal={props.setResetSentModal}
           setShowLoginModal={props.setShowLoginModal}
+          setShowForgotPasswordModal={props.setShowForgotPasswordModal}
         />
       )}
       {props.resetSentModal && (

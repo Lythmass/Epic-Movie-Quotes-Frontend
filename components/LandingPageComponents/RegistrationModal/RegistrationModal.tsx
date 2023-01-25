@@ -5,6 +5,7 @@ import { useRegistrationModalConfig } from 'hooks';
 export default function RegistrationModal(props: {
   setShowLoginModal: (value: boolean) => void;
   setHasRegistered: (value: boolean) => void;
+  setShowRegistrationModal: (value: boolean) => void;
 }) {
   const { InputsGroup, methods, t, submit, googleAuthHandler } =
     useRegistrationModalConfig(props.setHasRegistered);
@@ -24,6 +25,7 @@ export default function RegistrationModal(props: {
     <ModalLayout
       title={t('registrationModal.title')}
       message={t('registrationModal.message')}
+      modal={props.setShowRegistrationModal}
     >
       <>
         <FormProvider {...methods}>
