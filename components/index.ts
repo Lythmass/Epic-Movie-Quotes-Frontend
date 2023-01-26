@@ -16,5 +16,5 @@ export {
   PasswordResetModal,
 } from './LandingPageComponents';
 export { default as Button } from './Button';
-export { GlobalLayout, AuthNavBar } from './GlobalLayout';
+export { GlobalLayout, AuthNavBar, BurgerMenu } from './GlobalLayout';
 export { ProfileInputs } from './ProfilePageComponents';
