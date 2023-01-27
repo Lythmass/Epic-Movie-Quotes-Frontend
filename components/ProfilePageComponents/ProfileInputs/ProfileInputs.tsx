@@ -1,8 +1,11 @@
+import { useTranslation } from 'next-i18next';
+
 export default function ProfileInputs(props: {
   label: string;
   data: string;
   type: string;
 }) {
+  const { t } = useTranslation('profile');
   return (
     <div className='flex flex-col w-[80%]'>
       <label className='mb-1'>{props.label}</label>
@@ -13,7 +16,7 @@ export default function ProfileInputs(props: {
           type={props.type}
           disabled
         />
-        <p className=''>Edit</p>
+        <p className=''>{t('edit')}</p>
       </div>
       <hr className='mt-1 border-[#CED4DA80]' />
     </div>

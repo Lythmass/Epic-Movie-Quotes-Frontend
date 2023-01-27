@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+import { useTranslation } from 'next-i18next';
 export default function BurgerMenu(props: {
   burgerMenu: boolean;
   setBurgerMenu: (value: boolean) => void;
 }) {
+  const { t } = useTranslation('profile');
   return (
     <div
       className={`w-full transition-all text-white gap-8 flex flex-col justify-start items-start px-11 pt-11 absolute lg:fixed lg:top-[4rem] lg:w-[30%] lg:left-0 h-screen bg-[#11101A] lg:bg-transparent top-0 ${
@@ -20,17 +22,17 @@ export default function BurgerMenu(props: {
           className='cursor-pointer'
         >
           <h1 className='text-xl'>Gamarjoba </h1>
-          <p className='text-sm text-[#CED4DA]'>Edit your profile</p>
+          <p className='text-sm text-[#CED4DA]'>{t('edit-profile')}</p>
         </div>
       </div>
       <div className='flex flex-col gap-8 w-full pl-[0.35rem]'>
         <div className='flex gap-10 items-center'>
           <img src='/assets/images/home.png' alt='home' />
-          <p className='text-xl'>News feed</p>
+          <p className='text-xl'>{t('news-feed')}</p>
         </div>
         <div className='flex gap-10'>
           <img src='/assets/images/camera.png' alt='movies' />
-          <p className='text-xl'>List of movies</p>
+          <p className='text-xl'>{t('movies')}</p>
         </div>
       </div>
     </div>
