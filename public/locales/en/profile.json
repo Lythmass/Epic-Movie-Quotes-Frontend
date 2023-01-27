@@ -1,0 +1,15 @@
+{
+  "title": "MOVIE QUOTES",
+  "logout": "Log out",
+  "upload": "Upload new photo",
+  "username": "Username",
+  "email": "Email",
+  "password": "Password",
+  "enter": "Enter your {{name}}",
+  "edit": "Edit",
+  "add-email": "Add new email",
+  "primary": "Make this primary",
+  "news-feed": "News feed",
+  "movies": "List of movies",
+  "edit-profile": "Edit your profile"
+}
