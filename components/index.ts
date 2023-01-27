@@ -17,4 +17,12 @@ export {
 } from './LandingPageComponents';
 export { default as Button } from './Button';
 export { GlobalLayout, AuthNavBar, BurgerMenu } from './GlobalLayout';
-export { ProfileInputs } from './ProfilePageComponents';
+export {
+  ProfileInputs,
+  ProfileInputsForDesktop,
+  ProfileHeader,
+  MobileInputsBlock,
+  DesktopInputsBlock,
+  MobileEmailButton,
+  AddEmailButton,
+} from './ProfilePageComponents';

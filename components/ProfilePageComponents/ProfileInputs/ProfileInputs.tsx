@@ -8,7 +8,7 @@ export default function ProfileInputs(props: {
       <label className='mb-1'>{props.label}</label>
       <div className='flex justify-between'>
         <input
-          className='bg-[rgba(0,0,0,0)] focus:outline-none text-lg'
+          className='bg-[rgba(0,0,0,0)] w-full focus:outline-none text-lg'
           value={props.data}
           type={props.type}
           disabled

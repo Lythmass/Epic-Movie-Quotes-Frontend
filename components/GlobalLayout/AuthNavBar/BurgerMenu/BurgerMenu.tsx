@@ -5,7 +5,7 @@ export default function BurgerMenu(props: {
 }) {
   return (
     <div
-      className={`w-full transition-all text-white gap-14 flex flex-col justify-start items-start px-11 pt-11 absolute h-screen bg-[#11101A] top-0 ${
+      className={`w-full transition-all text-white gap-8 flex flex-col justify-start items-start px-11 pt-11 absolute lg:fixed lg:top-[4rem] lg:w-[30%] lg:left-0 h-screen bg-[#11101A] lg:bg-transparent top-0 ${
         props.burgerMenu ? 'left-0' : 'left-[-100%]'
       }`}
     >
@@ -23,7 +23,7 @@ export default function BurgerMenu(props: {
           <p className='text-sm text-[#CED4DA]'>Edit your profile</p>
         </div>
       </div>
-      <div className='flex flex-col gap-8 w-full'>
+      <div className='flex flex-col gap-8 w-full pl-[0.35rem]'>
         <div className='flex gap-10 items-center'>
           <img src='/assets/images/home.png' alt='home' />
           <p className='text-xl'>News feed</p>
