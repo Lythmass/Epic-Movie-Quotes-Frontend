@@ -9,3 +9,4 @@ export type { ValidationType } from './ValidationType';
 export type { ModalLayoutType } from './ModalLayoutType';
 export type { FeedbackModalType } from './FeedbackModalType';
 export type { ConditionalModalsType } from './ConditionalModalsType';
+export type { ProfileInputsType } from './ProfileInputsType';

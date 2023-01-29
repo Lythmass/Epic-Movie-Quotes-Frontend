@@ -5,3 +5,4 @@ export { MobileInputsBlock } from './MobileInputsBlock';
 export { DesktopInputsBlock } from './DesktopInputsBlock';
 export { MobileEmailButton } from './MobileEmailButton';
 export { AddEmailButton } from './AddEmailButton';
+export { SaveOrCancel } from './ProfileInputsForDesktop';
