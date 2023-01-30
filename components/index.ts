@@ -26,4 +26,6 @@ export {
   MobileEmailButton,
   AddEmailButton,
   SaveOrCancel,
+  GoBackButtonMobile,
+  ProfileConfirmPassword,
 } from './ProfilePageComponents';

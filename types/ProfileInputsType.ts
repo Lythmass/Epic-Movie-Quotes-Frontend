@@ -1,6 +1,5 @@
 export type ProfileInputsType = {
   label: string;
-  value: string;
   type: string;
   placeholder: string;
   name: string;

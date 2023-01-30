@@ -1,8 +1,6 @@
 import { ProfileInputsForDesktop, AddEmailButton } from 'components';
 import { useWindowWidth } from 'hooks';
 import { useTranslation } from 'next-i18next';
-import { useSelector } from 'react-redux';
-import { selectValue } from 'slices/userInfoSlice';
 
 export default function DesktopInputsBlock(props: {
   clear: boolean;
@@ -11,7 +9,6 @@ export default function DesktopInputsBlock(props: {
 }) {
   const screenWidth = useWindowWidth();
   const { t } = useTranslation('profile');
-  const user = useSelector(selectValue);
   return (
     <div className='mt-20 w-full'>
       <ProfileInputsForDesktop
@@ -19,7 +16,6 @@ export default function DesktopInputsBlock(props: {
         label={t('username')}
         type='text'
         name='username'
-        value={user?.name}
         clear={props.clear}
         clearInputs={props.clearInputs}
         setHasChanged={props.setHasChanged}
@@ -32,7 +28,6 @@ export default function DesktopInputsBlock(props: {
           label={t('email')}
           type='mail'
           name='email'
-          value={user?.email}
           clear={props.clear}
           clearInputs={props.clearInputs}
           setHasChanged={props.setHasChanged}
@@ -46,7 +41,6 @@ export default function DesktopInputsBlock(props: {
         label={t('password')}
         type='password'
         name='password'
-        value=''
         clear={props.clear}
         clearInputs={props.clearInputs}
         setHasChanged={props.setHasChanged}
