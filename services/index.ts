@@ -14,6 +14,7 @@ export const fetchCSRFToken = async () => {
   return response;
 };
 
+//Authentication
 export const createUser = async (data: any) => {
   const response = await instance.post('/api/register', data);
   return response;
@@ -28,6 +29,7 @@ export const authenticateUser = async (data: any) => {
   const response = await instance.post('/api/login', data);
   return response;
 };
+//End of Authentication
 
 //Password resets
 export const sendForgotPassword = async (data: any) => {
@@ -44,6 +46,11 @@ export const sendPasswordReset = async (data: any) => {
 //Profile
 export const getUserData = async () => {
   const response = await instance.get('/api/get-user-data');
+  return response;
+};
+
+export const updateUserData = async (data: any) => {
+  const response = await instance.post('/api/post-user-data', data);
   return response;
 };
 //End of profile
