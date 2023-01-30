@@ -12,3 +12,6 @@ export { default as useRegistrationModalConfig } from './useRegistrationModalCon
 export { default as useAuthModalConfig } from './useAuthModalConfig';
 export { default as useInputsEffects } from './useInputsEffects';
 export { default as useCloseModal } from './useCloseModal';
+export { default as useFetchUserInfo } from './useFetchUserInfo';
+export { default as useProfilePageConfig } from './useProfilePageConfig';
+export { default as useProfileInputsConfig } from './useProfileInputsConfig';

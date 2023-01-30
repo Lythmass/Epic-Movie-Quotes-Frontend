@@ -1,10 +1,7 @@
 import { useTranslation } from 'next-i18next';
+import { ProfileInputsType } from 'types';
 
-export default function ProfileInputs(props: {
-  label: string;
-  data: string;
-  type: string;
-}) {
+export default function ProfileInputs(props: ProfileInputsType) {
   const { t } = useTranslation('profile');
   return (
     <div className='flex flex-col w-[80%]'>
@@ -12,9 +9,11 @@ export default function ProfileInputs(props: {
       <div className='flex justify-between'>
         <input
           className='bg-[rgba(0,0,0,0)] w-full focus:outline-none text-lg'
-          value={props.data}
           type={props.type}
           disabled
+          defaultValue={props.value}
+          placeholder={props.placeholder}
+          name={props.name}
         />
         <p className=''>{t('edit')}</p>
       </div>

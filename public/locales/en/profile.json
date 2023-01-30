@@ -11,5 +11,7 @@
   "primary": "Make this primary",
   "news-feed": "News feed",
   "movies": "List of movies",
-  "edit-profile": "Edit your profile"
+  "edit-profile": "Edit your profile",
+  "cancel": "Cancel",
+  "save": "Save changes"
 }

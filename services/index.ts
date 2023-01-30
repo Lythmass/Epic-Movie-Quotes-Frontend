@@ -40,3 +40,10 @@ export const sendPasswordReset = async (data: any) => {
   return response;
 };
 //End of password resets
+
+//Profile
+export const getUserData = async () => {
+  const response = await instance.get('/api/get-user-data');
+  return response;
+};
+//End of profile

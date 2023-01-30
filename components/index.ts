@@ -25,4 +25,5 @@ export {
   DesktopInputsBlock,
   MobileEmailButton,
   AddEmailButton,
+  SaveOrCancel,
 } from './ProfilePageComponents';

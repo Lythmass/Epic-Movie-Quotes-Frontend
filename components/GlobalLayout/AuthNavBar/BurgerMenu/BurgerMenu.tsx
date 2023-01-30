@@ -1,10 +1,14 @@
 /* eslint-disable @next/next/no-img-element */
 import { useTranslation } from 'next-i18next';
+import { useSelector } from 'react-redux';
+import { selectValue } from 'slices/userInfoSlice';
+
 export default function BurgerMenu(props: {
   burgerMenu: boolean;
   setBurgerMenu: (value: boolean) => void;
 }) {
   const { t } = useTranslation('profile');
+  const username = useSelector(selectValue);
   return (
     <div
       className={`w-full transition-all text-white gap-8 flex flex-col justify-start items-start px-11 pt-11 absolute lg:fixed lg:top-[4rem] lg:w-[30%] lg:left-0 h-screen bg-[#11101A] lg:bg-transparent top-0 ${
@@ -21,7 +25,7 @@ export default function BurgerMenu(props: {
           onClick={() => props.setBurgerMenu(false)}
           className='cursor-pointer'
         >
-          <h1 className='text-xl'>Gamarjoba </h1>
+          <h1 className='text-xl'>{username?.name} </h1>
           <p className='text-sm text-[#CED4DA]'>{t('edit-profile')}</p>
         </div>
       </div>
