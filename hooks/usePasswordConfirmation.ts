@@ -11,5 +11,5 @@ export default function usePasswordConfirmation(methods: any) {
     validate: (value: string) =>
       value === watchPassword || t('validation.pass-confirm'),
   };
-  return validatePasswordConfirmation;
+  return { validatePasswordConfirmation, watchPassword };
 }

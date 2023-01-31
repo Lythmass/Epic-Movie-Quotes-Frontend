@@ -7,7 +7,7 @@ import { InputsType } from 'types';
 
 export default function useInputsEffects(props: InputsType) {
   const methods: any = useFormContext();
-  const validatePasswordConfirmation = usePasswordConfirmation(methods);
+  const { validatePasswordConfirmation } = usePasswordConfirmation(methods);
   const { t } = useTranslation('common');
 
   const [registerName, validationRule] = registerParameters(
