@@ -15,3 +15,4 @@ export { default as useCloseModal } from './useCloseModal';
 export { default as useFetchUserInfo } from './useFetchUserInfo';
 export { default as useProfilePageConfig } from './useProfilePageConfig';
 export { default as useProfileInputsConfig } from './useProfileInputsConfig';
+export { default as usePasswordValidationEffects } from './usePasswordValidationEffects';

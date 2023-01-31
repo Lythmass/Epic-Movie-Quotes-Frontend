@@ -6,9 +6,10 @@ import { useSelector } from 'react-redux';
 import { selectValue } from 'slices/userInfoSlice';
 
 export default function useProfileInputsConfig(props: ProfileInputsType) {
+  const validationName = props.name === 'username' ? 'name' : props.name;
   const { t } = useTranslation('profile');
   const [disabled, setDisabled] = useState(true);
-  const methods = useFormContext();
+  const methods: any = useFormContext();
   const user = useSelector(selectValue);
   useEffect(() => {
     if (props.clear) {
@@ -38,5 +39,6 @@ export default function useProfileInputsConfig(props: ProfileInputsType) {
     disabled,
     methods,
     clickHandler,
+    validationName,
   };
 }

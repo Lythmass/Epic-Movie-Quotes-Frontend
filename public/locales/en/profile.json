@@ -13,5 +13,19 @@
   "movies": "List of movies",
   "edit-profile": "Edit your profile",
   "cancel": "Cancel",
-  "save": "Save changes"
+  "save": "Save changes",
+  "validation": {
+    "required": "Please fill out the field.",
+    "min-name": "Please enter at least 3 characters.",
+    "max": "Please do not enter more than 15 characters.",
+    "pattern": "Please enter only lowercase letters and numbers.",
+    "valid-email": "Please enter a valid email format.",
+    "min-pass": "Please enter at least 8 characters.",
+    "pass-confirm": "Entered password doesn't match.",
+    "email-taken": "The email has already been taken.",
+    "name-taken": "Name has already been taken.",
+    "contain": "Passwords should contain",
+    "more-than": "{{num}} or more characters",
+    "less-than": "{{num}} lowercase characters"
+  }
 }
