@@ -2,7 +2,7 @@ import { InputsType } from 'types';
 import { useInputsEffects } from 'hooks';
 
 export default function InputLayout(props: InputsType) {
-  const { validationRule, registerName, methods, t, inputOutline, isCorrect } =
+  const { validationRule, registerName, methods, t, isCorrect } =
     useInputsEffects(props);
   return (
     <div className='flex flex-col w-full'>
@@ -13,9 +13,15 @@ export default function InputLayout(props: InputsType) {
       <input
         {...methods.register(registerName, validationRule)}
         autoComplete='off'
-        className={`${inputOutline}
-         ${isCorrect === 'true' && 'bg-input-correct '}
-          ${isCorrect === 'false' && 'bg-input-error '}
+        className={`
+         ${
+           isCorrect === 'true' &&
+           'bg-input-correct outline outline-2 outline-outline-green '
+         }
+          ${
+            isCorrect === 'false' &&
+            'bg-input-error outline outline-2 outline-button-red'
+          }
           ${
             isCorrect === '' && 'outline-none'
           } bg-[right_1rem_center] bg-no-repeat bg-[length:1.5rem_1.5rem] py-2 px-3 focus:shadow-input-focus rounded-[0.25rem] bg-[#CED4DA] placeholder-[#6C757D]`}

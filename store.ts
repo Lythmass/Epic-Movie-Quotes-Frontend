@@ -1,9 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
 import userInfoReducer from 'slices/userInfoSlice';
+import newEmailModalReducer from 'slices/newEmailModalSlice';
 
 export const store = configureStore({
   reducer: {
     userInfo: userInfoReducer,
+    newEmailModal: newEmailModalReducer,
   },
 });
 

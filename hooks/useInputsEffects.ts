@@ -8,7 +8,9 @@ import { InputsType } from 'types';
 export default function useInputsEffects(props: InputsType) {
   const methods: any = useFormContext();
   const { validatePasswordConfirmation } = usePasswordConfirmation(methods);
-  const { t } = useTranslation('common');
+  const { t } = useTranslation(
+    props.namespace === 'profile' ? 'profile' : 'common'
+  );
 
   const [registerName, validationRule] = registerParameters(
     t,
@@ -17,7 +19,6 @@ export default function useInputsEffects(props: InputsType) {
     validatePasswordConfirmation
   );
 
-  const [inputOutline, setInputOutline] = useState('');
   const [isCorrect, setIsCorrect] = useState('');
   const watchInput = useWatch({
     name: registerName,
@@ -26,14 +27,11 @@ export default function useInputsEffects(props: InputsType) {
 
   useEffect(() => {
     if (methods.formState.errors[registerName]) {
-      setInputOutline('outline outline-2 outline-button-red');
       setIsCorrect('false');
     } else {
       if (watchInput !== undefined && watchInput.length > 0) {
-        setInputOutline('outline outline-2 outline-outline-green');
         setIsCorrect('true');
       } else {
-        setInputOutline('');
         setIsCorrect('');
       }
     }
@@ -44,7 +42,6 @@ export default function useInputsEffects(props: InputsType) {
     registerName,
     methods,
     t,
-    inputOutline,
     isCorrect,
   };
 }

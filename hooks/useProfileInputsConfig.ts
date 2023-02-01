@@ -15,6 +15,9 @@ export default function useProfileInputsConfig(props: ProfileInputsType) {
     if (props.clear) {
       methods.setValue('username', user?.name);
       methods.setValue('email', user?.email);
+      for (let i = 0; i < user?.emails.length; i++) {
+        methods.setValue(`email-${i}`, user?.emails[i].email);
+      }
       setDisabled(true);
     }
   }, [props.clear]);
@@ -31,6 +34,9 @@ export default function useProfileInputsConfig(props: ProfileInputsType) {
     }
     methods.setValue('username', user?.name);
     methods.setValue('email', user?.email);
+    for (let i = 0; i < user?.emails.length; i++) {
+      methods.setValue(`email-${i}`, user?.emails[i].email);
+    }
     setDisabled((oldValue) => !oldValue);
   };
 
