@@ -33,7 +33,7 @@ export default function Profile() {
       <div className='inline-block w-full h-full'>
         {showNewEmailModalHere === true && <AddNewEmailModal />}
         {screenWidth <= 1024 && <GoBackButtonMobile />}
-        <div className='w-full lg:w-1/2 m-auto lg:relative lg:bg-[#11101A] lg:rounded-xl min-h-[69vh] lg:mt-64 lg:min-h-[30rem] lg:pb-12 lg:mb-36 flex gap-16 flex-col justify-center items-center bg-navbar-color text-white'>
+        <div className='w-full lg:w-[60%] m-auto lg:relative lg:bg-[#11101A] lg:rounded-xl min-h-[69vh] lg:mt-64 lg:min-h-[30rem] lg:pb-12 lg:mb-36 flex gap-16 flex-col justify-center items-center bg-navbar-color text-white'>
           <ProfileHeader />
           <FormProvider {...methods}>
             <form

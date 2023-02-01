@@ -58,4 +58,9 @@ export const addNewEmail = async (data: any) => {
   const response = await instance.post('/api/add-new-email', data);
   return response;
 };
+
+export const removeEmail = async (data: any) => {
+  const response = await instance.post('/api/delete-email', data);
+  return response;
+};
 //End of profile

@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { ProfileInputsType } from 'types';
 import { useProfileInputsConfig } from 'hooks';
-import { ProfileConfirmPassword } from 'components';
+import { ProfileConfirmPassword, EmailButtons } from 'components';
 import { validation } from 'helpers';
 
 export default function ProfileInputsForDesktop(props: ProfileInputsType) {
@@ -34,9 +34,14 @@ export default function ProfileInputsForDesktop(props: ProfileInputsType) {
           )}
           {!disabled && props.name === 'password' && <ProfileConfirmPassword />}
         </div>
-        <p onClick={clickHandler} className='cursor-pointer mb-3'>
-          {disabled && t('edit')}
-        </p>
+        {props.type !== 'mail' && (
+          <p onClick={clickHandler} className='cursor-pointer mb-3'>
+            {disabled && t('edit')}
+          </p>
+        )}
+        {props.type === 'mail' && (
+          <EmailButtons value={methods.getValues(props.name)} />
+        )}
       </div>
     </div>
   );
