@@ -7,7 +7,7 @@ import { selectValue } from 'slices/userInfoSlice';
 export default function useProfilePageConfig() {
   const screenWidth = useWindowWidth();
   const user = useSelector(selectValue);
-  const methods = useForm({
+  const methods: any = useForm({
     mode: 'all',
     defaultValues: {
       username: '',
@@ -22,6 +22,9 @@ export default function useProfilePageConfig() {
   useEffect(() => {
     methods.setValue('username', user?.name);
     methods.setValue('email', user?.email);
+    for (let i = 0; i < user?.emails.length; i++) {
+      methods.setValue(`email-${i}`, user?.emails[i].email);
+    }
   }, [user, methods]);
 
   return {

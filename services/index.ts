@@ -53,4 +53,9 @@ export const updateUserData = async (data: any) => {
   const response = await instance.post('/api/post-user-data', data);
   return response;
 };
+
+export const addNewEmail = async (data: any) => {
+  const response = await instance.post('/api/add-new-email', data);
+  return response;
+};
 //End of profile

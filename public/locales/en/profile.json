@@ -14,6 +14,7 @@
   "edit-profile": "Edit your profile",
   "cancel": "Cancel",
   "save": "Save changes",
+  "new-email": "Add new email",
   "validation": {
     "required": "Please fill out the field.",
     "min-name": "Please enter at least 3 characters.",
@@ -27,5 +28,9 @@
     "contain": "Passwords should contain",
     "more-than": "{{num}} or more characters",
     "less-than": "{{num}} lowercase characters"
+  },
+  "multiple-emails": {
+    "new-email": "New Email",
+    "add-new-email": "Enter new email"
   }
 }

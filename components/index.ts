@@ -28,4 +28,5 @@ export {
   SaveOrCancel,
   GoBackButtonMobile,
   ProfileConfirmPassword,
+  AddNewEmailModal,
 } from './ProfilePageComponents';
