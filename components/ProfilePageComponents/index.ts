@@ -9,4 +9,5 @@ export {
   SaveOrCancel,
   GoBackButtonMobile,
   ProfileConfirmPassword,
+  EmailButtons,
 } from './ProfileInputsForDesktop';

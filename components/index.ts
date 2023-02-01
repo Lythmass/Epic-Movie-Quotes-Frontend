@@ -29,4 +29,5 @@ export {
   GoBackButtonMobile,
   ProfileConfirmPassword,
   AddNewEmailModal,
+  EmailButtons,
 } from './ProfilePageComponents';

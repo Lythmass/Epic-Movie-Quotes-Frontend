@@ -30,7 +30,10 @@
     "less-than": "{{num}} lowercase characters"
   },
   "multiple-emails": {
+    "add-new-email": "Add new email",
     "new-email": "New Email",
-    "add-new-email": "Enter new email"
+    "enter-new-email": "Enter new email",
+    "cancel": "Cancel",
+    "add": "Add"
   }
 }
