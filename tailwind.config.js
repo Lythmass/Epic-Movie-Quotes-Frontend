@@ -12,6 +12,7 @@ module.exports = {
         'frozen-bg': 'rgba(0, 0, 0, 0.54)',
         'outline-green': '#198754',
         'navbar-color': '#24222E',
+        'primary-email': 'rgba(25, 135, 84, 0.2)',
       },
       backgroundImage: {
         'dark-bg':

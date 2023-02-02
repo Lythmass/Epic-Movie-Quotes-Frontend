@@ -2,15 +2,13 @@ import { useEffect } from 'react';
 import { getUserData } from 'services';
 import { useDispatch } from 'react-redux';
 import { getData } from 'slices/userInfoSlice';
+import { useQuery } from 'react-query';
 
 export default function useFetchUserInfo() {
   const dispatch = useDispatch();
+  const { data, refetch } = useQuery('userInfo', getUserData);
   useEffect(() => {
-    const fetchData = async () => {
-      const data = await getUserData();
-      const result = data.data['user-data'];
-      dispatch(getData(result));
-    };
-    fetchData();
-  }, [dispatch]);
+    dispatch(getData(data?.data['user-data']));
+  }, [data, dispatch]);
+  return refetch;
 }

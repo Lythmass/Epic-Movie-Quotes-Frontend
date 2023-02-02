@@ -16,3 +16,5 @@ export { default as useFetchUserInfo } from './useFetchUserInfo';
 export { default as useProfilePageConfig } from './useProfilePageConfig';
 export { default as useProfileInputsConfig } from './useProfileInputsConfig';
 export { default as usePasswordValidationEffects } from './usePasswordValidationEffects';
+export { default as useRemoveEmail } from './useRemoveEmail';
+export { default as useAddNewEmail } from './useAddNewEmail';

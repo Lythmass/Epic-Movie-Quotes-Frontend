@@ -1,21 +1,10 @@
-import { useTranslation } from 'next-i18next';
 import { Inputs } from 'components';
-import { FormProvider, useForm } from 'react-hook-form';
-import { useDispatch } from 'react-redux';
+import { FormProvider } from 'react-hook-form';
 import { setShowNewEmailModal } from 'slices/newEmailModalSlice';
-import { addNewEmail } from 'services';
+import { useAddNewEmail } from 'hooks';
 
 export default function AddNewEmailModal() {
-  const { t } = useTranslation('profile');
-  const methods = useForm({ mode: 'all' });
-  const dispatch = useDispatch();
-  const submit = async (data: any) => {
-    try {
-      await addNewEmail(data);
-    } catch (errors: any) {
-      console.log(errors);
-    }
-  };
+  const { t, methods, submit, dispatch } = useAddNewEmail();
   return (
     <div className='w-full absolute z-[100] h-screen bg-frozen-bg flex justify-center'>
       <div className='w-1/3 backdrop-blur-xl h-80 bg-[#11101A] mt-[10rem] rounded-xl flex flex-col items-start py-6'>

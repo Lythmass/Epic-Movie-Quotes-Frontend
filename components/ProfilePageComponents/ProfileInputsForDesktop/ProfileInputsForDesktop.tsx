@@ -14,7 +14,11 @@ export default function ProfileInputsForDesktop(props: ProfileInputsType) {
         <div className='flex relative w-[72%] items-center flex-col justify-center'>
           <input
             {...methods.register(props.name, validation[validationName])}
-            className='p-2 text-black w-full rounded-[0.25rem] disabled:bg-white'
+            className={`${
+              props.name === 'email'
+                ? 'disabled:bg-primary-email border border-[#198754] text-white bg-[right_1rem_center] bg-no-repeat bg-[length:1rem_1rem] bg-[url("/assets/images/primary-email-check.png")]'
+                : 'disabled:bg-white text-black'
+            } p-2 w-full rounded-[0.25rem]`}
             type={props.type}
             placeholder={props.placeholder}
             name={props.name}
@@ -40,7 +44,10 @@ export default function ProfileInputsForDesktop(props: ProfileInputsType) {
           </p>
         )}
         {props.type === 'mail' && (
-          <EmailButtons value={methods.getValues(props.name)} />
+          <EmailButtons
+            name={props.name}
+            value={methods.getValues(props.name)}
+          />
         )}
       </div>
     </div>
