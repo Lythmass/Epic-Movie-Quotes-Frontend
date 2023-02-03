@@ -3,10 +3,27 @@ import { ProfileInputsType } from 'types';
 import { useProfileInputsConfig } from 'hooks';
 import { ProfileConfirmPassword, EmailButtons } from 'components';
 import { validation } from 'helpers';
+import { useSelector } from 'react-redux';
+import { selectValue } from 'slices/userInfoSlice';
+import { useEffect, useState } from 'react';
 
 export default function ProfileInputsForDesktop(props: ProfileInputsType) {
   const { t, disabled, methods, clickHandler, validationName } =
     useProfileInputsConfig(props);
+  const user = useSelector(selectValue);
+  const [isVerified, setIsVerified] = useState(false);
+  useEffect(() => {
+    const value = methods.getValues(props.name);
+    const findEmail = user?.emails.find(
+      (email: any) => email.email === value && email.email_verified_at !== null
+    );
+    if (findEmail !== undefined) {
+      setIsVerified(true);
+    } else {
+      setIsVerified(false);
+    }
+  }, [user, methods, props.name]);
+
   return (
     <div className='flex flex-col gap-2'>
       <label>{props.label}</label>
@@ -16,8 +33,12 @@ export default function ProfileInputsForDesktop(props: ProfileInputsType) {
             {...methods.register(props.name, validation[validationName])}
             className={`${
               props.name === 'email'
-                ? 'disabled:bg-primary-email border border-[#198754] text-white bg-[right_1rem_center] bg-no-repeat bg-[length:1rem_1rem] bg-[url("/assets/images/primary-email-check.png")]'
+                ? 'disabled:bg-primary-email border border-[#198754] text-white bg-[right_1rem_center] bg-no-repeat bg-[length:0.8rem_0.8rem] bg-[url("/assets/images/primary-email-check.png")]'
                 : 'disabled:bg-white text-black'
+            } ${
+              props.type === 'mail' && props.name !== 'email' && !isVerified
+                ? 'disabled:bg-not-verified disabled:text-white border border-[#EC9524] bg-[right_1rem_center] bg-no-repeat bg-[length:0.8rem_0.8rem] bg-[url("/assets/images/not-verified.png")]'
+                : ''
             } p-2 w-full rounded-[0.25rem]`}
             type={props.type}
             placeholder={props.placeholder}
@@ -45,6 +66,7 @@ export default function ProfileInputsForDesktop(props: ProfileInputsType) {
         )}
         {props.type === 'mail' && (
           <EmailButtons
+            verified={isVerified}
             name={props.name}
             value={methods.getValues(props.name)}
           />
