@@ -9,7 +9,8 @@ export default function useCheckPrimaryEmail(methods: any, name: string) {
   useEffect(() => {
     const value = methods.getValues(name);
     const findEmail = user?.emails.find(
-      (email: any) => email.email === value && email.email_verified_at !== null
+      (email: { email: string; email_verified_at: string }) =>
+        email.email === value && email.email_verified_at !== null
     );
     if (findEmail !== undefined) {
       setIsVerified(true);
