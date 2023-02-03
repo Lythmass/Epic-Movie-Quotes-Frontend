@@ -1,28 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import { ProfileInputsType } from 'types';
-import { useProfileInputsConfig } from 'hooks';
+import { useProfileInputsConfig, useCheckPrimaryEmail } from 'hooks';
 import { ProfileConfirmPassword, EmailButtons } from 'components';
 import { validation } from 'helpers';
-import { useSelector } from 'react-redux';
-import { selectValue } from 'slices/userInfoSlice';
-import { useEffect, useState } from 'react';
 
 export default function ProfileInputsForDesktop(props: ProfileInputsType) {
   const { t, disabled, methods, clickHandler, validationName } =
     useProfileInputsConfig(props);
-  const user = useSelector(selectValue);
-  const [isVerified, setIsVerified] = useState(false);
-  useEffect(() => {
-    const value = methods.getValues(props.name);
-    const findEmail = user?.emails.find(
-      (email: any) => email.email === value && email.email_verified_at !== null
-    );
-    if (findEmail !== undefined) {
-      setIsVerified(true);
-    } else {
-      setIsVerified(false);
-    }
-  }, [user, methods, props.name]);
+  const { isVerified, setPrimaryChanged } = useCheckPrimaryEmail(
+    methods,
+    props.name
+  );
 
   return (
     <div className='flex flex-col gap-2'>
@@ -69,6 +57,7 @@ export default function ProfileInputsForDesktop(props: ProfileInputsType) {
             verified={isVerified}
             name={props.name}
             value={methods.getValues(props.name)}
+            setPrimaryChanged={setPrimaryChanged}
           />
         )}
       </div>
