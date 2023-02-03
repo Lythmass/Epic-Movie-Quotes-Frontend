@@ -12,7 +12,7 @@ import {
 import { useProfilePageConfig } from 'hooks';
 import { FormProvider } from 'react-hook-form';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-import { updateUserData, fetchCSRFToken } from 'services';
+import { updateUserData, fetchCSRFToken, verifySecondaryEmail } from 'services';
 import { useSelector } from 'react-redux';
 import { showNewEmailModal } from 'slices/newEmailModalSlice';
 
@@ -66,6 +66,18 @@ export default function Profile() {
 }
 
 export async function getServerSideProps(context: any) {
+  if (context.query.verify_secondary_email !== undefined) {
+    const id = context.query.verify_secondary_email;
+    const token = context.query.token;
+    const email = context.query.email;
+    const response = await verifySecondaryEmail(id, token, email);
+    return {
+      props: {
+        response: JSON.stringify(response.data.message),
+        ...(await serverSideTranslations(context.locale, ['profile'])),
+      },
+    };
+  }
   return {
     props: {
       ...(await serverSideTranslations(context.locale, ['profile'])),
