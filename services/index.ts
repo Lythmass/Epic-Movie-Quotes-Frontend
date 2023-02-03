@@ -74,4 +74,9 @@ export const verifySecondaryEmail = async (
   );
   return response;
 };
+
+export const changePrimaryEmail = async (data: any) => {
+  const response = await instance.post('/api/change-primary-email', data);
+  return response;
+};
 //End of profile
