@@ -5,8 +5,14 @@ import { ProfileConfirmPassword, EmailButtons } from 'components';
 import { validation } from 'helpers';
 
 export default function ProfileInputsForDesktop(props: ProfileInputsType) {
-  const { t, disabled, methods, clickHandler, validationName } =
-    useProfileInputsConfig(props);
+  const {
+    t,
+    disabled,
+    methods,
+    clickHandler,
+    validationName,
+    disableClickHandler,
+  } = useProfileInputsConfig(props);
   const { isVerified, setPrimaryChanged } = useCheckPrimaryEmail(
     methods,
     props.name
@@ -39,7 +45,7 @@ export default function ProfileInputsForDesktop(props: ProfileInputsType) {
           </p>
           {!disabled && (
             <img
-              onClick={clickHandler}
+              onClick={disableClickHandler}
               className='absolute top-[0.4rem] right-0 p-2 cursor-pointer'
               src='/assets/images/cancel.png'
               alt='cancel'

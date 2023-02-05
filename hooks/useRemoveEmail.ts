@@ -1,25 +1,38 @@
 import { useMutation } from 'react-query';
 import { useFetchUserInfo } from 'hooks';
 import { removeEmail } from 'services';
+import { toast } from 'react-toastify';
+import { useTranslation } from 'next-i18next';
 
 export default function useRemoveEmail(value: string) {
+  const { t } = useTranslation('profile');
   const deleteQuery = useMutation(
     (data: string) => {
       return removeEmail({ email: data });
     },
     {
-      onSuccess: () => {
+      onSuccess: (response) => {
         refetch();
+        toast.success(t(response.data.message), toastOptions);
+      },
+      onError: (error: any) => {
+        toast.error(t(error.response.data.message), toastOptions);
       },
     }
   );
+  const toastOptions: any = {
+    position: 'top-right',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'colored',
+  };
   const refetch = useFetchUserInfo();
   const deleteHandler = async () => {
-    try {
-      deleteQuery.mutate(value);
-    } catch (errors: any) {
-      console.log(errors);
-    }
+    deleteQuery.mutate(value);
   };
   return deleteHandler;
 }

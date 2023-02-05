@@ -11,14 +11,18 @@ export default function BurgerMenu(props: {
   const username = useSelector(selectValue);
   return (
     <div
-      className={`w-full transition-all text-white gap-8 flex flex-col justify-start items-start px-11 pt-11 absolute lg:fixed lg:top-[4rem] lg:w-[30%] lg:left-0 h-screen bg-[#11101A] lg:bg-transparent top-0 ${
+      className={`w-full transition-all text-white gap-8 flex flex-col justify-start items-start px-11 pt-11 absolute lg:fixed lg:top-[4rem] lg:w-[20%] lg:left-0 h-screen bg-[#11101A] lg:bg-transparent top-0 ${
         props.burgerMenu ? 'left-0' : 'left-[-100%]'
       }`}
     >
       <div className='flex gap-5'>
         <img
           className='w-12 h-12 rounded-[50%] object-cover border border-button-red'
-          src={`/assets/images/tlotr.png`}
+          src={
+            username?.profile_picture !== 'null'
+              ? username?.profile_picture
+              : '/assets/images/tlotr.png'
+          }
           alt='profile picture'
         />
         <div
@@ -34,7 +38,7 @@ export default function BurgerMenu(props: {
           <img src='/assets/images/home.png' alt='home' />
           <p className='text-xl'>{t('news-feed')}</p>
         </div>
-        <div className='flex gap-10'>
+        <div className='flex gap-10 items-center'>
           <img src='/assets/images/camera.png' alt='movies' />
           <p className='text-xl'>{t('movies')}</p>
         </div>

@@ -38,6 +38,20 @@ const validation: ValidationType = {
       message: 'validation.pattern',
     },
   },
+  profilePassword: {
+    minLength: {
+      value: 8,
+      message: 'validation.min-pass',
+    },
+    maxLength: {
+      value: 15,
+      message: 'validation.max',
+    },
+    pattern: {
+      value: /^[a-z0-9]+$/,
+      message: 'validation.pattern',
+    },
+  },
 };
 
 export default validation;
