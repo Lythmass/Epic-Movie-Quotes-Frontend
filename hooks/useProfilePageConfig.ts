@@ -8,6 +8,7 @@ import { showNewEmailModal } from 'slices/newEmailModalSlice';
 import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
+import { ToastOptionsType } from 'types';
 
 export default function useProfilePageConfig(response: string) {
   const { t } = useTranslation('profile');
@@ -25,7 +26,7 @@ export default function useProfilePageConfig(response: string) {
   const [clear, setClear] = useState(false);
   const [hasChanged, setHasChanged] = useState(false);
   const [saveProfilePicture, setSaveProfilePicture] = useState('no');
-  const toastOptions: any = {
+  const toastOptions: ToastOptionsType = {
     position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,

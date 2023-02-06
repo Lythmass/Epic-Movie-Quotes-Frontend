@@ -3,6 +3,7 @@ import { changePrimaryEmail } from 'services';
 import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
+import { ToastOptionsType } from 'types';
 
 export default function useChangePrimaryEmail(
   verified: boolean,
@@ -11,7 +12,7 @@ export default function useChangePrimaryEmail(
 ) {
   const refetch = useFetchUserInfo();
   const { t } = useTranslation('profile');
-  const toastOptions: any = {
+  const toastOptions: ToastOptionsType = {
     position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,

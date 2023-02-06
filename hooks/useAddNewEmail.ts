@@ -6,13 +6,14 @@ import { useMutation } from 'react-query';
 import { addNewEmail } from 'services';
 import { setShowNewEmailModal } from 'slices/newEmailModalSlice';
 import { toast } from 'react-toastify';
+import { ToastOptionsType } from 'types';
 
 export default function useAddNewEmail() {
   const refetch = useFetchUserInfo();
   const { t, i18n } = useTranslation('profile');
   const methods = useForm({ mode: 'all' });
   const dispatch = useDispatch();
-  const toastOptions: any = {
+  const toastOptions: ToastOptionsType = {
     position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,

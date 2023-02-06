@@ -12,3 +12,4 @@ export type { ConditionalModalsType } from './ConditionalModalsType';
 export type { ProfileInputsType } from './ProfileInputsType';
 export type { SaveOrCancelType } from './SaveOrCancelType';
 export type { EmailButtonsType } from './EmailButtonsType';
+export type { ToastOptionsType } from './ToastOptionsType';

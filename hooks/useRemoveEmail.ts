@@ -3,6 +3,7 @@ import { useFetchUserInfo } from 'hooks';
 import { removeEmail } from 'services';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
+import { ToastOptionsType } from 'types';
 
 export default function useRemoveEmail(value: string) {
   const { t } = useTranslation('profile');
@@ -20,7 +21,7 @@ export default function useRemoveEmail(value: string) {
       },
     }
   );
-  const toastOptions: any = {
+  const toastOptions: ToastOptionsType = {
     position: 'top-right',
     autoClose: 5000,
     hideProgressBar: false,
