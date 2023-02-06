@@ -20,3 +20,4 @@ export { default as useRemoveEmail } from './useRemoveEmail';
 export { default as useAddNewEmail } from './useAddNewEmail';
 export { default as useChangePrimaryEmail } from './useChangePrimaryEmail';
 export { default as useCheckPrimaryEmail } from './useCheckPrimaryEmail';
+export { default as useSaveOrCancelConfig } from './useSaveOrCancelConfig';

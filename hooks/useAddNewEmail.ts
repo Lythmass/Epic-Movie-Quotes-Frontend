@@ -5,29 +5,41 @@ import { useDispatch } from 'react-redux';
 import { useMutation } from 'react-query';
 import { addNewEmail } from 'services';
 import { setShowNewEmailModal } from 'slices/newEmailModalSlice';
+import { toast } from 'react-toastify';
+import { ToastOptionsType } from 'types';
 
 export default function useAddNewEmail() {
   const refetch = useFetchUserInfo();
-  const { t } = useTranslation('profile');
+  const { t, i18n } = useTranslation('profile');
   const methods = useForm({ mode: 'all' });
   const dispatch = useDispatch();
+  const toastOptions: ToastOptionsType = {
+    position: 'top-right',
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: 'colored',
+  };
   const submitQuery = useMutation(
-    (data) => {
-      return addNewEmail(data);
+    (data: any) => {
+      return addNewEmail({ ...data, locale: i18n.language });
     },
     {
-      onSuccess: () => {
+      onSuccess: (response) => {
         refetch();
+        toast.success(t(response.data.message), toastOptions);
+      },
+      onError(error: any) {
+        toast.error(t(error.response.data.message), toastOptions);
       },
     }
   );
   const submit = (data: any) => {
-    try {
-      submitQuery.mutate(data);
-      dispatch(setShowNewEmailModal(false));
-    } catch (errors: any) {
-      console.log(errors);
-    }
+    submitQuery.mutate(data);
+    dispatch(setShowNewEmailModal(false));
   };
 
   return {

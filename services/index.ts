@@ -79,4 +79,15 @@ export const changePrimaryEmail = async (data: any) => {
   const response = await instance.post('/api/change-primary-email', data);
   return response;
 };
+
+export const changeProfilePicture = async (data: any) => {
+  const response = await instance.post('/api/upload-photo', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Accept: 'multipart/form-data',
+    },
+  });
+  return response;
+};
+
 //End of profile

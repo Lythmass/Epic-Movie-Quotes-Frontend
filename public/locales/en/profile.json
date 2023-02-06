@@ -34,6 +34,19 @@
     "new-email": "New Email",
     "enter-new-email": "Enter new email",
     "cancel": "Cancel",
-    "add": "Add"
+    "add": "Add",
+    "remove": "Remove",
+    "primary": "Primary email",
+    "make-primary": "Make this primary",
+    "not-verified": "Not verified"
+  },
+  "responses": {
+    "update": "Successfully changed data!",
+    "already-registered": "Email is registered already!",
+    "email-added": "Please check your email to confirm.",
+    "already-verified": "Your email has been verified already!",
+    "verified-success": "Your email was verified successfully!",
+    "change-primary": "Your primary email successfully changed!",
+    "remove-email": "Successfully removed email!"
   }
 }

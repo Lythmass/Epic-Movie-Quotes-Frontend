@@ -6,7 +6,12 @@ import { useSelector } from 'react-redux';
 import { selectValue } from 'slices/userInfoSlice';
 
 export default function useProfileInputsConfig(props: ProfileInputsType) {
-  const validationName = props.name === 'username' ? 'name' : props.name;
+  const validationName =
+    props.name === 'username'
+      ? 'name'
+      : props.name === 'password'
+      ? 'profilePassword'
+      : props.name;
   const { t } = useTranslation('profile');
   const [disabled, setDisabled] = useState(true);
   const methods: any = useFormContext();
@@ -14,10 +19,8 @@ export default function useProfileInputsConfig(props: ProfileInputsType) {
   useEffect(() => {
     if (props.clear) {
       methods.setValue('username', user?.name);
-      methods.setValue('email', user?.email);
-      for (let i = 0; i < user?.emails.length; i++) {
-        methods.setValue(`email-${i}`, user?.emails[i].email);
-      }
+      methods.setValue('password', null);
+      methods.clearErrors();
       setDisabled(true);
     }
   }, [props.clear]);
@@ -32,12 +35,12 @@ export default function useProfileInputsConfig(props: ProfileInputsType) {
     if (disabled) {
       props.clearInputs(false);
     }
-    methods.setValue('username', user?.name);
-    methods.setValue('email', user?.email);
-    for (let i = 0; i < user?.emails.length; i++) {
-      methods.setValue(`email-${i}`, user?.emails[i].email);
-    }
     setDisabled((oldValue) => !oldValue);
+  };
+  const disableClickHandler = () => {
+    methods.setValue(props.name, props.name === 'username' ? user?.name : null);
+    methods.clearErrors(props.name);
+    setDisabled(true);
   };
 
   return {
@@ -46,5 +49,6 @@ export default function useProfileInputsConfig(props: ProfileInputsType) {
     methods,
     clickHandler,
     validationName,
+    disableClickHandler,
   };
 }
