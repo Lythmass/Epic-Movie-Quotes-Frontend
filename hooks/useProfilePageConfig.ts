@@ -9,10 +9,15 @@ import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 import { ToastOptionsType } from 'types';
+import { setMobileConfirmationModal } from 'slices/mobileConfirmationModalSlice';
+import { showNewEmailModalMobile } from 'slices/newEmailModalSlice';
+import { useDispatch } from 'react-redux';
 
 export default function useProfilePageConfig(response: string) {
   const { t } = useTranslation('profile');
   const screenWidth = useWindowWidth();
+  const [showEmailsModal, setShowEmailsModal] = useState(false);
+  const [enableProfileModalEdit, setEnableProfileModalEdit] = useState('');
   const user = useSelector(selectValue);
   const methods: any = useForm({
     mode: 'all',
@@ -22,6 +27,7 @@ export default function useProfilePageConfig(response: string) {
       password: null,
     },
   });
+  const dispatch = useDispatch();
   const refetch = useFetchUserInfo();
   const [clear, setClear] = useState(false);
   const [hasChanged, setHasChanged] = useState(false);
@@ -64,6 +70,7 @@ export default function useProfilePageConfig(response: string) {
       onSuccess: (response) => {
         refetch();
         notify(response.data.message);
+        dispatch(setMobileConfirmationModal(false));
       },
     }
   );
@@ -71,7 +78,7 @@ export default function useProfilePageConfig(response: string) {
     updateUserDataMutation.mutate(data);
   };
   const showNewEmailModalHere = useSelector(showNewEmailModal);
-
+  const showNewEmailModalMobileHere = useSelector(showNewEmailModalMobile);
   return {
     screenWidth,
     methods,
@@ -83,5 +90,10 @@ export default function useProfilePageConfig(response: string) {
     setSaveProfilePicture,
     submit,
     showNewEmailModalHere,
+    setShowEmailsModal,
+    showEmailsModal,
+    showNewEmailModalMobileHere,
+    enableProfileModalEdit,
+    setEnableProfileModalEdit,
   };
 }

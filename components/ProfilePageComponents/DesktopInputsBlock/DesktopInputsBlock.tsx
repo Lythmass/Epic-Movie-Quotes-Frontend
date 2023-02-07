@@ -12,20 +12,22 @@ export default function DesktopInputsBlock(props: {
   const screenWidth = useWindowWidth();
   const { t } = useTranslation('profile');
   const user = useSelector(selectValue);
-  const displayOtherEmails = user?.emails.map((email: string, i: number) => {
-    return (
-      <ProfileInputsForDesktop
-        key={i}
-        placeholder={t('enter', { name: t('email') })}
-        label={t('email')}
-        type='mail'
-        name={`email-${i}`}
-        clear={props.clear}
-        clearInputs={props.clearInputs}
-        setHasChanged={props.setHasChanged}
-      />
-    );
-  });
+  const displayOtherEmails = user?.emails.map(
+    (email: { email_verified_at: string | null }, i: number) => {
+      return (
+        <ProfileInputsForDesktop
+          key={i}
+          placeholder={t('enter', { name: t('email') })}
+          label={t('email')}
+          type='mail'
+          name={`email-${i}`}
+          clear={props.clear}
+          clearInputs={props.clearInputs}
+          setHasChanged={props.setHasChanged}
+        />
+      );
+    }
+  );
   return (
     <div className='mt-20 w-full'>
       <ProfileInputsForDesktop

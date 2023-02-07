@@ -3,9 +3,13 @@ import { useTranslation } from 'next-i18next';
 import { useSelector } from 'react-redux';
 import { selectValue } from 'slices/userInfoSlice';
 
-export default function MobileInputsBlock() {
+export default function MobileInputsBlock(props: {
+  enableProfileModalEdit: string;
+  setEnableProfileModalEdit: (value: string) => void;
+}) {
   const { t } = useTranslation('profile');
   const user = useSelector(selectValue);
+
   return (
     <>
       <ProfileInputs
@@ -14,6 +18,8 @@ export default function MobileInputsBlock() {
         value={user?.name}
         placeholder={t('enter', { name: t('name') })}
         name='username'
+        setEnableProfileModalEdit={props.setEnableProfileModalEdit}
+        enableProfileModalEdit={props.enableProfileModalEdit}
       />
       <ProfileInputs
         type='password'
@@ -21,6 +27,8 @@ export default function MobileInputsBlock() {
         value=''
         placeholder={t('enter', { name: t('password') })}
         name='password'
+        setEnableProfileModalEdit={props.setEnableProfileModalEdit}
+        enableProfileModalEdit={props.enableProfileModalEdit}
       />
     </>
   );

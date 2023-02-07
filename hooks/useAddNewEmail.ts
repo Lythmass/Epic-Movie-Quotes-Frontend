@@ -11,7 +11,7 @@ import { ToastOptionsType } from 'types';
 export default function useAddNewEmail() {
   const refetch = useFetchUserInfo();
   const { t, i18n } = useTranslation('profile');
-  const methods = useForm({ mode: 'all' });
+  const methods: any = useForm({ mode: 'all' });
   const dispatch = useDispatch();
   const toastOptions: ToastOptionsType = {
     position: 'top-right',

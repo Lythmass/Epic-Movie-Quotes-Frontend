@@ -1,4 +1,14 @@
-export { ProfileInputs } from './ProfileInputs';
+export {
+  ProfileInputs,
+  EditProfileInputsModal,
+  ConfirmationModal,
+  EditUsername,
+  EditPassword,
+  EmailsModal,
+  SecondaryEmailsMobile,
+  AddNewEmailModalMobile,
+  UsernameOrPassword,
+} from './ProfileInputs';
 export { ProfileHeader } from './ProfileHeader';
 export { MobileInputsBlock } from './MobileInputsBlock';
 export { DesktopInputsBlock } from './DesktopInputsBlock';

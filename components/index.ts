@@ -30,4 +30,12 @@ export {
   ProfileConfirmPassword,
   AddNewEmailModal,
   EmailButtons,
+  EditProfileInputsModal,
+  ConfirmationModal,
+  EditUsername,
+  EditPassword,
+  EmailsModal,
+  SecondaryEmailsMobile,
+  AddNewEmailModalMobile,
+  UsernameOrPassword,
 } from './ProfilePageComponents';
