@@ -9,7 +9,7 @@ import { useTranslation } from 'next-i18next';
 import { useEffect } from 'react';
 import { ConditionalModalsType } from 'types';
 
-export default function ConditionalModals(props: ConditionalModalsType) {
+export const ConditionalModals: React.FC<ConditionalModalsType> = (props) => {
   const { t } = useTranslation('common');
   useEffect(() => {
     if (props.response === 'Reset password') {
@@ -84,4 +84,6 @@ export default function ConditionalModals(props: ConditionalModalsType) {
       )}
     </>
   );
-}
+};
+
+export default ConditionalModals;

@@ -26,3 +26,5 @@ export { default as useEditProfileInputsModalConfig } from './useEditProfileInpu
 export { default as useProfileInputsMobileConfig } from './useProfileInputsMobileConfig';
 export { default as useDesktopInputsBlockConfig } from './useDesktopInputsBlockConfig';
 export { default as useEmailButtonsConfig } from './useEmailButtonsConfig';
+export { default as useSecondaryEmailsMobileConfig } from './useSecondaryEmailsMobileConfig';
+export { default as useEmailsModalConfig } from './useEmailsModalConfig';

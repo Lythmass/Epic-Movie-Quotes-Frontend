@@ -5,12 +5,12 @@ import {
   EditPassword,
 } from 'components';
 
-export default function UsernameOrPassword(props: {
+export const UsernameOrPassword: React.FC<{
   enableProfileModalEdit: string;
   setEnableProfileModalEdit: (value: string) => void;
   name: string;
   mobileConfirmationModalHere: boolean;
-}) {
+}> = (props) => {
   return (
     <>
       {props.enableProfileModalEdit === 'username' && (
@@ -37,4 +37,6 @@ export default function UsernameOrPassword(props: {
       )}
     </>
   );
-}
+};
+
+export default UsernameOrPassword;

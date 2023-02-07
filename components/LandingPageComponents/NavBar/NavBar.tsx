@@ -3,10 +3,10 @@ import { LanguageChanger } from 'components';
 import { useWindowWidth } from 'hooks';
 import { useTranslation } from 'next-i18next';
 
-export default function NavBar(props: {
+export const NavBar: React.FC<{
   setShowRegistrationModal: (value: boolean) => void;
   setShowLoginModal: (value: boolean) => void;
-}) {
+}> = (props) => {
   const getWindowWidth = useWindowWidth();
   const { t } = useTranslation('common');
   return (
@@ -32,4 +32,6 @@ export default function NavBar(props: {
       </div>
     </div>
   );
-}
+};
+
+export default NavBar;

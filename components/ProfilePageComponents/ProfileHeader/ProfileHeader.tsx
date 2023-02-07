@@ -1,11 +1,11 @@
 /* eslint-disable @next/next/no-img-element */
 import { useProfileHeaderConfig } from 'hooks';
 
-export default function ProfileHeader(props: {
+export const ProfileHeader: React.FC<{
   setHasChanged: (value: boolean) => void;
   setSaveProfilePicture: (value: string) => void;
   saveProfilePicture: string;
-}) {
+}> = (props) => {
   const { t, changeHandler, user, profileRef } = useProfileHeaderConfig(props);
 
   return (
@@ -32,4 +32,6 @@ export default function ProfileHeader(props: {
       />
     </div>
   );
-}
+};
+
+export default ProfileHeader;

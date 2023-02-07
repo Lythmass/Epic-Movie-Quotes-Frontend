@@ -4,11 +4,11 @@ import { FormProvider } from 'react-hook-form';
 import { usePasswordResetModalConfig } from 'hooks';
 import { InputsType } from 'types';
 
-export default function PasswordResetModal(props: {
+export const PasswordResetModal: React.FC<{
   setShowLoginModal: (value: boolean) => void;
   setSuccessResetModal: (value: boolean) => void;
   setPasswordResetModal: (value: boolean) => void;
-}) {
+}> = (props) => {
   const { methods, displayInputs, t, submit } = usePasswordResetModalConfig(
     props.setSuccessResetModal
   );
@@ -54,4 +54,6 @@ export default function PasswordResetModal(props: {
       </FormProvider>
     </ModalLayout>
   );
-}
+};
+
+export default PasswordResetModal;

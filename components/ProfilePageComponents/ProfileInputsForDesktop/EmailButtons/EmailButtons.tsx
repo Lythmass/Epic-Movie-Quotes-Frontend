@@ -1,7 +1,7 @@
 import { EmailButtonsType } from 'types';
 import { useEmailButtonsConfig } from 'hooks';
 
-export default function EmailButtons(props: EmailButtonsType) {
+export const EmailButtons: React.FC<EmailButtonsType> = (props) => {
   const { deleteHandler, t, primaryChangerHandler } = useEmailButtonsConfig(
     props.value,
     props.verified,
@@ -33,4 +33,6 @@ export default function EmailButtons(props: EmailButtonsType) {
       )}
     </div>
   );
-}
+};
+
+export default EmailButtons;

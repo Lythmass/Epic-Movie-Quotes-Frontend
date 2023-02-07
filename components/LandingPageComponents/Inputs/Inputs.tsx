@@ -1,7 +1,7 @@
 import { InputsType } from 'types';
 import { useInputsEffects } from 'hooks';
 
-export default function InputLayout(props: InputsType) {
+export const InputLayout: React.FC<InputsType> = (props) => {
   const { validationRule, registerName, methods, t, isCorrect } =
     useInputsEffects(props);
   return (
@@ -33,4 +33,6 @@ export default function InputLayout(props: InputsType) {
       </p>
     </div>
   );
-}
+};
+
+export default InputLayout;

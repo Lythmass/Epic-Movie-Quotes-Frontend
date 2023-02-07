@@ -5,7 +5,7 @@ import { useTranslation } from 'next-i18next';
 import { markEmailAsVerified } from 'services';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-export default function Home(props: { response: string }) {
+export const Home: React.FC<{ response: string }> = (props) => {
   const {
     showLoginModal,
     showRegistrationModal,
@@ -84,7 +84,7 @@ export default function Home(props: { response: string }) {
       </section>
     </div>
   );
-}
+};
 
 export async function getServerSideProps(context: any) {
   if (context.query.email_verify_url !== undefined) {
@@ -117,3 +117,5 @@ export async function getServerSideProps(context: any) {
     },
   };
 }
+
+export default Home;

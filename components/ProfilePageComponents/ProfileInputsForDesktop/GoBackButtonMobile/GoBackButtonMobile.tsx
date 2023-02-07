@@ -1,8 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-export default function GoBackButtonMobile(props: {
+export const GoBackButtonMobile: React.FC<{
   setShowEmailsModal: (value: boolean) => void;
   setEnableProfileModalEdit: (value: string) => void;
-}) {
+}> = (props) => {
   return (
     <div className='w-full h-9 mt-[6.55rem] flex justify-start items-center px-10'>
       <div
@@ -20,4 +20,6 @@ export default function GoBackButtonMobile(props: {
       </div>
     </div>
   );
-}
+};
+
+export default GoBackButtonMobile;

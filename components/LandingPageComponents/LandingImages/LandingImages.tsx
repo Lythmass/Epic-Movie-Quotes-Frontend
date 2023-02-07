@@ -2,7 +2,7 @@ import { LandingImage } from 'components';
 import { ImagesDataType } from 'types';
 import { useTranslation } from 'next-i18next';
 
-export default function LandingImages(props: ImagesDataType) {
+export const LandingImages: React.FC<ImagesDataType> = (props) => {
   const { t } = useTranslation('common');
   const displayImages = props.imagesData.map((image) => {
     return (
@@ -16,4 +16,6 @@ export default function LandingImages(props: ImagesDataType) {
   });
 
   return <>{displayImages}</>;
-}
+};
+
+export default LandingImages;

@@ -2,7 +2,7 @@ import { AuthNavBar } from 'components';
 import { useSelector } from 'react-redux';
 import { showNewEmailModal } from 'slices/newEmailModalSlice';
 
-export default function GlobalLayout(props: { children: JSX.Element }) {
+export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
   const showNewEmailModalHere = useSelector(showNewEmailModal);
   return (
     <div
@@ -14,4 +14,6 @@ export default function GlobalLayout(props: { children: JSX.Element }) {
       {props.children}
     </div>
   );
-}
+};
+
+export default GlobalLayout;

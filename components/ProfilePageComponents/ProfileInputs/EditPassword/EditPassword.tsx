@@ -2,7 +2,9 @@ import { validation } from 'helpers';
 
 import { usePasswordValidationEffects } from 'hooks';
 
-export default function EditUsername(props: { name: string; type: string }) {
+export const EditUsername: React.FC<{ name: string; type: string }> = (
+  props
+) => {
   const validationName = 'password';
   const {
     methods,
@@ -37,7 +39,7 @@ export default function EditUsername(props: { name: string; type: string }) {
         </ul>
       </div>
       <div className='w-full pt-8'>
-        <label className='self-start'>New {props.name}</label>
+        <label className='self-start'>{t('mobile.new-password')}</label>
         <input
           {...methods.register(props.name, validation[validationName])}
           name={props.name}
@@ -50,7 +52,7 @@ export default function EditUsername(props: { name: string; type: string }) {
         </p>
       </div>
       <div className='w-full mt-6 pb-8'>
-        <label className='self-start'>Confirm new password</label>
+        <label className='self-start'>{t('mobile.confirm-new-password')}</label>
         <input
           {...methods.register(
             'password_confirmation',
@@ -67,4 +69,6 @@ export default function EditUsername(props: { name: string; type: string }) {
       </div>
     </>
   );
-}
+};
+
+export default EditUsername;

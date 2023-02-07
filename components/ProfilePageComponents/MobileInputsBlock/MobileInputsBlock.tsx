@@ -3,10 +3,10 @@ import { useTranslation } from 'next-i18next';
 import { useSelector } from 'react-redux';
 import { selectValue } from 'slices/userInfoSlice';
 
-export default function MobileInputsBlock(props: {
+export const MobileInputsBlock: React.FC<{
   enableProfileModalEdit: string;
   setEnableProfileModalEdit: (value: string) => void;
-}) {
+}> = (props) => {
   const { t } = useTranslation('profile');
   const user = useSelector(selectValue);
 
@@ -32,4 +32,5 @@ export default function MobileInputsBlock(props: {
       />
     </>
   );
-}
+};
+export default MobileInputsBlock;

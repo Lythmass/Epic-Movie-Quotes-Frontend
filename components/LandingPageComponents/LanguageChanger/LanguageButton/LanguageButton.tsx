@@ -2,7 +2,7 @@ import { LanguageButtonType } from 'types';
 import { clickHandler } from 'helpers';
 import { useRouter } from 'next/router';
 
-export default function LanguageButton(props: LanguageButtonType) {
+export const LanguageButton: React.FC<LanguageButtonType> = (props) => {
   const router = useRouter();
   const { pathname, asPath, query } = router;
   return (
@@ -24,4 +24,6 @@ export default function LanguageButton(props: LanguageButtonType) {
       {props.language}
     </button>
   );
-}
+};
+
+export default LanguageButton;

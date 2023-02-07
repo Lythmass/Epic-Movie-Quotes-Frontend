@@ -2,11 +2,11 @@ import { ModalLayout, Inputs, ModalButton, RememberMe } from 'components';
 import { FormProvider } from 'react-hook-form';
 import { useAuthModalConfig } from 'hooks';
 
-export default function LoginModal(props: {
+export const LoginModal: React.FC<{
   setShowRegistrationModal: (value: boolean) => void;
   setShowForgotPasswordModal: (value: boolean) => void;
   setShowLoginModal: (value: boolean) => void;
-}) {
+}> = (props) => {
   const { InputsGroup, methods, t, submit, googleAuthHandler } =
     useAuthModalConfig();
   const displayInputs = InputsGroup.map((input) => {
@@ -62,4 +62,6 @@ export default function LoginModal(props: {
       </>
     </ModalLayout>
   );
-}
+};
+
+export default LoginModal;

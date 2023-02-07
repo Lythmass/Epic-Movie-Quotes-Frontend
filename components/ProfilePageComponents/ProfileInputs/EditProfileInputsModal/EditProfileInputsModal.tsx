@@ -1,11 +1,11 @@
 import { useEditProfileInputsModalConfig } from 'hooks';
 
-export default function EditProfileInputsModal(props: {
+export const EditProfileInputsModal: React.FC<{
   children: JSX.Element;
   name: string;
   setEnableProfileModalEdit: (value: string) => void;
-}) {
-  const { cancelHandler, saveHandler } = useEditProfileInputsModalConfig(
+}> = (props) => {
+  const { cancelHandler, saveHandler, t } = useEditProfileInputsModalConfig(
     props.setEnableProfileModalEdit,
     props.name
   );
@@ -20,15 +20,17 @@ export default function EditProfileInputsModal(props: {
       </div>
       <div className='w-full flex justify-between px-10 mt-20 text-white'>
         <div onClick={cancelHandler} className='cursor-pointer'>
-          Cancel
+          {t('multiple-emails.cancel')}
         </div>
         <div
           onClick={saveHandler}
           className='cursor-pointer bg-button-red px-5 py-2 rounded'
         >
-          Add
+          {t('multiple-emails.add')}
         </div>
       </div>
     </div>
   );
-}
+};
+
+export default EditProfileInputsModal;

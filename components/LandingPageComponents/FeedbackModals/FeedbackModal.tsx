@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { FeedbackModalType } from 'types';
 
-export default function FeedbackModals(props: FeedbackModalType) {
+export const FeedbackModals: React.FC<FeedbackModalType> = (props) => {
   return (
     <div className='w-full backdrop-blur-sm h-full fixed lg:bg-frozen-bg lg:bg-none bg-modal-bg z-50 flex justify-center items-start pt-[5rem] lg:pt-[9rem]'>
       <div className='flex flex-col justify-center items-center text-center gap-8 text-white w-[75%] lg:w-[40rem] h-[30rem] bg-modal-overlay-bg lg:bg-[#222030] lg:bg-none rounded-[0.625rem]'>
@@ -19,4 +19,6 @@ export default function FeedbackModals(props: FeedbackModalType) {
       </div>
     </div>
   );
-}
+};
+
+export default FeedbackModals;

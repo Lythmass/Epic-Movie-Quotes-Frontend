@@ -1,6 +1,6 @@
 import { ButtonType } from 'types';
 
-export default function Button(props: ButtonType) {
+export const Button: React.FC<ButtonType> = (props) => {
   return (
     <button
       onClick={() => props.setShowModal(true)}
@@ -13,4 +13,6 @@ export default function Button(props: ButtonType) {
       {props.text}
     </button>
   );
-}
+};
+
+export default Button;

@@ -3,10 +3,10 @@ import { useTranslation } from 'next-i18next';
 import { useSelector } from 'react-redux';
 import { selectValue } from 'slices/userInfoSlice';
 
-export default function BurgerMenu(props: {
+export const BurgerMenu: React.FC<{
   burgerMenu: boolean;
   setBurgerMenu: (value: boolean) => void;
-}) {
+}> = (props) => {
   const { t } = useTranslation('profile');
   const username = useSelector(selectValue);
   return (
@@ -45,4 +45,6 @@ export default function BurgerMenu(props: {
       </div>
     </div>
   );
-}
+};
+
+export default BurgerMenu;

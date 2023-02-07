@@ -4,5 +4,5 @@ export type InputsType = {
   type: string;
   isOptional: boolean;
   validationIndex: string;
-  namespace: string;
+  namespace?: string;
 };

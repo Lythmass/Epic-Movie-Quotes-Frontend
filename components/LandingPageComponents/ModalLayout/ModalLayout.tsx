@@ -1,6 +1,6 @@
 import { ModalLayoutType } from 'types';
 import { useCloseModal } from 'hooks';
-export default function ModalLayout(props: ModalLayoutType) {
+export const ModalLayout: React.FC<ModalLayoutType> = (props) => {
   const { modalRef, closeModal } = useCloseModal(props.modal);
 
   return (
@@ -26,4 +26,6 @@ export default function ModalLayout(props: ModalLayoutType) {
       </div>
     </div>
   );
-}
+};
+
+export default ModalLayout;

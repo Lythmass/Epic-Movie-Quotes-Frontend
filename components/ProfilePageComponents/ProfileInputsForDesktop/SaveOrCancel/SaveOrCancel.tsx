@@ -1,7 +1,7 @@
 import { useSaveOrCancelConfig } from 'hooks';
 import { SaveOrCancelType } from 'types';
 
-export default function SaveOrCancel(props: SaveOrCancelType) {
+export const SaveOrCancel: React.FC<SaveOrCancelType> = (props) => {
   const { clearHandler, profilePictureHandler, t } =
     useSaveOrCancelConfig(props);
   return (
@@ -18,4 +18,6 @@ export default function SaveOrCancel(props: SaveOrCancelType) {
       </button>
     </div>
   );
-}
+};
+
+export default SaveOrCancel;

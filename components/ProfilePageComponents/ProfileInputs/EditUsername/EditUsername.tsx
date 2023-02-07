@@ -2,13 +2,15 @@ import { validation } from 'helpers';
 import { useFormContext } from 'react-hook-form';
 import { useTranslation } from 'next-i18next';
 
-export default function EditUsername(props: { name: string; type: string }) {
+export const EditUsername: React.FC<{ name: string; type: string }> = (
+  props
+) => {
   const methods: any = useFormContext();
   const { t } = useTranslation('profile');
   const validationName = 'name';
   return (
     <>
-      <label className='self-start'>Enter new {props.name}</label>
+      <label className='self-start'>{t('mobile.new-username')}</label>
       <input
         {...methods.register(props.name, validation[validationName])}
         name={props.name}
@@ -21,4 +23,6 @@ export default function EditUsername(props: { name: string; type: string }) {
       </p>
     </>
   );
-}
+};
+
+export default EditUsername;
