@@ -21,3 +21,8 @@ export { default as useAddNewEmail } from './useAddNewEmail';
 export { default as useChangePrimaryEmail } from './useChangePrimaryEmail';
 export { default as useCheckPrimaryEmail } from './useCheckPrimaryEmail';
 export { default as useSaveOrCancelConfig } from './useSaveOrCancelConfig';
+export { default as useProfileHeaderConfig } from './useProfileHeaderConfig';
+export { default as useEditProfileInputsModalConfig } from './useEditProfileInputsModalConfig';
+export { default as useProfileInputsMobileConfig } from './useProfileInputsMobileConfig';
+export { default as useDesktopInputsBlockConfig } from './useDesktopInputsBlockConfig';
+export { default as useEmailButtonsConfig } from './useEmailButtonsConfig';

@@ -1,31 +1,28 @@
 import { ProfileInputsForDesktop, AddEmailButton } from 'components';
-import { useWindowWidth } from 'hooks';
-import { useTranslation } from 'next-i18next';
-import { useSelector } from 'react-redux';
-import { selectValue } from 'slices/userInfoSlice';
+import { useDesktopInputsBlockConfig } from 'hooks';
 
-export default function DesktopInputsBlock(props: {
+const DesktopInputsBlock: React.FC<{
   clear: boolean;
   clearInputs: (value: boolean) => void;
   setHasChanged: (value: boolean) => void;
-}) {
-  const screenWidth = useWindowWidth();
-  const { t } = useTranslation('profile');
-  const user = useSelector(selectValue);
-  const displayOtherEmails = user?.emails.map((email: string, i: number) => {
-    return (
-      <ProfileInputsForDesktop
-        key={i}
-        placeholder={t('enter', { name: t('email') })}
-        label={t('email')}
-        type='mail'
-        name={`email-${i}`}
-        clear={props.clear}
-        clearInputs={props.clearInputs}
-        setHasChanged={props.setHasChanged}
-      />
-    );
-  });
+}> = (props) => {
+  const { screenWidth, t, user } = useDesktopInputsBlockConfig();
+  const displayOtherEmails = user?.emails.map(
+    (email: { email_verified_at: string | null }, i: number) => {
+      return (
+        <ProfileInputsForDesktop
+          key={i}
+          placeholder={t('enter', { name: t('email') })}
+          label={t('email')}
+          type='mail'
+          name={`email-${i}`}
+          clear={props.clear}
+          clearInputs={props.clearInputs}
+          setHasChanged={props.setHasChanged}
+        />
+      );
+    }
+  );
   return (
     <div className='mt-20 w-full'>
       <ProfileInputsForDesktop
@@ -65,4 +62,6 @@ export default function DesktopInputsBlock(props: {
       />
     </div>
   );
-}
+};
+
+export default DesktopInputsBlock;

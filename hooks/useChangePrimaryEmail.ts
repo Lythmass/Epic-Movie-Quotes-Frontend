@@ -8,7 +8,7 @@ import { ToastOptionsType } from 'types';
 export default function useChangePrimaryEmail(
   verified: boolean,
   name: string,
-  setPrimaryChanged: (value: boolean) => void
+  setPrimaryChanged?: (value: boolean) => void
 ) {
   const refetch = useFetchUserInfo();
   const { t } = useTranslation('profile');
@@ -29,8 +29,8 @@ export default function useChangePrimaryEmail(
     {
       onSuccess: (response) => {
         refetch();
-        setPrimaryChanged(true);
         toast.success(t(response.data.message), toastOptions);
+        setPrimaryChanged !== undefined && setPrimaryChanged(true);
       },
       onError: (error: any) => {
         toast.error(t(error.response.data.message), toastOptions);

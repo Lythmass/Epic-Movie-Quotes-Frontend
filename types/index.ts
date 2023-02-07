@@ -13,3 +13,4 @@ export type { ProfileInputsType } from './ProfileInputsType';
 export type { SaveOrCancelType } from './SaveOrCancelType';
 export type { EmailButtonsType } from './EmailButtonsType';
 export type { ToastOptionsType } from './ToastOptionsType';
+export type { ProfileInputsMobileType } from './ProfileInputsMobileType';
