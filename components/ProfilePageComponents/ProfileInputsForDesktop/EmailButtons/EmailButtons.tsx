@@ -1,15 +1,13 @@
-import { useRemoveEmail, useChangePrimaryEmail } from 'hooks';
-import { useTranslation } from 'next-i18next';
 import { EmailButtonsType } from 'types';
+import { useEmailButtonsConfig } from 'hooks';
 
 export default function EmailButtons(props: EmailButtonsType) {
-  const deleteHandler = useRemoveEmail(props.value);
-  const primaryChangerHandler = useChangePrimaryEmail(
+  const { deleteHandler, t, primaryChangerHandler } = useEmailButtonsConfig(
+    props.value,
     props.verified,
     props.name,
     props.setPrimaryChanged
   );
-  const { t } = useTranslation('profile');
   return (
     <div className='flex justify-start items-center mb-3 w-[15rem] gap-5'>
       <p

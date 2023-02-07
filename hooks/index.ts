@@ -24,3 +24,5 @@ export { default as useSaveOrCancelConfig } from './useSaveOrCancelConfig';
 export { default as useProfileHeaderConfig } from './useProfileHeaderConfig';
 export { default as useEditProfileInputsModalConfig } from './useEditProfileInputsModalConfig';
 export { default as useProfileInputsMobileConfig } from './useProfileInputsMobileConfig';
+export { default as useDesktopInputsBlockConfig } from './useDesktopInputsBlockConfig';
+export { default as useEmailButtonsConfig } from './useEmailButtonsConfig';
