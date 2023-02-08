@@ -2,7 +2,7 @@ import { Button } from 'components';
 import { LanguageChanger } from 'components';
 import { useWindowWidth } from 'hooks';
 import { useTranslation } from 'next-i18next';
-import { NavBarType } from 'types';
+import { NavBarType } from './NavBarType';
 
 export const NavBar: React.FC<NavBarType> = (props) => {
   const getWindowWidth = useWindowWidth();

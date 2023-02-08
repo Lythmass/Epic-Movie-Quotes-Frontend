@@ -1,7 +1,7 @@
 import { ModalLayout, Inputs, ModalButton, RememberMe } from 'components';
 import { FormProvider } from 'react-hook-form';
 import { useAuthModalConfig } from 'hooks';
-import { LoginModalType } from 'types';
+import { LoginModalType } from './LoginModalType';
 
 export const LoginModal: React.FC<LoginModalType> = (props) => {
   const { InputsGroup, methods, t, submit, googleAuthHandler } =

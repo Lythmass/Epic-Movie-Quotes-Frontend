@@ -2,7 +2,7 @@
 import { ModalLayout, Inputs, ModalButton } from 'components';
 import { FormProvider } from 'react-hook-form';
 import { useForgotPasswordModalConfig } from 'hooks';
-import { ForgotPasswordModalType } from 'types';
+import { ForgotPasswordModalType } from './ForgotPasswordModalType';
 
 export const ForgotPasswordModal: React.FC<ForgotPasswordModalType> = (
   props
