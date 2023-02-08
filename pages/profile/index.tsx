@@ -54,8 +54,18 @@ export const Profile: React.FC<{ response: string }> = (props) => {
               onSubmit={methods.handleSubmit(submit)}
               className='w-full flex justify-center flex-col items-center lg:items-start lg:px-28 gap-4 lg:mt-20'
             >
-              {user?.google_id !== null && <GoogleProfile />}
               {user?.google_id === null && (
+                <GoogleProfile
+                  clear={clear}
+                  setClear={setClear}
+                  setHasChanged={setHasChanged}
+                  hasChanged={hasChanged}
+                  saveProfilePicture={saveProfilePicture}
+                  setSaveProfilePicture={setSaveProfilePicture}
+                  screenWidth={screenWidth}
+                />
+              )}
+              {user?.google_id !== null && (
                 <EmailProfile
                   screenWidth={screenWidth}
                   setEnableProfileModalEdit={setEnableProfileModalEdit}
