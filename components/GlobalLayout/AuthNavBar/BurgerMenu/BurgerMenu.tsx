@@ -2,11 +2,9 @@
 import { useTranslation } from 'next-i18next';
 import { useSelector } from 'react-redux';
 import { selectValue } from 'slices/userInfoSlice';
+import { BurgerMenuType } from 'types';
 
-export const BurgerMenu: React.FC<{
-  burgerMenu: boolean;
-  setBurgerMenu: (value: boolean) => void;
-}> = (props) => {
+export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
   const { t } = useTranslation('profile');
   const username = useSelector(selectValue);
   return (

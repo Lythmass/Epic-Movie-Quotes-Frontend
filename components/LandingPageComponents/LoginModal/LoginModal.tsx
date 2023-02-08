@@ -1,12 +1,9 @@
 import { ModalLayout, Inputs, ModalButton, RememberMe } from 'components';
 import { FormProvider } from 'react-hook-form';
 import { useAuthModalConfig } from 'hooks';
+import { LoginModalType } from 'types';
 
-export const LoginModal: React.FC<{
-  setShowRegistrationModal: (value: boolean) => void;
-  setShowForgotPasswordModal: (value: boolean) => void;
-  setShowLoginModal: (value: boolean) => void;
-}> = (props) => {
+export const LoginModal: React.FC<LoginModalType> = (props) => {
   const { InputsGroup, methods, t, submit, googleAuthHandler } =
     useAuthModalConfig();
   const displayInputs = InputsGroup.map((input) => {

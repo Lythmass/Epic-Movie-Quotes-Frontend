@@ -1,8 +1,7 @@
+import { GoBackButtonMobileType } from 'types';
+
 /* eslint-disable @next/next/no-img-element */
-export const GoBackButtonMobile: React.FC<{
-  setShowEmailsModal: (value: boolean) => void;
-  setEnableProfileModalEdit: (value: string) => void;
-}> = (props) => {
+export const GoBackButtonMobile: React.FC<GoBackButtonMobileType> = (props) => {
   return (
     <div className='w-full h-9 mt-[6.55rem] flex justify-start items-center px-10'>
       <div

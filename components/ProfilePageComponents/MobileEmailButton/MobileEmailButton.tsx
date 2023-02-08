@@ -1,11 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { useTranslation } from 'next-i18next';
 import { EmailsModal } from 'components';
+import { MobileEmailButtonType } from 'types';
 
-export const MobileEmailButton: React.FC<{
-  setShowEmailsModal: (value: boolean) => void;
-  showEmailsModal: boolean;
-}> = (props) => {
+export const MobileEmailButton: React.FC<MobileEmailButtonType> = (props) => {
   const { t } = useTranslation('profile');
   const emailsHandler = () => {
     props.setShowEmailsModal(true);

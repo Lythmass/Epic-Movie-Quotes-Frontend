@@ -2,11 +2,9 @@ import { Button } from 'components';
 import { LanguageChanger } from 'components';
 import { useWindowWidth } from 'hooks';
 import { useTranslation } from 'next-i18next';
+import { NavBarType } from 'types';
 
-export const NavBar: React.FC<{
-  setShowRegistrationModal: (value: boolean) => void;
-  setShowLoginModal: (value: boolean) => void;
-}> = (props) => {
+export const NavBar: React.FC<NavBarType> = (props) => {
   const getWindowWidth = useWindowWidth();
   const { t } = useTranslation('common');
   return (

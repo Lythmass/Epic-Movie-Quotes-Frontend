@@ -1,10 +1,9 @@
 import { useEditProfileInputsModalConfig } from 'hooks';
+import { EditProfileInputsModalType } from 'types';
 
-export const EditProfileInputsModal: React.FC<{
-  children: JSX.Element;
-  name: string;
-  setEnableProfileModalEdit: (value: string) => void;
-}> = (props) => {
+export const EditProfileInputsModal: React.FC<EditProfileInputsModalType> = (
+  props
+) => {
   const { cancelHandler, saveHandler, t } = useEditProfileInputsModalConfig(
     props.setEnableProfileModalEdit,
     props.name
