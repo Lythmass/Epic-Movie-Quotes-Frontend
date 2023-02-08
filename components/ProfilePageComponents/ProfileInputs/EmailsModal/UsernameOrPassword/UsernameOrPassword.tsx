@@ -4,13 +4,9 @@ import {
   EditUsername,
   EditPassword,
 } from 'components';
+import { UsernameOrPasswordType } from 'types';
 
-export default function UsernameOrPassword(props: {
-  enableProfileModalEdit: string;
-  setEnableProfileModalEdit: (value: string) => void;
-  name: string;
-  mobileConfirmationModalHere: boolean;
-}) {
+export const UsernameOrPassword: React.FC<UsernameOrPasswordType> = (props) => {
   return (
     <>
       {props.enableProfileModalEdit === 'username' && (
@@ -37,4 +33,6 @@ export default function UsernameOrPassword(props: {
       )}
     </>
   );
-}
+};
+
+export default UsernameOrPassword;

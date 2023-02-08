@@ -2,7 +2,7 @@ import { ProfileInputsMobileType } from 'types';
 import { UsernameOrPassword } from 'components';
 import { useProfileInputsMobileConfig } from 'hooks';
 
-export default function ProfileInputs(props: ProfileInputsMobileType) {
+export const ProfileInputs: React.FC<ProfileInputsMobileType> = (props) => {
   const { t, editHandler, mobileConfirmationModalHere } =
     useProfileInputsMobileConfig(props.name, props.setEnableProfileModalEdit);
   return (
@@ -32,4 +32,6 @@ export default function ProfileInputs(props: ProfileInputsMobileType) {
       />
     </>
   );
-}
+};
+
+export default ProfileInputs;

@@ -1,9 +1,9 @@
 import { useTranslation } from 'next-i18next';
 import { useFormContext } from 'react-hook-form';
 
-export default function RememberMe(props: {
+export const RememberMe: React.FC<{
   setShowForgotPasswordModal: (value: boolean) => void;
-}) {
+}> = (props) => {
   const methods = useFormContext();
   const { t } = useTranslation('common');
   return (
@@ -26,4 +26,5 @@ export default function RememberMe(props: {
       </span>
     </div>
   );
-}
+};
+export default RememberMe;

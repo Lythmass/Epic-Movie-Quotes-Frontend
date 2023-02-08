@@ -2,12 +2,11 @@
 import { ModalLayout, Inputs, ModalButton } from 'components';
 import { FormProvider } from 'react-hook-form';
 import { useForgotPasswordModalConfig } from 'hooks';
+import { ForgotPasswordModalType } from './ForgotPasswordModalType';
 
-export default function ForgotPasswordModal(props: {
-  setShowLoginModal: (value: boolean) => void;
-  setResetSentModal: (value: boolean) => void;
-  setShowForgotPasswordModal: (value: boolean) => void;
-}) {
+export const ForgotPasswordModal: React.FC<ForgotPasswordModalType> = (
+  props
+) => {
   const { methods, email, t, submit } = useForgotPasswordModalConfig(
     props.setResetSentModal
   );
@@ -45,4 +44,6 @@ export default function ForgotPasswordModal(props: {
       </FormProvider>
     </ModalLayout>
   );
-}
+};
+
+export default ForgotPasswordModal;

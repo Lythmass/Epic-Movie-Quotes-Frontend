@@ -1,6 +1,6 @@
 import { ModalButtonType } from 'types';
 
-export default function ModalButton(props: ModalButtonType) {
+export const ModalButton: React.FC<ModalButtonType> = (props) => {
   return (
     <button
       className={`${
@@ -16,4 +16,6 @@ export default function ModalButton(props: ModalButtonType) {
       {props.text}
     </button>
   );
-}
+};
+
+export default ModalButton;

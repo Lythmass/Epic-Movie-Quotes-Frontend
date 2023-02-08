@@ -4,7 +4,7 @@ import { useProfileInputsConfig, useCheckPrimaryEmail } from 'hooks';
 import { ProfileConfirmPassword, EmailButtons } from 'components';
 import { validation } from 'helpers';
 
-export default function ProfileInputsForDesktop(props: ProfileInputsType) {
+export const ProfileInputsForDesktop: React.FC<ProfileInputsType> = (props) => {
   const {
     t,
     disabled,
@@ -69,4 +69,6 @@ export default function ProfileInputsForDesktop(props: ProfileInputsType) {
       </div>
     </div>
   );
-}
+};
+
+export default ProfileInputsForDesktop;

@@ -21,7 +21,9 @@ export default function AddNewEmailModalMobile() {
                 onSubmit={methods.handleSubmit(submit)}
                 className='w-full h-full flex justify-center flex-col gap-2'
               >
-                <label className='self-start text-white'>Add new email</label>
+                <label className='self-start text-white'>
+                  {t('multiple-emails.add-new-email')}
+                </label>
                 <input
                   {...methods.register('email', validation['email'])}
                   name='email'
@@ -34,13 +36,13 @@ export default function AddNewEmailModalMobile() {
                 </p>
                 <div className='w-full absolute left-0 top-[10rem] flex items-center justify-between px-10 mt-20 text-white'>
                   <div onClick={cancelHandler} className='cursor-pointer'>
-                    Cancel
+                    {t('multiple-emails.cancel')}
                   </div>
                   <button
                     type='submit'
                     className='cursor-pointer bg-button-red px-5 py-2 rounded'
                   >
-                    Add
+                    {t('multiple-emails.add')}
                   </button>
                 </div>
               </form>

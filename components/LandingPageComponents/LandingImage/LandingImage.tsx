@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import { LandingImageType } from 'types';
 
-export default function LandingImage(props: LandingImageType) {
+export const LandingImage: React.FC<LandingImageType> = (props) => {
   return (
     <div className='w-full h-[27rem] lg:h-screen'>
       <div
@@ -19,4 +19,6 @@ export default function LandingImage(props: LandingImageType) {
       </div>
     </div>
   );
-}
+};
+
+export default LandingImage;

@@ -1,6 +1,7 @@
 import { useFormContext } from 'react-hook-form';
 import { setMobileConfirmationModal } from 'slices/mobileConfirmationModalSlice';
 import { useDispatch } from 'react-redux';
+import { useTranslation } from 'next-i18next';
 
 export default function useEditProfileInputsModalConfig(
   setEnableProfileModalEdit: (value: string) => void,
@@ -8,6 +9,7 @@ export default function useEditProfileInputsModalConfig(
 ) {
   const dispatch = useDispatch();
   const methods = useFormContext();
+  const { t } = useTranslation('profile');
   const cancelHandler = () => {
     setEnableProfileModalEdit('');
     methods.clearErrors();
@@ -20,5 +22,6 @@ export default function useEditProfileInputsModalConfig(
   return {
     cancelHandler,
     saveHandler,
+    t,
   };
 }

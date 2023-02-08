@@ -48,5 +48,13 @@
     "verified-success": "Your email was verified successfully!",
     "change-primary": "Your primary email successfully changed!",
     "remove-email": "Successfully removed email!"
+  },
+  "mobile": {
+    "new-username": "Enter new username",
+    "new-password": "New password",
+    "confirm-new-password": "Confirm new password",
+    "confirm": "Confirm",
+    "nope": "Cancel",
+    "make-sure": "Are you sure to make changes?"
   }
 }

@@ -15,7 +15,7 @@ import { FormProvider } from 'react-hook-form';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { verifySecondaryEmail } from 'services';
 
-export default function Profile(props: { response: string }) {
+export const Profile: React.FC<{ response: string }> = (props) => {
   const {
     screenWidth,
     methods,
@@ -98,7 +98,7 @@ export default function Profile(props: { response: string }) {
       </div>
     </GlobalLayout>
   );
-}
+};
 
 export async function getServerSideProps(context: any) {
   if (context.query.verify_secondary_email !== undefined) {
@@ -119,3 +119,5 @@ export async function getServerSideProps(context: any) {
     },
   };
 }
+
+export default Profile;
