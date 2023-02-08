@@ -2,13 +2,11 @@
 import {
   GlobalLayout,
   ProfileHeader,
-  MobileInputsBlock,
-  DesktopInputsBlock,
-  MobileEmailButton,
-  SaveOrCancel,
   GoBackButtonMobile,
   AddNewEmailModal,
   AddNewEmailModalMobile,
+  EmailProfile,
+  GoogleProfile,
 } from 'components';
 import { useProfilePageConfig } from 'hooks';
 import { FormProvider } from 'react-hook-form';
@@ -32,6 +30,7 @@ export const Profile: React.FC<{ response: string }> = (props) => {
     showNewEmailModalMobileHere,
     enableProfileModalEdit,
     setEnableProfileModalEdit,
+    user,
   } = useProfilePageConfig(props.response);
   return (
     <GlobalLayout>
@@ -55,43 +54,22 @@ export const Profile: React.FC<{ response: string }> = (props) => {
               onSubmit={methods.handleSubmit(submit)}
               className='w-full flex justify-center flex-col items-center lg:items-start lg:px-28 gap-4 lg:mt-20'
             >
-              {screenWidth <= 1024 && (
-                <MobileInputsBlock
+              {user?.google_id !== null && <GoogleProfile />}
+              {user?.google_id === null && (
+                <EmailProfile
+                  screenWidth={screenWidth}
                   setEnableProfileModalEdit={setEnableProfileModalEdit}
                   enableProfileModalEdit={enableProfileModalEdit}
-                />
-              )}
-              {screenWidth > 1024 && (
-                <DesktopInputsBlock
                   clear={clear}
-                  clearInputs={setClear}
+                  setClear={setClear}
                   setHasChanged={setHasChanged}
-                />
-              )}
-              {screenWidth <= 1024 && (
-                <MobileEmailButton
                   setShowEmailsModal={setShowEmailsModal}
                   showEmailsModal={showEmailsModal}
-                />
-              )}
-              {screenWidth <= 1024 && hasChanged && (
-                <SaveOrCancel
-                  clearInputs={setClear}
-                  setHasChanged={setHasChanged}
+                  hasChanged={hasChanged}
                   saveProfilePicture={saveProfilePicture}
                   setSaveProfilePicture={setSaveProfilePicture}
                 />
               )}
-              <div className='absolute bottom-[-5rem] right-0'>
-                {screenWidth > 1024 && hasChanged && (
-                  <SaveOrCancel
-                    clearInputs={setClear}
-                    setHasChanged={setHasChanged}
-                    saveProfilePicture={saveProfilePicture}
-                    setSaveProfilePicture={setSaveProfilePicture}
-                  />
-                )}
-              </div>
             </form>
           </FormProvider>
         </div>
