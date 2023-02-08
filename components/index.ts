@@ -38,4 +38,6 @@ export {
   SecondaryEmailsMobile,
   AddNewEmailModalMobile,
   UsernameOrPassword,
+  EmailProfile,
+  GoogleProfile,
 } from './ProfilePageComponents';

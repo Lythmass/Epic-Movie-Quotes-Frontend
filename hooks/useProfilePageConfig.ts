@@ -55,10 +55,15 @@ export default function useProfilePageConfig(response: string) {
   }, []);
 
   useEffect(() => {
-    methods.setValue('username', user?.name);
-    methods.setValue('email', user?.email);
-    for (let i = 0; i < user?.emails.length; i++) {
-      methods.setValue(`email-${i}`, user?.emails[i].email);
+    if (user?.google_id !== null) {
+      methods.setValue('username', user?.name);
+      methods.setValue('email', user?.email);
+    } else {
+      methods.setValue('username', user?.name);
+      methods.setValue('email', user?.email);
+      for (let i = 0; i < user?.emails.length; i++) {
+        methods.setValue(`email-${i}`, user?.emails[i].email);
+      }
     }
   }, [user, methods]);
 
@@ -95,5 +100,6 @@ export default function useProfilePageConfig(response: string) {
     showNewEmailModalMobileHere,
     enableProfileModalEdit,
     setEnableProfileModalEdit,
+    user,
   };
 }

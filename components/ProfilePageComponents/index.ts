@@ -21,3 +21,5 @@ export {
   ProfileConfirmPassword,
   EmailButtons,
 } from './ProfileInputsForDesktop';
+export { EmailProfile } from './EmailProfile';
+export { GoogleProfile } from './GoogleProfile';
