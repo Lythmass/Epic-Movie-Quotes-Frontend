@@ -41,3 +41,5 @@ export {
   EmailProfile,
   GoogleProfile,
 } from './ProfilePageComponents';
+
+export { MoviePageHeader, MovieInstance } from './MoviePageComponents';
