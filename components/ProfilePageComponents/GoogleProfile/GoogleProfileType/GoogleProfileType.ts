@@ -6,4 +6,6 @@ export type GoogleProfileType = {
   hasChanged: boolean;
   saveProfilePicture: string;
   setSaveProfilePicture: (value: string) => void;
+  setEnableProfileModalEdit: (value: string) => void;
+  enableProfileModalEdit: string;
 };

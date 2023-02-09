@@ -29,6 +29,13 @@ export const authenticateUser = async (data: any) => {
   const response = await instance.post('/api/login', data);
   return response;
 };
+
+export const authenticateUserUsingGoogle = async (googleId: string) => {
+  const response = await instance.post('/api/google-auth', {
+    googleId: googleId,
+  });
+  return response;
+};
 //End of Authentication
 
 //Password resets

@@ -34,7 +34,7 @@ export default function useProfileHeaderConfig(props: {
   };
   useEffect(() => {
     if (props.saveProfilePicture === 'no' && user !== undefined) {
-      if (user?.profile_picture !== 'null') {
+      if (user?.profile_picture !== null) {
         profileRef.current!.src = user?.profile_picture;
       } else {
         profileRef.current!.src = '/assets/images/tlotr.png';

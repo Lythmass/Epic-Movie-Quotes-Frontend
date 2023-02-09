@@ -18,9 +18,13 @@ export const ProfileInputs: React.FC<ProfileInputsMobileType> = (props) => {
             name={props.name}
             defaultValue={props.value}
           />
-          <p onClick={editHandler} className='cursor-pointer'>
-            {t('edit')}
-          </p>
+          {props.name === 'email' ? (
+            ''
+          ) : (
+            <p onClick={editHandler} className='cursor-pointer'>
+              {t('edit')}
+            </p>
+          )}
         </div>
         <hr className='mt-1 border-[#CED4DA80]' />
       </div>

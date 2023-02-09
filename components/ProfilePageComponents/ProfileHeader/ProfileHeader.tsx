@@ -10,7 +10,7 @@ export const ProfileHeader: React.FC<ProfileHeaderType> = (props) => {
       <img
         className='w-[11.75rem] h-[11.75rem] rounded-[50%] object-cover'
         src={
-          user?.profile_picture !== 'null'
+          user?.profile_picture !== null
             ? user?.profile_picture
             : '/assets/images/tlotr.png'
         }
