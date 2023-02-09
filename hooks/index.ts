@@ -28,3 +28,5 @@ export { default as useDesktopInputsBlockConfig } from './useDesktopInputsBlockC
 export { default as useEmailButtonsConfig } from './useEmailButtonsConfig';
 export { default as useSecondaryEmailsMobileConfig } from './useSecondaryEmailsMobileConfig';
 export { default as useEmailsModalConfig } from './useEmailsModalConfig';
+export { default as useMobileInputsRefresh } from './useMobileInputsRefresh';
+export { default as useGoogleAuth } from './useGoogleAuth';

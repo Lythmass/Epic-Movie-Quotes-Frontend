@@ -17,7 +17,7 @@ export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
         <img
           className='w-12 h-12 rounded-[50%] object-cover border border-button-red'
           src={
-            username?.profile_picture !== 'null'
+            username?.profile_picture !== null
               ? username?.profile_picture
               : '/assets/images/tlotr.png'
           }

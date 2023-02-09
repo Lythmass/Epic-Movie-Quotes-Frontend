@@ -5,7 +5,10 @@ import { useTranslation } from 'next-i18next';
 import { markEmailAsVerified } from 'services';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 
-export const Home: React.FC<{ response: string }> = (props) => {
+export const Home: React.FC<{
+  response: string;
+  googleId: string;
+}> = (props) => {
   const {
     showLoginModal,
     showRegistrationModal,
@@ -21,8 +24,9 @@ export const Home: React.FC<{ response: string }> = (props) => {
     setResetSentModal,
     setPasswordResetModal,
     setSuccessResetModal,
-  } = useSwitchModals();
+  } = useSwitchModals(props.googleId);
   const { t, i18n } = useTranslation('common');
+
   return (
     <div
       className={`${
@@ -87,6 +91,14 @@ export const Home: React.FC<{ response: string }> = (props) => {
 };
 
 export async function getServerSideProps(context: any) {
+  if (context.query.google_id !== undefined) {
+    return {
+      props: {
+        googleId: context.query.google_id,
+        ...(await serverSideTranslations(context.locale, ['common'])),
+      },
+    };
+  }
   if (context.query.email_verify_url !== undefined) {
     const path =
       context.query.email_verify_url?.substr(39) +

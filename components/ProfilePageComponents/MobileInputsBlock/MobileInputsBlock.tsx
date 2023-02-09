@@ -1,19 +1,15 @@
 import { ProfileInputs } from 'components';
-import { useTranslation } from 'next-i18next';
-import { useSelector } from 'react-redux';
-import { selectValue } from 'slices/userInfoSlice';
+import { useMobileInputsRefresh } from 'hooks';
 import { MobileInputsBlockType } from 'types';
 
 export const MobileInputsBlock: React.FC<MobileInputsBlockType> = (props) => {
-  const { t } = useTranslation('profile');
-  const user = useSelector(selectValue);
-
+  const { t, name } = useMobileInputsRefresh();
   return (
     <>
       <ProfileInputs
         type='text'
         label={t('username')}
-        value={user?.name}
+        value={name}
         placeholder={t('enter', { name: t('name') })}
         name='username'
         setEnableProfileModalEdit={props.setEnableProfileModalEdit}
