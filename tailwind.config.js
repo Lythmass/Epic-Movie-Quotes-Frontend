@@ -26,6 +26,7 @@ module.exports = {
         'input-correct': 'url("/assets/images/correct-check.png")',
         'global-layout-bg':
           'linear-gradient(187.16deg, #181623 0.07%, #191725 51.65%, #0D0B14 98.75%)',
+        'upload-file-bg': 'rgba(151, 71, 255, 0.4)',
       },
       fontFamily: {
         'helvetica-geo': 'helvetica-geo',

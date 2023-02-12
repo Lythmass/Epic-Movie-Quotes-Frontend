@@ -42,4 +42,25 @@ export {
   GoogleProfile,
 } from './ProfilePageComponents';
 
-export { MoviePageHeader, MovieInstance } from './MoviePageComponents';
+export {
+  MoviePageHeader,
+  MovieInstance,
+  AddMovieModal,
+  AddMovieModalHeader,
+  AddMovieModalProfile,
+  AddMovieModalForm,
+  AddMovieModalInput,
+  AddMovieModalGenres,
+  AddMovieModalFormFile,
+  AddMovieModalFormInput,
+  AddMovieModalFormTextarea,
+  AddMovieModalFormDate,
+} from './MoviesPageComponents';
+
+export {
+  DisplayGenres,
+  MovieDetails,
+  MoviePageSection,
+  UpdateDeleteMovie,
+  DeleteConfirmationModal,
+} from './MoviePageComponents';

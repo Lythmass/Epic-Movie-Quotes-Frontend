@@ -1,2 +1,5 @@
-export { MoviePageHeader } from './MoviePageHeader';
-export { MovieInstance } from './MovieInstance';
+export { DisplayGenres } from './DisplayGenres';
+export { MovieDetails } from './MovieDetails';
+export { MoviePageSection } from './MoviePageSection';
+export { UpdateDeleteMovie } from './UpdateDeleteMovie';
+export { DeleteConfirmationModal } from './DeleteConfirmationModal';
