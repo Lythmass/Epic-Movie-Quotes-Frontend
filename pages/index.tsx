@@ -100,8 +100,9 @@ export async function getServerSideProps(context: any) {
     };
   }
   if (context.query.email_verify_url !== undefined) {
+    const index = context.query.email_verify_url?.search('verify/') + 7;
     const path =
-      context.query.email_verify_url?.substr(39) +
+      context.query.email_verify_url?.substr(index) +
       '&signature=' +
       context.query.signature;
     const response = await markEmailAsVerified(path);
