@@ -36,3 +36,6 @@ export { default as useFetchMovies } from './useFetchMovies';
 export { default as useMoviePageConfig } from './useMoviePageConfig';
 export { default as useMoviesPageConfig } from './useMoviesPageConfig';
 export { default as useDeleteConfirmationModalConfig } from './useDeleteConfirmationModalConfig';
+export { default as useEditMovieModalConfig } from './useEditMovieModalConfig';
+export { default as useAddMovieModalFormConfig } from './useAddMovieModalFormConfig';
+export { default as useAddMovieModalGenresConfig } from './useAddMovieModalGenresConfig';

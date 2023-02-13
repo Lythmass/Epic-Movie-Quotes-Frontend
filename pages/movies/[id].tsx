@@ -6,11 +6,13 @@ import {
   MoviePageSection,
   UpdateDeleteMovie,
   DeleteConfirmationModal,
+  EditMovieModal,
 } from 'components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useMoviePageConfig } from 'hooks';
 export const Movie = () => {
-  const { t, i18n, deleteMovie, screenWidth, movie } = useMoviePageConfig();
+  const { t, i18n, deleteMovie, screenWidth, movie, editMovie } =
+    useMoviePageConfig();
   const displayGenres = movie?.genres.map(
     (genre: { name: string }, index: number) => {
       return <DisplayGenres key={index} name={t('genres.' + genre.name)} />;
@@ -20,7 +22,7 @@ export const Movie = () => {
     <GlobalLayout>
       <>
         {deleteMovie && <DeleteConfirmationModal />}
-
+        {editMovie && <EditMovieModal />}
         <div className='pt-[5.35rem] lg:pl-[15rem] xl:pl-[17rem] 2xl:pl-[20rem] h-full overflow-auto m-auto px-8'>
           <header className='w-full xl:flex-row flex flex-col items-start justify-center lg:justify-start gap-6 py-10'>
             <img

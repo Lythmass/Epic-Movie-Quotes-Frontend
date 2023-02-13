@@ -124,4 +124,21 @@ export const deleteMovie = async (id: any) => {
   return response;
 };
 
+export const updateMovie = async (id: any, data: any) => {
+  const response = await instance.post(
+    '/api/update-movie',
+    {
+      ...data,
+      id: id,
+    },
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Accept: 'multipart/form-data',
+      },
+    }
+  );
+  return response;
+};
+
 //End of movies

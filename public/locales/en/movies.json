@@ -19,6 +19,7 @@
   "total": "Total",
   "add-quote": "Add Quote",
   "add-movie": "Add movie",
+  "edit-movie": "Edit movie",
   "movies-list": "My list of movies",
   "enter-date": "Enter date",
   "choose-file": "Choose file",
@@ -27,6 +28,7 @@
   "required": "Do not leave this empty!",
   "movie-add": "Successfully added movie!",
   "movie-delete": "Successfully deleted movie!",
+  "movie-update": "Succesffully updated movie!",
   "modal": {
     "make-sure": "Are you sure you want to delete the movie?",
     "cancel": "Cancel",

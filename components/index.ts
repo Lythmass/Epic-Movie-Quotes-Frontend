@@ -63,4 +63,5 @@ export {
   MoviePageSection,
   UpdateDeleteMovie,
   DeleteConfirmationModal,
+  EditMovieModal,
 } from './MoviePageComponents';
