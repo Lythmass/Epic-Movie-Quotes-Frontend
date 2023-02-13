@@ -3,4 +3,5 @@ export type MovieInstanceType = {
   title: string;
   year: number;
   numberOfQuotes: number;
+  id: number;
 };

@@ -30,3 +30,9 @@ export { default as useSecondaryEmailsMobileConfig } from './useSecondaryEmailsM
 export { default as useEmailsModalConfig } from './useEmailsModalConfig';
 export { default as useMobileInputsRefresh } from './useMobileInputsRefresh';
 export { default as useGoogleAuth } from './useGoogleAuth';
+export { default as useFetchGenres } from './useFetchGenres';
+export { default as useUploadMovie } from './useUploadMovie';
+export { default as useFetchMovies } from './useFetchMovies';
+export { default as useMoviePageConfig } from './useMoviePageConfig';
+export { default as useMoviesPageConfig } from './useMoviesPageConfig';
+export { default as useDeleteConfirmationModalConfig } from './useDeleteConfirmationModalConfig';

@@ -96,5 +96,32 @@ export const changeProfilePicture = async (data: any) => {
   });
   return response;
 };
-
 //End of profile
+
+//Movies
+export const fetchGenres = async () => {
+  const response = await instance.get('/api/genres');
+  return response;
+};
+
+export const uploadMovie = async (data: any) => {
+  const response = await instance.post('/api/upload-movie', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Accept: 'multipart/form-data',
+    },
+  });
+  return response;
+};
+
+export const fetchMovies = async () => {
+  const response = await instance.get('/api/movies');
+  return response;
+};
+
+export const deleteMovie = async (id: any) => {
+  const response = await instance.post('/api/delete-movie', { id: id });
+  return response;
+};
+
+//End of movies

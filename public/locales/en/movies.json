@@ -1,0 +1,35 @@
+{
+  "genres": {
+    "Action": "Action",
+    "Adventure": "Adventure",
+    "Romance": "Romance",
+    "Drama": "Drama",
+    "Sci-Fi": "Sci-Fi",
+    "Documentary": "Documentary",
+    "Comedy": "Comedy",
+    "Detective":"Detective",
+    "Anime": "Anime",
+    "Fantasy": "Fantasy",
+    "Horror": "Horror"
+
+  },
+  "director": "Director",
+  "budget": "Budget",
+  "quotes": "Quotes",
+  "total": "Total",
+  "add-quote": "Add Quote",
+  "add-movie": "Add movie",
+  "movies-list": "My list of movies",
+  "enter-date": "Enter date",
+  "choose-file": "Choose file",
+  "upload-image": "Upload image",
+  "enter-genres": "Enter genres",
+  "required": "Do not leave this empty!",
+  "movie-add": "Successfully added movie!",
+  "movie-delete": "Successfully deleted movie!",
+  "modal": {
+    "make-sure": "Are you sure you want to delete the movie?",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  }
+}
