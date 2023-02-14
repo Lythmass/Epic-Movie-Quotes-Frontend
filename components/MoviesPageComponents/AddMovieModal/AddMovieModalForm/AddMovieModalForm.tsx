@@ -1,12 +1,17 @@
-import { FormProvider, useForm } from 'react-hook-form';
+import { FormProvider } from 'react-hook-form';
 import { AddMovieModalInput } from 'components';
 import { MoviesInputData } from 'data';
-import { useUploadMovie } from 'hooks';
-import { useTranslation } from 'next-i18next';
+import { useAddMovieModalFormConfig } from 'hooks';
+import { MovieType } from 'types';
 
-export const AddMovieModalForm = () => {
-  const { t } = useTranslation('movies');
-  const methods = useForm();
+export const AddMovieModalForm: React.FC<{
+  action: string;
+  movie?: MovieType;
+}> = (props) => {
+  const { t, methods, submit } = useAddMovieModalFormConfig(
+    props.action,
+    props.movie
+  );
   const displayInputs = MoviesInputData.map((input, index) => {
     return (
       <AddMovieModalInput
@@ -18,7 +23,6 @@ export const AddMovieModalForm = () => {
       />
     );
   });
-  const submit = useUploadMovie();
   return (
     <FormProvider {...methods}>
       <form
