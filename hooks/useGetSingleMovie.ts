@@ -1,14 +1,12 @@
-import { useFetchGenres } from 'hooks';
-import { useRouter } from 'next/router';
-import { useEffect, useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getMovies } from 'slices/moviesSlice';
+import { useRouter } from 'next/router';
 
-export default function useEditMovieModalConfig() {
-  const router: any = useRouter();
-  useFetchGenres();
+export default function useGetSingleMovie() {
   const movies = useSelector(getMovies);
-  const [movie, setMovie] = useState<any | {}>({});
+  const router = useRouter();
+  const [movie, setMovie] = useState<any>({});
   useEffect(() => {
     if (movies != undefined) {
       for (let i = 0; i < movies.length; i++) {

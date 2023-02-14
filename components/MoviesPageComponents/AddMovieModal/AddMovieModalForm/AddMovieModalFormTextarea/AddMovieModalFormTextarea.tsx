@@ -8,7 +8,7 @@ export const AddMovieModalFormTextarea: React.FC<AddMovieModalInputType> = (
   const methods: any = useFormContext();
   const { t } = useTranslation('movies');
   return (
-    <>
+    <div className='flex flex-col gap-1'>
       <textarea
         {...methods.register(props.name, {
           required: t('required'),
@@ -22,7 +22,7 @@ export const AddMovieModalFormTextarea: React.FC<AddMovieModalInputType> = (
       <p className='text-button-red h-3'>
         {methods.formState.errors[props.name]?.message}
       </p>
-    </>
+    </div>
   );
 };
 

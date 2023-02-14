@@ -64,4 +64,7 @@ export {
   UpdateDeleteMovie,
   DeleteConfirmationModal,
   EditMovieModal,
+  AddQuoteModal,
+  ShowMovieExample,
+  QuoteCard,
 } from './MoviePageComponents';

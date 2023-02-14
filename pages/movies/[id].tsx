@@ -7,15 +7,39 @@ import {
   UpdateDeleteMovie,
   DeleteConfirmationModal,
   EditMovieModal,
+  AddQuoteModal,
+  QuoteCard,
 } from 'components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useMoviePageConfig } from 'hooks';
 export const Movie = () => {
-  const { t, i18n, deleteMovie, screenWidth, movie, editMovie } =
-    useMoviePageConfig();
+  const {
+    t,
+    i18n,
+    deleteMovie,
+    screenWidth,
+    movie,
+    editMovie,
+    addQuoteModalHere,
+    getQuotesHere,
+  } = useMoviePageConfig();
   const displayGenres = movie?.genres.map(
     (genre: { name: string }, index: number) => {
       return <DisplayGenres key={index} name={t('genres.' + genre.name)} />;
+    }
+  );
+  const displayQuotes = getQuotesHere?.map(
+    (
+      quote: { thumbnail: string; quote: { en: string; ka: string } },
+      index: number
+    ) => {
+      return (
+        <QuoteCard
+          key={index}
+          quote={quote.quote[i18n.language === 'en' ? 'en' : 'ka']}
+          thumbnail={quote.thumbnail}
+        />
+      );
     }
   );
   return (
@@ -23,7 +47,8 @@ export const Movie = () => {
       <>
         {deleteMovie && <DeleteConfirmationModal />}
         {editMovie && <EditMovieModal />}
-        <div className='pt-[5.35rem] lg:pl-[15rem] xl:pl-[17rem] 2xl:pl-[20rem] h-full overflow-auto m-auto px-8'>
+        {addQuoteModalHere && <AddQuoteModal />}
+        <div className='pt-[5.35rem] overflow-x-hidden lg:pl-[15rem] xl:pl-[17rem] 2xl:pl-[20rem] h-full overflow-auto m-auto px-8'>
           <header className='w-full xl:flex-row flex flex-col items-start justify-center lg:justify-start gap-6 py-10'>
             <img
               className='rounded-xl w-full object-cover h-[18.75rem] xl:w-[50rem] lg:h-[27.5rem]'
@@ -37,7 +62,9 @@ export const Movie = () => {
                 </h1>
                 <UpdateDeleteMovie />
               </div>
-              <div className='w-full flex gap-2 flex-wrap'>{displayGenres}</div>
+              <div className='w-screen 2xl:w-full flex gap-2 pr-[2rem] flex-wrap'>
+                {displayGenres}
+              </div>
               <MovieDetails
                 director={movie?.director[i18n.language]}
                 budget={movie?.budget}
@@ -46,6 +73,7 @@ export const Movie = () => {
             </div>
           </header>
           <MoviePageSection screenWidth={screenWidth} />
+          <div className='flex flex-col gap-8 mb-8'>{displayQuotes}</div>
         </div>
       </>
     </GlobalLayout>

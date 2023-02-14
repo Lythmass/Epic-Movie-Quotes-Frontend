@@ -1,14 +1,18 @@
-type movie = {
-  'title-en': string;
-  'title-ka': string;
-  'description-en': string;
-  'description-ka': string;
-  'director-en': string;
-  'director-ka': string;
+export type MovieType = {
+  title: {
+    en: 'en';
+    ka: 'ka';
+  };
+  description: {
+    en: 'en';
+    ka: 'ka';
+  };
+  director: {
+    en: 'en';
+    ka: 'ka';
+  };
   budget: number;
-  date: string;
+  year: string;
   thumbnail: string;
-  genres: string[];
+  genres: { name: string }[];
 };
-
-export type MovieType = movie | {};
