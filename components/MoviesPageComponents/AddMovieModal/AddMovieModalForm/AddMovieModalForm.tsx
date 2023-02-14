@@ -2,10 +2,11 @@ import { FormProvider } from 'react-hook-form';
 import { AddMovieModalInput } from 'components';
 import { MoviesInputData } from 'data';
 import { useAddMovieModalFormConfig } from 'hooks';
+import { MovieType } from 'types';
 
 export const AddMovieModalForm: React.FC<{
   action: string;
-  movie?: any;
+  movie?: MovieType;
 }> = (props) => {
   const { t, methods, submit } = useAddMovieModalFormConfig(
     props.action,

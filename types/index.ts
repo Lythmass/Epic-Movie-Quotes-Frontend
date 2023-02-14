@@ -25,3 +25,4 @@ export type { ProfileHeaderType } from './ProfileHeaderType';
 export type { EditProfileInputsModalType } from './EditProfileInputsModalType';
 export type { UsernameOrPasswordType } from './UsernameOrPasswordType';
 export type { GoBackButtonMobileType } from './GoBackButtonMobileType';
+export type { MovieType } from './MovieType';
