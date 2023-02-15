@@ -1,6 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { useQuoteDropdownConfig } from 'hooks';
 import { QuoteDropdownType } from 'types';
+import { useDispatch } from 'react-redux';
+import { setQuoteDeleteConfirmationModal } from 'slices/quotesSlice';
+import { useTranslation } from 'next-i18next';
 
 export const QuoteDropdown: React.FC<QuoteDropdownType> = (props) => {
   const modalRef = useQuoteDropdownConfig(
@@ -8,6 +11,8 @@ export const QuoteDropdown: React.FC<QuoteDropdownType> = (props) => {
     props.showDropdown,
     props.dotsRef
   );
+  const dispatch = useDispatch();
+  const { t } = useTranslation('movies');
   return (
     <div
       ref={modalRef}
@@ -15,15 +20,20 @@ export const QuoteDropdown: React.FC<QuoteDropdownType> = (props) => {
     >
       <div className='px-10 flex cursor-pointer w-full hover:bg-[#11101A] gap-4 items-center'>
         <img src='/assets/images/eye.png' alt='view' />
-        <h1>View post</h1>
+        <h1>{t('view-post')}</h1>
       </div>
       <div className='px-10 flex cursor-pointer w-full hover:bg-[#11101A] gap-4 items-center'>
         <img src='/assets/images/pencil.png' alt='edit' />
-        <h1>Edit</h1>
+        <h1>{t('edit')}</h1>
       </div>
-      <div className='px-10 flex cursor-pointer w-full hover:bg-[#11101A] gap-4 items-center'>
+      <div
+        onClick={() => {
+          dispatch(setQuoteDeleteConfirmationModal(props.id));
+        }}
+        className='px-10 flex cursor-pointer w-full hover:bg-[#11101A] gap-4 items-center'
+      >
         <img src='/assets/images/delete.png' alt='delete' />
-        <h1>Delete</h1>
+        <h1>{t('delete')}</h1>
       </div>
     </div>
   );

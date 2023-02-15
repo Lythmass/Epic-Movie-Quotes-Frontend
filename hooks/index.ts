@@ -43,3 +43,4 @@ export { default as useGetSingleMovie } from './useGetSingleMovie';
 export { default as useAddQuoteModalConfig } from './useAddQuoteModalConfig';
 export { default as useFetchQuotes } from './useFetchQuotes';
 export { default as useQuoteDropdownConfig } from './useQuoteDropdownConfig';
+export { default as useQuoteDelete } from './useQuoteDelete';

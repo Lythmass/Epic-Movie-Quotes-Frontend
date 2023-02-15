@@ -162,4 +162,9 @@ export const fetchQuotes = async (id: any) => {
   const response = await instance.post('/api/get-quotes', { id: id });
   return response;
 };
+
+export const deleteQuote = async (id: any) => {
+  const response = await instance.post('/api/delete-quote', { id: id });
+  return response;
+};
 //End of quotes
