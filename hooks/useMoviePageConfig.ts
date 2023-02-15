@@ -8,10 +8,12 @@ import {
 import { useSelector } from 'react-redux';
 import { getMovies } from 'slices/moviesSlice';
 import { useTranslation } from 'next-i18next';
-import { getDeleteValue } from 'slices/moviesSlice';
-import { getEditValue } from 'slices/moviesSlice';
-import { addQuoteModal } from 'slices/quotesSlice';
-import { getQuotes } from 'slices/quotesSlice';
+import { getDeleteValue, getEditValue } from 'slices/moviesSlice';
+import {
+  addQuoteModal,
+  getQuotes,
+  quoteDeleteConfirmationModal,
+} from 'slices/quotesSlice';
 
 export default function useMoviePageConfig() {
   const router = useRouter();
@@ -23,6 +25,9 @@ export default function useMoviePageConfig() {
   const editMovie = useSelector(getEditValue);
   const addQuoteModalHere = useSelector(addQuoteModal);
   const getQuotesHere = useSelector(getQuotes);
+  const quoteDeleteConfirmationModalHere = useSelector(
+    quoteDeleteConfirmationModal
+  );
   const screenWidth = useWindowWidth();
   const movie = useSelector(getMovies)?.filter(
     (item: any) => item.id == router.query.id
@@ -37,5 +42,6 @@ export default function useMoviePageConfig() {
     editMovie,
     addQuoteModalHere,
     getQuotesHere,
+    quoteDeleteConfirmationModalHere,
   };
 }

@@ -6,9 +6,11 @@ import { useRef } from 'react';
 export const QuoteCard: React.FC<{
   thumbnail: string;
   quote: string;
+  id: number;
 }> = (props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dotsRef = useRef<HTMLImageElement>(null);
+
   return (
     <div className='w-screen sm:w-[70%] xl:w-[49rem] xl:rounded-[0.625rem] translate-x-[-2rem] sm:translate-x-[0] bg-[#11101A]'>
       <div className='w-full px-8 mt-3 flex flex-col gap-5'>
@@ -46,6 +48,7 @@ export const QuoteCard: React.FC<{
               showDropdown={showDropdown}
               setShowDropdown={setShowDropdown}
               dotsRef={dotsRef}
+              id={props.id}
             />
           )}
         </div>

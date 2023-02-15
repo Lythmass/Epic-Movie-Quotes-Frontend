@@ -9,6 +9,7 @@ import {
   EditMovieModal,
   AddQuoteModal,
   QuoteCard,
+  QuoteDeleteConfirmationModal,
 } from 'components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useMoviePageConfig } from 'hooks';
@@ -22,6 +23,7 @@ export const Movie = () => {
     editMovie,
     addQuoteModalHere,
     getQuotesHere,
+    quoteDeleteConfirmationModalHere,
   } = useMoviePageConfig();
   const displayGenres = movie?.genres.map(
     (genre: { name: string }, index: number) => {
@@ -30,12 +32,17 @@ export const Movie = () => {
   );
   const displayQuotes = getQuotesHere?.map(
     (
-      quote: { thumbnail: string; quote: { en: string; ka: string } },
+      quote: {
+        thumbnail: string;
+        id: number;
+        quote: { en: string; ka: string };
+      },
       index: number
     ) => {
       return (
         <QuoteCard
           key={index}
+          id={quote.id}
           quote={quote.quote[i18n.language === 'en' ? 'en' : 'ka']}
           thumbnail={quote.thumbnail}
         />
@@ -48,6 +55,9 @@ export const Movie = () => {
         {deleteMovie && <DeleteConfirmationModal />}
         {editMovie && <EditMovieModal />}
         {addQuoteModalHere && <AddQuoteModal />}
+        {quoteDeleteConfirmationModalHere > 0 && (
+          <QuoteDeleteConfirmationModal />
+        )}
         <div className='pt-[5.35rem] overflow-x-hidden lg:pl-[15rem] xl:pl-[17rem] 2xl:pl-[20rem] h-full overflow-auto m-auto px-8'>
           <header className='w-full xl:flex-row flex flex-col items-start justify-center lg:justify-start gap-6 py-10'>
             <img
