@@ -11,6 +11,7 @@ import { useTranslation } from 'next-i18next';
 import { getDeleteValue, getEditValue } from 'slices/moviesSlice';
 import {
   addQuoteModal,
+  editQuote,
   getQuotes,
   quoteDeleteConfirmationModal,
 } from 'slices/quotesSlice';
@@ -28,6 +29,7 @@ export default function useMoviePageConfig() {
   const quoteDeleteConfirmationModalHere = useSelector(
     quoteDeleteConfirmationModal
   );
+  const editQuoteHere = useSelector(editQuote);
   const screenWidth = useWindowWidth();
   const movie = useSelector(getMovies)?.filter(
     (item: any) => item.id == router.query.id
@@ -43,5 +45,6 @@ export default function useMoviePageConfig() {
     addQuoteModalHere,
     getQuotesHere,
     quoteDeleteConfirmationModalHere,
+    editQuoteHere,
   };
 }

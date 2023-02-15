@@ -5,7 +5,10 @@ import { ToastOptionsType } from 'types';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 import { useFetchQuotes } from 'hooks';
-import { setQuoteDeleteConfirmationModal } from 'slices/quotesSlice';
+import {
+  setEditQuote,
+  setQuoteDeleteConfirmationModal,
+} from 'slices/quotesSlice';
 
 export default function useQuoteDelete() {
   const dispatch = useDispatch();
@@ -29,6 +32,7 @@ export default function useQuoteDelete() {
       onSuccess: (response) => {
         toast.success(t(response.data.message), toastOptions);
         dispatch(setQuoteDeleteConfirmationModal(0));
+        dispatch(setEditQuote(0));
         refetch();
       },
       onError: (error: any) => {

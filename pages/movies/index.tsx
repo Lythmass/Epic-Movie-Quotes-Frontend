@@ -20,7 +20,7 @@ export const Movies = () => {
           thumbnail={movie.thumbnail}
           title={movie.title[i18n.language]}
           year={movie.year}
-          numberOfQuotes={0}
+          numberOfQuotes={movie.quotes.length}
         />
       );
     }
