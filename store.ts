@@ -4,6 +4,7 @@ import newEmailModalReducer from 'slices/newEmailModalSlice';
 import mobileConfirmationReducer from 'slices/mobileConfirmationModalSlice';
 import addMovieModalReducer from 'slices/addMovieModalSlice';
 import moviesReducer from 'slices/moviesSlice';
+import quotesReducer from 'slices/quotesSlice';
 
 export const store = configureStore({
   reducer: {
@@ -12,6 +13,7 @@ export const store = configureStore({
     mobileConfirmationModal: mobileConfirmationReducer,
     addMovieModal: addMovieModalReducer,
     movies: moviesReducer,
+    quotes: quotesReducer,
   },
 });
 

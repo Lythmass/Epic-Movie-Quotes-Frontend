@@ -39,3 +39,6 @@ export { default as useDeleteConfirmationModalConfig } from './useDeleteConfirma
 export { default as useEditMovieModalConfig } from './useEditMovieModalConfig';
 export { default as useAddMovieModalFormConfig } from './useAddMovieModalFormConfig';
 export { default as useAddMovieModalGenresConfig } from './useAddMovieModalGenresConfig';
+export { default as useGetSingleMovie } from './useGetSingleMovie';
+export { default as useAddQuoteModalConfig } from './useAddQuoteModalConfig';
+export { default as useFetchQuotes } from './useFetchQuotes';

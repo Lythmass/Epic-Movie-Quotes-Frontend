@@ -142,3 +142,24 @@ export const updateMovie = async (id: any, data: any) => {
 };
 
 //End of movies
+
+//Quotes
+export const uploadQuote = async (data: any, id: number) => {
+  const response = await instance.post(
+    '/api/upload-quote',
+    { ...data, id: id },
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Accept: 'multipart/form-data',
+      },
+    }
+  );
+  return response;
+};
+
+export const fetchQuotes = async (id: any) => {
+  const response = await instance.post('/api/get-quotes', { id: id });
+  return response;
+};
+//End of quotes
