@@ -67,4 +67,5 @@ export {
   AddQuoteModal,
   ShowMovieExample,
   QuoteCard,
+  QuoteDropdown,
 } from './MoviePageComponents';
