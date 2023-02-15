@@ -26,3 +26,4 @@ export type { EditProfileInputsModalType } from './EditProfileInputsModalType';
 export type { UsernameOrPasswordType } from './UsernameOrPasswordType';
 export type { GoBackButtonMobileType } from './GoBackButtonMobileType';
 export type { MovieType } from './MovieType';
+export type { QuoteDropdownType } from './QuoteDropdownType';

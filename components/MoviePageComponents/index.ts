@@ -6,3 +6,4 @@ export { DeleteConfirmationModal } from './DeleteConfirmationModal';
 export { EditMovieModal } from './EditMovieModal';
 export { AddQuoteModal, ShowMovieExample } from './AddQuoteModal';
 export { QuoteCard } from './QuoteCard';
+export { QuoteDropdown } from './QuoteDropdown';

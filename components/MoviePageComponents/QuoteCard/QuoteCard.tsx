@@ -1,10 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
+import { useState } from 'react';
+import { QuoteDropdown } from 'components';
+import { useRef } from 'react';
+
 export const QuoteCard: React.FC<{
   thumbnail: string;
   quote: string;
 }> = (props) => {
+  const [showDropdown, setShowDropdown] = useState(false);
+  const dotsRef = useRef<HTMLImageElement>(null);
   return (
-    <div className='w-screen sm:w-[70%] xl:w-[50rem] xl:rounded-[0.625rem] translate-x-[-2rem] sm:translate-x-[0] bg-[#11101A]'>
+    <div className='w-screen sm:w-[70%] xl:w-[49rem] xl:rounded-[0.625rem] translate-x-[-2rem] sm:translate-x-[0] bg-[#11101A]'>
       <div className='w-full px-8 mt-3 flex flex-col gap-5'>
         <div className='w-full flex flex-col gap-6 xl:flex-row'>
           <img
@@ -28,7 +34,20 @@ export const QuoteCard: React.FC<{
               <img src='/assets/images/heart.png' alt='comments' />
             </div>
           </div>
-          <img src='/assets/images/dots.png' alt='more' />
+          <img
+            onClick={() => setShowDropdown(true)}
+            className='cursor-pointer'
+            ref={dotsRef}
+            src='/assets/images/dots.png'
+            alt='more'
+          />
+          {showDropdown && (
+            <QuoteDropdown
+              showDropdown={showDropdown}
+              setShowDropdown={setShowDropdown}
+              dotsRef={dotsRef}
+            />
+          )}
         </div>
       </div>
     </div>
