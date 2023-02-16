@@ -2,7 +2,10 @@
 import { useQuoteDropdownConfig } from 'hooks';
 import { QuoteDropdownType } from 'types';
 import { useDispatch } from 'react-redux';
-import { setQuoteDeleteConfirmationModal } from 'slices/quotesSlice';
+import {
+  setEditQuote,
+  setQuoteDeleteConfirmationModal,
+} from 'slices/quotesSlice';
 import { useTranslation } from 'next-i18next';
 
 export const QuoteDropdown: React.FC<QuoteDropdownType> = (props) => {
@@ -16,13 +19,18 @@ export const QuoteDropdown: React.FC<QuoteDropdownType> = (props) => {
   return (
     <div
       ref={modalRef}
-      className='absolute z-[1000] flex flex-col justify-center items-start gap-8 right-[1.93rem] bottom-[1.3rem] text-white bg-[#24222F] w-[15.5rem] h-[12.5rem] rounded-[0.625rem]'
+      className='absolute z-[1000] flex flex-col justify-center items-start gap-8 right-[1.93rem] bottom-[1.3rem] text-white bg-[#24222F] w-[15.5rem] h-[13rem] rounded-[0.625rem]'
     >
-      <div className='px-10 flex cursor-pointer w-full hover:bg-[#11101A] gap-4 items-center'>
+      <div className='px-10 py-1 flex cursor-pointer w-full hover:bg-[#11101A] gap-4 items-center'>
         <img src='/assets/images/eye.png' alt='view' />
         <h1>{t('view-post')}</h1>
       </div>
-      <div className='px-10 flex cursor-pointer w-full hover:bg-[#11101A] gap-4 items-center'>
+      <div
+        onClick={() => {
+          dispatch(setEditQuote(props.id));
+        }}
+        className='px-10 py-1 flex cursor-pointer w-full hover:bg-[#11101A] gap-4 items-center'
+      >
         <img src='/assets/images/pencil.png' alt='edit' />
         <h1>{t('edit')}</h1>
       </div>
@@ -30,7 +38,7 @@ export const QuoteDropdown: React.FC<QuoteDropdownType> = (props) => {
         onClick={() => {
           dispatch(setQuoteDeleteConfirmationModal(props.id));
         }}
-        className='px-10 flex cursor-pointer w-full hover:bg-[#11101A] gap-4 items-center'
+        className='px-10  py-1 flex cursor-pointer w-full hover:bg-[#11101A] gap-4 items-center'
       >
         <img src='/assets/images/delete.png' alt='delete' />
         <h1>{t('delete')}</h1>

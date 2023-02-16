@@ -69,4 +69,6 @@ export {
   QuoteCard,
   QuoteDropdown,
   QuoteDeleteConfirmationModal,
+  EditQuoteModal,
+  EditQuoteModalHeader,
 } from './MoviePageComponents';

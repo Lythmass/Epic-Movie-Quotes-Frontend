@@ -14,6 +14,7 @@ module.exports = {
         'navbar-color': '#24222E',
         'primary-email': 'rgba(25, 135, 84, 0.2)',
         'not-verified': 'rgba(236, 149, 36, 0.2)',
+        'change-thumbnail-bg': 'rgba(24, 22, 35, 0.8)',
       },
       backgroundImage: {
         'dark-bg':

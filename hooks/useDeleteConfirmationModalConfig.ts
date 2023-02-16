@@ -6,10 +6,12 @@ import { toast } from 'react-toastify';
 import { ToastOptionsType } from 'types';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
+import useFetchQuotes from './useFetchQuotes';
 
 export default function useDeleteConfirmationModalConfig() {
   const dispatch = useDispatch();
   const router = useRouter();
+  const refetch = useFetchQuotes();
   const { t } = useTranslation('movies');
   const toastOptions: ToastOptionsType = {
     position: 'top-right',
@@ -29,6 +31,7 @@ export default function useDeleteConfirmationModalConfig() {
       onSuccess: (response) => {
         toast.success(t(response.data.message), toastOptions);
         dispatch(setDeleteMovie(false));
+        refetch();
         router.push('/movies');
       },
       onError: (error: any) => {

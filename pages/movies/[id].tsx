@@ -10,6 +10,7 @@ import {
   AddQuoteModal,
   QuoteCard,
   QuoteDeleteConfirmationModal,
+  EditQuoteModal,
 } from 'components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useMoviePageConfig } from 'hooks';
@@ -24,6 +25,7 @@ export const Movie = () => {
     addQuoteModalHere,
     getQuotesHere,
     quoteDeleteConfirmationModalHere,
+    editQuoteHere,
   } = useMoviePageConfig();
   const displayGenres = movie?.genres.map(
     (genre: { name: string }, index: number) => {
@@ -55,9 +57,8 @@ export const Movie = () => {
         {deleteMovie && <DeleteConfirmationModal />}
         {editMovie && <EditMovieModal />}
         {addQuoteModalHere && <AddQuoteModal />}
-        {quoteDeleteConfirmationModalHere > 0 && (
-          <QuoteDeleteConfirmationModal />
-        )}
+        {editQuoteHere && <EditQuoteModal />}
+        {quoteDeleteConfirmationModalHere && <QuoteDeleteConfirmationModal />}
         <div className='pt-[5.35rem] overflow-x-hidden lg:pl-[15rem] xl:pl-[17rem] 2xl:pl-[20rem] h-full overflow-auto m-auto px-8'>
           <header className='w-full xl:flex-row flex flex-col items-start justify-center lg:justify-start gap-6 py-10'>
             <img

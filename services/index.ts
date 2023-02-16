@@ -167,4 +167,18 @@ export const deleteQuote = async (id: any) => {
   const response = await instance.post('/api/delete-quote', { id: id });
   return response;
 };
+
+export const updateQuote = async (data: any, id: number) => {
+  const response = await instance.post(
+    '/api/update-quote',
+    { ...data, id: id },
+    {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+        Accept: 'multipart/form-data',
+      },
+    }
+  );
+  return response;
+};
 //End of quotes
