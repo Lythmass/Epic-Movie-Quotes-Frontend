@@ -27,3 +27,4 @@ export type { UsernameOrPasswordType } from './UsernameOrPasswordType';
 export type { GoBackButtonMobileType } from './GoBackButtonMobileType';
 export type { MovieType } from './MovieType';
 export type { QuoteDropdownType } from './QuoteDropdownType';
+export type { PostType } from './PostType';

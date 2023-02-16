@@ -5,7 +5,7 @@ import mobileConfirmationReducer from 'slices/mobileConfirmationModalSlice';
 import addMovieModalReducer from 'slices/addMovieModalSlice';
 import moviesReducer from 'slices/moviesSlice';
 import quotesReducer from 'slices/quotesSlice';
-
+import newsFeedQuotesReducer from 'slices/newsFeedQuotesSlice';
 export const store = configureStore({
   reducer: {
     userInfo: userInfoReducer,
@@ -14,6 +14,7 @@ export const store = configureStore({
     addMovieModal: addMovieModalReducer,
     movies: moviesReducer,
     quotes: quotesReducer,
+    newsFeedQuotes: newsFeedQuotesReducer,
   },
 });
 
