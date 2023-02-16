@@ -6,7 +6,7 @@ import { useFetchMovies } from 'hooks';
 import { useTranslation } from 'next-i18next';
 
 export default function useUploadMovie(action: string, id: number) {
-  const refetch = useFetchMovies();
+  const { refetch } = useFetchMovies();
   const { t } = useTranslation('movies');
   const toastOptions: ToastOptionsType = {
     position: 'top-right',

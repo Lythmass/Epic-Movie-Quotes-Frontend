@@ -10,5 +10,5 @@ export default function useFetchMovies() {
   useEffect(() => {
     dispatch(setMovies(data?.data[0].movies));
   }, [data, dispatch]);
-  return refetch;
+  return { refetch };
 }
