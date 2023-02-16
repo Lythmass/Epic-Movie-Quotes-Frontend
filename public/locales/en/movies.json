@@ -38,6 +38,7 @@
   "edit": "Edit",
   "view-post": "View post",
   "delete": "Delete",
+  "search": "Search",
   "modal": {
     "make-sure": "Are you sure you want to delete the movie?",
     "cancel": "Cancel",
