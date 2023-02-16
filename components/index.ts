@@ -55,6 +55,7 @@ export {
   AddMovieModalFormInput,
   AddMovieModalFormTextarea,
   AddMovieModalFormDate,
+  MovieSearch,
 } from './MoviesPageComponents';
 
 export {

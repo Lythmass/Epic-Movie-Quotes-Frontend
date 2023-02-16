@@ -8,7 +8,7 @@ export const MovieInstance: React.FC<MovieInstanceType> = (props) => {
     router.push('movies/' + props.id);
   };
   return (
-    <div className='flex flex-col gap-4 sm:basis-[45%] lg:basis-[45%] xl:basis-[29%] 2xl:basis-[30%]'>
+    <div className='flex w-full flex-col gap-4 sm:basis-[45%] lg:basis-[45%] xl:basis-[29%] 2xl:basis-[30%]'>
       <img
         onClick={clickHandler}
         className='w-full h-[18rem] object-cover rounded-xl cursor-pointer'
