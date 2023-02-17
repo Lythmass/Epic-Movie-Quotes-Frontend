@@ -73,3 +73,10 @@ export {
   EditQuoteModal,
   EditQuoteModalHeader,
 } from './MoviePageComponents';
+
+export {
+  PostCard,
+  PostCardHeader,
+  PostCardSection,
+  WriteQuoteAndSearch,
+} from './NewsFeedComponents';

@@ -15,6 +15,8 @@ module.exports = {
         'primary-email': 'rgba(25, 135, 84, 0.2)',
         'not-verified': 'rgba(236, 149, 36, 0.2)',
         'change-thumbnail-bg': 'rgba(24, 22, 35, 0.8)',
+        'post-bg': 'rgba(0, 0, 0, 0.29)',
+        'write-quote-bg': 'rgba(36, 34, 47, 0.6)',
       },
       backgroundImage: {
         'dark-bg':
