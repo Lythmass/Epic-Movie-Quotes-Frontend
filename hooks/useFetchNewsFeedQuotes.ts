@@ -1,14 +1,27 @@
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 import { useQuery } from 'react-query';
 import { useDispatch } from 'react-redux';
 import { getNewsFeedQuotes } from 'services';
-import { setQuotes } from 'slices/newsFeedQuotesSlice';
+import { setQuotes, getQuotes } from 'slices/newsFeedQuotesSlice';
+import { useSelector } from 'react-redux';
 
 export default function useFetchNewsFeedQuotes() {
-  const { data, refetch } = useQuery('news-feed-quotes', getNewsFeedQuotes);
   const dispatch = useDispatch();
+  const quotes = useSelector(getQuotes);
+  const [startRange, setStartRange] = useState(0);
+  const { data, refetch } = useQuery(
+    'news-feed-quotes',
+    () => getNewsFeedQuotes(startRange),
+    { onSuccess: () => setStartRange((oldValue) => oldValue + 2) }
+  );
+
   useEffect(() => {
-    dispatch(setQuotes(data?.data.quotes));
+    if (quotes == undefined) {
+      dispatch(setQuotes(data?.data.quotes));
+    } else {
+      dispatch(setQuotes([...quotes, ...data?.data.quotes]));
+    }
   }, [data, dispatch]);
-  return refetch;
+
+  return { refetch, startRange };
 }

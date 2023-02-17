@@ -47,3 +47,5 @@ export { default as useQuoteDelete } from './useQuoteDelete';
 export { default as useEditQuoteModalConfig } from './useEditQuoteModalConfig';
 export { default as useMoviePageHeaderConfig } from './useMoviePageHeaderConfig';
 export { default as useFetchNewsFeedQuotes } from './useFetchNewsFeedQuotes';
+export { default as useFetchQuotesLength } from './useFetchQuotesLength';
+export { default as useNewsFeedConfig } from './useNewsFeedConfig';
