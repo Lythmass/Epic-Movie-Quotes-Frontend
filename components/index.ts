@@ -79,4 +79,9 @@ export {
   PostCardHeader,
   PostCardSection,
   WriteQuoteAndSearch,
+  AddNewPostModal,
+  WriteComment,
+  DisplayComments,
+  SearchModal,
+  NotificationsModal,
 } from './NewsFeedComponents';

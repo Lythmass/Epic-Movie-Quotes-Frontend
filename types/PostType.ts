@@ -11,4 +11,11 @@ export type PostType = {
     };
     year: number;
   };
+  user?: {
+    name: string;
+    profile_picture: string;
+  };
+  author?: string;
+  authorPicture?: string;
+  id?: number;
 };

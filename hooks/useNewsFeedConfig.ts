@@ -6,21 +6,36 @@ import {
 import { useTranslation } from 'next-i18next';
 
 import { useSelector } from 'react-redux';
-import { getQuotes, length } from 'slices/newsFeedQuotesSlice';
+import {
+  getAddPostModal,
+  getNotificationModal,
+  getQuotes,
+  getSearchModal,
+  length,
+} from 'slices/newsFeedQuotesSlice';
+import { getSearchType } from 'slices/searchSlice';
 
 export default function useNewsFeedConfig() {
   useFetchUserInfo();
+  const getAddPostModalHere = useSelector(getAddPostModal);
   const { i18n } = useTranslation('news-feed');
-  const { refetch, startRange } = useFetchNewsFeedQuotes();
+  const { refetch } = useFetchNewsFeedQuotes();
   const numberOfQuotes = useSelector(length);
+  const getSearchModalHere = useSelector(getSearchModal);
+  const getNotificationModalHere = useSelector(getNotificationModal);
   useFetchQuotesLength();
   const quotes = useSelector(getQuotes);
+  const searchType = useSelector(getSearchType);
 
   return {
     refetch,
-    startRange,
+
     numberOfQuotes,
     quotes,
     i18n,
+    getAddPostModalHere,
+    getSearchModalHere,
+    searchType,
+    getNotificationModalHere,
   };
 }

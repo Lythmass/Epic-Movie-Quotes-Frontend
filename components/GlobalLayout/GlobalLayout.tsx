@@ -8,6 +8,7 @@ import {
   editQuote,
   quoteDeleteConfirmationModal,
 } from 'slices/quotesSlice';
+import { getAddPostModal, getSearchModal } from 'slices/newsFeedQuotesSlice';
 
 export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
   const showNewEmailModalHere = useSelector(showNewEmailModal);
@@ -18,6 +19,8 @@ export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
     quoteDeleteConfirmationModal
   );
   const editQuoteHere = useSelector(editQuote);
+  const getAddPostModalHere = useSelector(getAddPostModal);
+  const getSearchModalHere = useSelector(getSearchModal);
   return (
     <div
       className={` ${
@@ -26,6 +29,8 @@ export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
           getDeleteValueHere ||
           quoteDeleteConfirmationModalHere ||
           editQuoteHere ||
+          getAddPostModalHere ||
+          getSearchModalHere ||
           AddQuoteModalHere) &&
         'overflow-hidden h-screen'
       } w-full bg-global-layout-bg min-h-screen`}

@@ -3,10 +3,17 @@ import { BurgerMenu, LanguageChanger } from 'components';
 import { useState } from 'react';
 import { useWindowWidth } from 'hooks';
 import { useTranslation } from 'next-i18next';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  getNotificationModal,
+  setNotificationModal,
+} from 'slices/newsFeedQuotesSlice';
 
 export default function NavBar() {
   const [burgerMenu, setBurgerMenu] = useState(false);
   const { t } = useTranslation('profile');
+  const dispatch = useDispatch();
+  const getNotificationModalHere = useSelector(getNotificationModal);
   const screenWidth = useWindowWidth();
   return (
     <div className='w-full z-[100] fixed top-0 flex justify-between px-9 items-center h-[5.35rem] bg-navbar-color'>
@@ -20,7 +27,12 @@ export default function NavBar() {
         {screenWidth > 1024 && <p className='text-[#DDCCAA]'>{t('title')}</p>}
       </div>
       <div className='flex gap-8 items-center'>
-        <div className='cursor-pointer'>
+        <div
+          onClick={() =>
+            dispatch(setNotificationModal(!getNotificationModalHere))
+          }
+          className='cursor-pointer'
+        >
           <img
             className='w-5 h-6'
             src='/assets/images/ring.png'

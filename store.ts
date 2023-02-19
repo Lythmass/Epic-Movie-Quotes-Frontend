@@ -6,6 +6,8 @@ import addMovieModalReducer from 'slices/addMovieModalSlice';
 import moviesReducer from 'slices/moviesSlice';
 import quotesReducer from 'slices/quotesSlice';
 import newsFeedQuotesReducer from 'slices/newsFeedQuotesSlice';
+import searchReducer from 'slices/searchSlice';
+
 export const store = configureStore({
   reducer: {
     userInfo: userInfoReducer,
@@ -15,6 +17,7 @@ export const store = configureStore({
     movies: moviesReducer,
     quotes: quotesReducer,
     newsFeedQuotes: newsFeedQuotesReducer,
+    search: searchReducer,
   },
 });
 

@@ -1,5 +1,10 @@
+import { usePostCardSectionConfig } from 'hooks';
+import { PostCardSectionType } from './PostCardSectionType';
+
 /* eslint-disable @next/next/no-img-element */
-export const PostCardSection: React.FC<{ thumbnail: string }> = (props) => {
+export const PostCardSection: React.FC<PostCardSectionType> = (props) => {
+  const { likesCount, like, isLiked } = usePostCardSectionConfig(props.quoteId);
+
   return (
     <section className='flex flex-col gap-4'>
       <img
@@ -9,12 +14,19 @@ export const PostCardSection: React.FC<{ thumbnail: string }> = (props) => {
       />
       <div className='flex gap-6'>
         <div className='flex gap-3 items-center'>
-          <p className='text-white text-xl'>0</p>
+          <p className='text-white text-xl'>{props.numberOfQuotes}</p>
           <img src='/assets/images/chat.png' alt='comments' />
         </div>
         <div className='flex gap-3 items-center'>
-          <p className='text-white text-xl'>0</p>
-          <img src='/assets/images/heart.png' alt='comments' />
+          <p className='text-white text-xl'>{likesCount}</p>
+          <img
+            onClick={like}
+            className='cursor-pointer transition-all w-6'
+            src={
+              isLiked ? '/assets/images/liked.png' : '/assets/images/heart.png'
+            }
+            alt='comments'
+          />
         </div>
       </div>
     </section>

@@ -16,6 +16,6 @@
     "incremental": true,
     "baseUrl": "."
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "slices"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "slices", "utils/laravel-echo.js"],
   "exclude": ["node_modules"]
 }

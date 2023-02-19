@@ -1,4 +1,16 @@
 {
   "new-quote": "Write new quote",
-  "search-by": "Search by"
+  "search-by": "Search by",
+  "post": "Post",
+  "choose-movie": "Choose movie",
+  "quote-add": "Post added successfully!",
+  "write-comment": "Write a comment",
+  "comment-add": "Comment added successfully!",
+  "search": "Enter @ to search movies, Enter # to search quotes",
+  "mobile-search": {
+    "search": "Search",
+    "enter": "Enter",
+    "movies": "to search movies",
+    "quotes": "to search quotes"
+  }
 }
