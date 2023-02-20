@@ -28,3 +28,4 @@ export type { GoBackButtonMobileType } from './GoBackButtonMobileType';
 export type { MovieType } from './MovieType';
 export type { QuoteDropdownType } from './QuoteDropdownType';
 export type { PostType } from './PostType';
+export type { NotificationType } from './NotificationType';

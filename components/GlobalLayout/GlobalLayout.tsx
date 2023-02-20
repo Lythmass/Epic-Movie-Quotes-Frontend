@@ -8,7 +8,12 @@ import {
   editQuote,
   quoteDeleteConfirmationModal,
 } from 'slices/quotesSlice';
-import { getAddPostModal, getSearchModal } from 'slices/newsFeedQuotesSlice';
+import {
+  getAddPostModal,
+  getNotificationModal,
+  getSearchModal,
+} from 'slices/newsFeedQuotesSlice';
+import { useWindowWidth } from 'hooks';
 
 export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
   const showNewEmailModalHere = useSelector(showNewEmailModal);
@@ -21,10 +26,13 @@ export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
   const editQuoteHere = useSelector(editQuote);
   const getAddPostModalHere = useSelector(getAddPostModal);
   const getSearchModalHere = useSelector(getSearchModal);
+  const getNotificationModalHere = useSelector(getNotificationModal);
+  const windowSize = useWindowWidth();
   return (
     <div
       className={` ${
         (showNewEmailModalHere ||
+          (getNotificationModalHere && windowSize < 1024) ||
           addMovieModalHere ||
           getDeleteValueHere ||
           quoteDeleteConfirmationModalHere ||
