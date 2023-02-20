@@ -16,7 +16,15 @@ export {
   PasswordResetModal,
 } from './LandingPageComponents';
 export { default as Button } from './Button';
-export { GlobalLayout, AuthNavBar, BurgerMenu } from './GlobalLayout';
+
+export {
+  GlobalLayout,
+  AuthNavBar,
+  BurgerMenu,
+  NotificationsModal,
+  DisplayNotifications,
+} from './GlobalLayout';
+
 export {
   ProfileInputs,
   ProfileInputsForDesktop,
@@ -83,5 +91,4 @@ export {
   WriteComment,
   DisplayComments,
   SearchModal,
-  NotificationsModal,
 } from './NewsFeedComponents';

@@ -7,4 +7,3 @@ export { WriteComment } from './WriteComment';
 export { DisplayComments } from './DisplayComments';
 export { SearchModal } from './SearchModal';
 export type { CommentType } from './CommentType';
-export { NotificationsModal } from './NotificationsModal';

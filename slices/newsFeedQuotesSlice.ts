@@ -1,15 +1,17 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'store';
+import { NotificationType, PostType } from 'types';
 
 const initialState: {
-  value: object[];
+  value: PostType[];
   length: number;
   postModal: boolean;
   comments: object[];
   likes: { id: number; quote_id: number; user_id: number }[];
   search: boolean;
   notificationModal: boolean;
+  notifications: NotificationType[];
 } = {
   value: [],
   length: 0,
@@ -18,13 +20,14 @@ const initialState: {
   likes: [],
   search: false,
   notificationModal: false,
+  notifications: [],
 };
 
 export const newsFeedQuotesSlice = createSlice({
   name: 'newsFeedQuotes',
   initialState,
   reducers: {
-    setQuotes: (state, value: PayloadAction<object[]>) => {
+    setQuotes: (state, value: PayloadAction<PostType[]>) => {
       state.value = value.payload;
     },
     setNumberOfQuotes: (state, value: PayloadAction<number>) => {
@@ -48,6 +51,9 @@ export const newsFeedQuotesSlice = createSlice({
     setNotificationModal: (state, value: PayloadAction<boolean>) => {
       state.notificationModal = value.payload;
     },
+    setNotifications: (state, value: PayloadAction<NotificationType[]>) => {
+      state.notifications = value.payload;
+    },
   },
 });
 
@@ -59,6 +65,7 @@ export const {
   setLikes,
   setSearchModal,
   setNotificationModal,
+  setNotifications,
 } = newsFeedQuotesSlice.actions;
 export const getQuotes = (state: RootState) => state.newsFeedQuotes.value;
 
@@ -75,4 +82,7 @@ export const getSearchModal = (state: RootState) => state.newsFeedQuotes.search;
 
 export const getNotificationModal = (state: RootState) =>
   state.newsFeedQuotes.notificationModal;
+
+export const getNotificationValues = (state: RootState) =>
+  state.newsFeedQuotes.notifications;
 export default newsFeedQuotesSlice.reducer;

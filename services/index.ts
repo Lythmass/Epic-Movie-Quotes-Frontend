@@ -239,4 +239,21 @@ export const postUnlike = async (data: any) => {
   return response;
 };
 
+export const getNotifications = async (id: number) => {
+  const response = await instance.post('/api/notifications/get-messages', {
+    id: id,
+  });
+  return response;
+};
+
 //End of news feed
+
+//Laravel echo auth
+export const echoAuthorize = async (socket_id: number, channel_name: any) => {
+  const response = await instance.post('/api/broadcasting/auth', {
+    socket_id: socket_id,
+    channel_name: channel_name,
+  });
+  return response;
+};
+//End of Laravel echo auth
