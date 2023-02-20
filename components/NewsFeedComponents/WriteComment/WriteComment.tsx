@@ -1,10 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import { FormProvider } from 'react-hook-form';
 import { useWriteComment } from 'hooks';
+import { WriteCommentType } from './WriteCommentType';
 
-export const WriteComment: React.FC<{ quoteId?: number; refetch: any }> = (
-  props
-) => {
+export const WriteComment: React.FC<WriteCommentType> = (props) => {
   const { user, submit, methods, t } = useWriteComment(
     props.refetch,
     props.quoteId

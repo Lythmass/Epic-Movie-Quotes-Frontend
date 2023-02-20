@@ -25,7 +25,7 @@ export default function usePostCardSectionConfig(quoteId?: number) {
     }
   );
   const unlikeMutation = useMutation(
-    (data: any) => {
+    (data: number) => {
       return postUnlike({ id: data });
     },
     {

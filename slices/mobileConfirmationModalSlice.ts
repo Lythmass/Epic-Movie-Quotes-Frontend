@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'store';
 
-const initialState: { value: any } = {
+const initialState: { value: boolean } = {
   value: false,
 };
 
@@ -11,7 +11,7 @@ export const mobileConfirmationModalSlice = createSlice({
   initialState,
   reducers: {
     setMobileConfirmationModal: (state, value: PayloadAction<boolean>) => {
-      state.value = value;
+      state.value = value.payload;
     },
   },
 });
@@ -19,5 +19,5 @@ export const mobileConfirmationModalSlice = createSlice({
 export const { setMobileConfirmationModal } =
   mobileConfirmationModalSlice.actions;
 export const mobileConfirmationModal = (state: RootState) =>
-  state.mobileConfirmationModal.value.payload;
+  state.mobileConfirmationModal.value;
 export default mobileConfirmationModalSlice.reducer;

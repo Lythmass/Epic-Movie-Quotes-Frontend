@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'store';
 
-const initialState: { value: any; showNewEmailModalMobile: any } = {
+const initialState: { value: boolean; showNewEmailModalMobile: boolean } = {
   value: false,
   showNewEmailModalMobile: false,
 };
@@ -12,10 +12,10 @@ export const newEmailModalSlice = createSlice({
   initialState,
   reducers: {
     setShowNewEmailModalMobile: (state, value: PayloadAction<boolean>) => {
-      state.showNewEmailModalMobile = value;
+      state.showNewEmailModalMobile = value.payload;
     },
     setShowNewEmailModal: (state, value: PayloadAction<boolean>) => {
-      state.value = value;
+      state.value = value.payload;
     },
   },
 });
@@ -23,8 +23,8 @@ export const newEmailModalSlice = createSlice({
 export const { setShowNewEmailModal, setShowNewEmailModalMobile } =
   newEmailModalSlice.actions;
 export const showNewEmailModal = (state: RootState) =>
-  state.newEmailModal.value.payload;
+  state.newEmailModal.value;
 export const showNewEmailModalMobile = (state: RootState) =>
-  state.newEmailModal.showNewEmailModalMobile.payload;
+  state.newEmailModal.showNewEmailModalMobile;
 
 export default newEmailModalSlice.reducer;
