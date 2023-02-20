@@ -2,14 +2,23 @@
 import { useState } from 'react';
 import { QuoteDropdown } from 'components';
 import { useRef } from 'react';
+import { useSelector } from 'react-redux';
+import { getComments, getLikes } from 'slices/newsFeedQuotesSlice';
+import useFetchComments from 'hooks/useFetchComments';
+import { useFetchLikes } from 'hooks';
+import { QuoteCardType } from './QuoteCardType';
 
-export const QuoteCard: React.FC<{
-  thumbnail: string;
-  quote: string;
-  id: number;
-}> = (props) => {
+export const QuoteCard: React.FC<QuoteCardType> = (props) => {
   const [showDropdown, setShowDropdown] = useState(false);
   const dotsRef = useRef<HTMLImageElement>(null);
+  useFetchComments();
+  useFetchLikes();
+  const commentsLength = useSelector(getComments)?.filter(
+    (comment) => comment.quote_id == props.id
+  ).length;
+  const likesLength = useSelector(getLikes)?.filter(
+    (like) => like.quote_id == props.id
+  ).length;
 
   return (
     <div className='w-screen sm:w-[70%] xl:w-[49rem] xl:rounded-[0.625rem] translate-x-[-2rem] sm:translate-x-[0] bg-[#11101A]'>
@@ -28,11 +37,11 @@ export const QuoteCard: React.FC<{
         <div className='flex justify-between items-center mb-4'>
           <div className='flex gap-6 items-center'>
             <div className='text-white flex gap-3 items-center'>
-              <p>0</p>
+              <p>{commentsLength}</p>
               <img src='/assets/images/chat.png' alt='comments' />
             </div>
             <div className='text-white flex gap-3 items-center'>
-              <p>0</p>
+              <p>{likesLength}</p>
               <img src='/assets/images/heart.png' alt='comments' />
             </div>
           </div>

@@ -11,6 +11,8 @@ import {
   QuoteCard,
   QuoteDeleteConfirmationModal,
   EditQuoteModal,
+  ViewQuoteModal,
+  NotificationsModal,
 } from 'components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useMoviePageConfig } from 'hooks';
@@ -26,6 +28,8 @@ export const Movie = () => {
     getQuotesHere,
     quoteDeleteConfirmationModalHere,
     editQuoteHere,
+    viewQuote,
+    getNotificationsModalHere,
   } = useMoviePageConfig();
   const displayGenres = movie?.genres.map(
     (genre: { name: string }, index: number) => {
@@ -54,11 +58,13 @@ export const Movie = () => {
   return (
     <GlobalLayout>
       <>
+        {getNotificationsModalHere && <NotificationsModal />}
         {deleteMovie && <DeleteConfirmationModal />}
         {editMovie && <EditMovieModal />}
         {addQuoteModalHere && <AddQuoteModal />}
         {editQuoteHere && <EditQuoteModal />}
         {quoteDeleteConfirmationModalHere && <QuoteDeleteConfirmationModal />}
+        {viewQuote && <ViewQuoteModal />}
         <div className='pt-[5.35rem] overflow-x-hidden lg:pl-[15rem] xl:pl-[17rem] 2xl:pl-[20rem] h-full overflow-auto m-auto px-8'>
           <header className='w-full xl:flex-row flex flex-col items-start justify-center lg:justify-start gap-6 py-10'>
             <img
@@ -96,7 +102,11 @@ export default Movie;
 export async function getServerSideProps(context: any) {
   return {
     props: {
-      ...(await serverSideTranslations(context.locale, ['profile', 'movies'])),
+      ...(await serverSideTranslations(context.locale, [
+        'profile',
+        'news-feed',
+        'movies',
+      ])),
     },
   };
 }

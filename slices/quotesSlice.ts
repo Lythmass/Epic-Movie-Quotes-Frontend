@@ -7,11 +7,13 @@ const initialState: {
   quotes: any;
   delete: number;
   edit: number;
+  viewQuote: number;
 } = {
   value: false,
   quotes: [],
   delete: 0,
   edit: 0,
+  viewQuote: 0,
 };
 
 export const quotesSlice = createSlice({
@@ -30,6 +32,9 @@ export const quotesSlice = createSlice({
     setEditQuote: (state, value: PayloadAction<number>) => {
       state.edit = value.payload;
     },
+    setViewQuote: (state, value: PayloadAction<number>) => {
+      state.viewQuote = value.payload;
+    },
   },
 });
 
@@ -38,10 +43,12 @@ export const {
   setQuotes,
   setQuoteDeleteConfirmationModal,
   setEditQuote,
+  setViewQuote,
 } = quotesSlice.actions;
 export const addQuoteModal = (state: RootState) => state.quotes.value;
 export const getQuotes = (state: RootState) => state.quotes.quotes;
 export const quoteDeleteConfirmationModal = (state: RootState) =>
   state.quotes.delete;
 export const editQuote = (state: RootState) => state.quotes.edit;
+export const getViewQuote = (state: RootState) => state.quotes.viewQuote;
 export default quotesSlice.reducer;

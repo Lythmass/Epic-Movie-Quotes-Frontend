@@ -9,3 +9,4 @@ export { QuoteCard } from './QuoteCard';
 export { QuoteDropdown } from './QuoteDropdown';
 export { QuoteDeleteConfirmationModal } from './QuoteDeleteConfirmationModal';
 export { EditQuoteModal, EditQuoteModalHeader } from './EditQuoteModal';
+export { ViewQuoteModal, ViewQuoteModalHeader } from './ViewQuoteModal';

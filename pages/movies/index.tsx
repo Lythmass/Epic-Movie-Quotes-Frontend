@@ -3,6 +3,7 @@ import {
   MovieInstance,
   MoviePageHeader,
   AddMovieModal,
+  NotificationsModal,
 } from 'components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useMoviesPageConfig } from 'hooks';
@@ -10,7 +11,8 @@ import { getMovies } from 'slices/moviesSlice';
 import { useSelector } from 'react-redux';
 
 export const Movies = () => {
-  const { i18n, addMovieModalHere } = useMoviesPageConfig();
+  const { i18n, addMovieModalHere, getNotificationsModalHere } =
+    useMoviesPageConfig();
   const displayMovies = useSelector(getMovies)?.map(
     (movie: any, index: number) => {
       return (
@@ -29,6 +31,7 @@ export const Movies = () => {
     <GlobalLayout>
       <>
         {addMovieModalHere && <AddMovieModal />}
+        {getNotificationsModalHere && <NotificationsModal />}
         <div className='w-full px-[2.4rem] py-4 font-medium h-full mt-[5.35rem]'>
           <MoviePageHeader total={useSelector(getMovies)?.length} />
           <div className='w-full flex justify-center lg:justify-end mt-[1.75rem] pb-[5.35rem]'>
@@ -45,7 +48,11 @@ export const Movies = () => {
 export async function getServerSideProps(context: any) {
   return {
     props: {
-      ...(await serverSideTranslations(context.locale, ['profile', 'movies'])),
+      ...(await serverSideTranslations(context.locale, [
+        'news-feed',
+        'profile',
+        'movies',
+      ])),
     },
   };
 }

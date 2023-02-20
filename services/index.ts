@@ -246,6 +246,11 @@ export const getNotifications = async (id: number) => {
   return response;
 };
 
+export const markAllAsRead = async () => {
+  const response = await instance.post('/api/notifications/mark-all-as-read');
+  return response;
+};
+
 //End of news feed
 
 //Laravel echo auth

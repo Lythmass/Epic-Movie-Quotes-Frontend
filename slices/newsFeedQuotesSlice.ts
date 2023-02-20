@@ -3,11 +3,22 @@ import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'store';
 import { NotificationType, PostType } from 'types';
 
+type comment = {
+  id: number;
+  quote_id: number;
+  user_id: number;
+  comment: string;
+  user: {
+    profile_picture: string;
+    name: string;
+  };
+};
+
 const initialState: {
   value: PostType[];
   length: number;
   postModal: boolean;
-  comments: object[];
+  comments: comment[];
   likes: { id: number; quote_id: number; user_id: number }[];
   search: boolean;
   notificationModal: boolean;
@@ -36,7 +47,7 @@ export const newsFeedQuotesSlice = createSlice({
     setAddPostModal: (state, value: PayloadAction<boolean>) => {
       state.postModal = value.payload;
     },
-    setComments: (state, value: PayloadAction<object[]>) => {
+    setComments: (state, value: PayloadAction<comment[]>) => {
       state.comments = value.payload;
     },
     setLikes: (

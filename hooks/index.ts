@@ -59,3 +59,5 @@ export { default as useSocket } from './useSocket';
 export { default as useFetchNotifications } from './useFetchNotifications';
 export { default as useNotificationsModalConfig } from './useNotificationsModalConfig';
 export { default as useAuthNavBarConfig } from './useAuthNavBarConfig';
+export { default as useViewQuoteModalConfig } from './useViewQuoteModalConfig';
+export { default as useViewQuoteModalHeaderConfig } from './useViewQuoteModalHeaderConfig';
