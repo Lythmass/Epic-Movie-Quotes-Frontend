@@ -1,21 +1,22 @@
 /* eslint-disable @next/next/no-img-element */
 import { useTranslation } from 'next-i18next';
-import { useSelector } from 'react-redux';
-import { selectValue } from 'slices/userInfoSlice';
 import { PostType } from 'types';
 
 export const PostCardHeader: React.FC<PostType> = (props) => {
-  const user = useSelector(selectValue);
   const { i18n } = useTranslation();
   return (
     <div className='flex flex-col gap-4'>
       <div className='flex gap-4 items-center'>
         <img
           className='rounded-[50%] w-11 h-11 bg-center object-cover'
-          src={user?.profile_picture}
+          src={
+            props.authorPicture != undefined
+              ? props.authorPicture
+              : '/assets/images/tlotr.png'
+          }
           alt='profile picture'
         />
-        <h1 className='text-white'>{user?.name}</h1>
+        <h1 className='text-white xl:text-xl'>{props.author}</h1>
       </div>
       <div className='flex lg:text-xl gap-2'>
         <i className='text-white'>

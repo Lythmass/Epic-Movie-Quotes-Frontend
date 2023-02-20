@@ -63,7 +63,6 @@ export default function useEditQuoteModalConfig() {
   }, [watchThumbnail]);
 
   const submit = (data: any) => {
-    console.log(data);
     let formData = new FormData();
     data['thumbnail'] = data['thumbnail'][0];
     Object.keys(data).forEach((key) => {

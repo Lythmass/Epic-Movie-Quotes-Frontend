@@ -5,10 +5,10 @@ import { RootState } from 'store';
 const initialState: {
   value: any;
   movies: any;
-  deleteValue: any;
-  editValue: any;
+  deleteValue: boolean;
+  editValue: boolean;
 } = {
-  value: {},
+  value: [],
   movies: [],
   deleteValue: false,
   editValue: false,
@@ -18,27 +18,25 @@ export const moviesSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
-    setGenres: (state, data: PayloadAction<Object>) => {
-      state.value = data;
+    setGenres: (state, data: PayloadAction<object[]>) => {
+      state.value = data.payload;
     },
-    setMovies: (state, data: PayloadAction<Object>) => {
-      state.movies = data;
+    setMovies: (state, data: PayloadAction<object[]>) => {
+      state.movies = data.payload;
     },
     setDeleteMovie: (state, value: PayloadAction<boolean>) => {
-      state.deleteValue = value;
+      state.deleteValue = value.payload;
     },
     setEditMovie: (state, value: PayloadAction<boolean>) => {
-      state.editValue = value;
+      state.editValue = value.payload;
     },
   },
 });
 
 export const { setGenres, setMovies, setDeleteMovie, setEditMovie } =
   moviesSlice.actions;
-export const getGenres = (state: RootState) => state.movies.value.payload;
-export const getMovies = (state: RootState) => state.movies.movies.payload;
-export const getDeleteValue = (state: RootState) =>
-  state.movies.deleteValue.payload;
-export const getEditValue = (state: RootState) =>
-  state.movies.editValue.payload;
+export const getGenres = (state: RootState) => state.movies.value;
+export const getMovies = (state: RootState) => state.movies.movies;
+export const getDeleteValue = (state: RootState) => state.movies.deleteValue;
+export const getEditValue = (state: RootState) => state.movies.editValue;
 export default moviesSlice.reducer;

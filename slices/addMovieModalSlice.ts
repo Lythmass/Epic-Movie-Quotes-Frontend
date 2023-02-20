@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'store';
 
-const initialState: { value: any } = {
+const initialState: { value: boolean } = {
   value: false,
 };
 
@@ -11,12 +11,11 @@ export const addMovieModalSlice = createSlice({
   initialState,
   reducers: {
     setAddMovieModal: (state, value: PayloadAction<boolean>) => {
-      state.value = value;
+      state.value = value.payload;
     },
   },
 });
 
 export const { setAddMovieModal } = addMovieModalSlice.actions;
-export const addMovieModal = (state: RootState) =>
-  state.addMovieModal.value.payload;
+export const addMovieModal = (state: RootState) => state.addMovieModal.value;
 export default addMovieModalSlice.reducer;

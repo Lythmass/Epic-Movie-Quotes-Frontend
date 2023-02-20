@@ -184,15 +184,58 @@ export const updateQuote = async (data: any, id: number) => {
 //End of quotes
 
 //News feed
-export const getNewsFeedQuotes = async (startRange: number) => {
+export const getNewsFeedQuotes = async (
+  startRange: number,
+  search_type: string,
+  search: string,
+  locale: string
+) => {
   const response = await instance.post('/api/news-feed/quotes', {
     startRange: startRange,
+    search_type: search_type,
+    search: search,
+    locale: locale,
   });
   return response;
 };
 
 export const getNumberOfQuotes = async () => {
   const response = await instance.get('/api/news-feed/number-of-quotes');
+  return response;
+};
+
+export const addNewPost = async (data: any) => {
+  const response = await instance.post('/api/news-feed/post', data, {
+    headers: {
+      'Content-Type': 'multipart/form-data',
+      Accept: 'multipart/form-data',
+    },
+  });
+  return response;
+};
+
+export const postComment = async (data: any) => {
+  const response = await instance.post('/api/news-feed/post-comment', data);
+  return response;
+};
+
+export const getComments = async () => {
+  const response = await instance.get('/api/news-feed/comments');
+  return response;
+};
+
+export const postLike = async (data: any) => {
+  const response = await instance.post('/api/news-feed/like', data);
+  return response;
+};
+
+export const getLikes = async () => {
+  const response = await instance.get('/api/news-feed/likes');
+  return response;
+};
+
+export const postUnlike = async (data: any) => {
+  const response = await instance.post('/api/news-feed/unlike', data);
   return response;
 };
 

@@ -2,9 +2,14 @@ import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'store';
 
-const initialState: { value: any; quotes: any; delete: any; edit: any } = {
+const initialState: {
+  value: boolean;
+  quotes: any;
+  delete: number;
+  edit: number;
+} = {
   value: false,
-  quotes: {},
+  quotes: [],
   delete: 0,
   edit: 0,
 };
@@ -14,16 +19,16 @@ export const quotesSlice = createSlice({
   initialState,
   reducers: {
     setAddQuoteModal: (state, value: PayloadAction<boolean>) => {
-      state.value = value;
+      state.value = value.payload;
     },
-    setQuotes: (state, value: PayloadAction<object>) => {
-      state.quotes = value;
+    setQuotes: (state, value: PayloadAction<object[]>) => {
+      state.quotes = value.payload;
     },
     setQuoteDeleteConfirmationModal: (state, value: PayloadAction<number>) => {
-      state.delete = value;
+      state.delete = value.payload;
     },
     setEditQuote: (state, value: PayloadAction<number>) => {
-      state.edit = value;
+      state.edit = value.payload;
     },
   },
 });
@@ -34,9 +39,9 @@ export const {
   setQuoteDeleteConfirmationModal,
   setEditQuote,
 } = quotesSlice.actions;
-export const addQuoteModal = (state: RootState) => state.quotes.value.payload;
-export const getQuotes = (state: RootState) => state.quotes.quotes.payload;
+export const addQuoteModal = (state: RootState) => state.quotes.value;
+export const getQuotes = (state: RootState) => state.quotes.quotes;
 export const quoteDeleteConfirmationModal = (state: RootState) =>
-  state.quotes.delete.payload;
-export const editQuote = (state: RootState) => state.quotes.edit.payload;
+  state.quotes.delete;
+export const editQuote = (state: RootState) => state.quotes.edit;
 export default quotesSlice.reducer;
