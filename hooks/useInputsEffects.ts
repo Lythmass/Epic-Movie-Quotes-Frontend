@@ -7,6 +7,7 @@ import { InputsType } from 'types';
 
 export default function useInputsEffects(props: InputsType) {
   const methods: any = useFormContext();
+  const [type, setType] = useState(props.type);
   const { validatePasswordConfirmation } = usePasswordConfirmation(methods);
   const { t } = useTranslation(
     props.namespace === 'profile' ? 'profile' : 'common'
@@ -43,5 +44,7 @@ export default function useInputsEffects(props: InputsType) {
     methods,
     t,
     isCorrect,
+    type,
+    setType,
   };
 }
