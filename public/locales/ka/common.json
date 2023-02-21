@@ -65,7 +65,7 @@
         "emailActivatedModal": {
           "title": "გმადლობთ!",
           "description": "თქვენი ანგარიში გააქტიურებულია.",
-          "action": "სიახლეების გვერდზე გადასვლა"
+          "action": "შესვლა ანგარიშზე"
         },
         "emailSentModal": {
           "title": "გმადლობთ!",

@@ -4,4 +4,5 @@ export type FeedbackModalType = {
   description: string;
   route: string;
   action: string;
+  setShowLoginModal?: (value: boolean) => void;
 };

@@ -36,6 +36,11 @@ export const authenticateUserUsingGoogle = async (googleId: string) => {
   });
   return response;
 };
+
+export const logoutUser = async () => {
+  const response = await instance.post('/api/logout');
+  return response;
+};
 //End of Authentication
 
 //Password resets
