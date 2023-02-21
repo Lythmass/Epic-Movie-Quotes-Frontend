@@ -8,6 +8,8 @@ import {
   getNotificationValues,
   setNotifications,
 } from 'slices/newsFeedQuotesSlice';
+import useFetchLikes from './useFetchLikes';
+import useFetchComments from './useFetchComments';
 
 declare global {
   interface Window {
@@ -19,6 +21,8 @@ export default function useSocket() {
   const user = useSelector(selectValue);
   const dispatch = useDispatch();
   const oldNotifications = useSelector(getNotificationValues);
+  const refetchLikes = useFetchLikes();
+  const refetchComments = useFetchComments();
   useEffect(() => {
     if (user != undefined) {
       window.Pusher = Pusher;
@@ -41,6 +45,14 @@ export default function useSocket() {
         .listen('SendNotification', (e: any) => {
           dispatch(setNotifications([...oldNotifications, e]));
         });
+      echo.channel('refetch').listen('Refetch', (e: any) => {
+        if (e.refetch == 'refetch-likes') {
+          refetchLikes();
+        }
+        if (e.refetch == 'refetch-comments') {
+          refetchComments();
+        }
+      });
       return () => {
         echo.disconnect();
       };
