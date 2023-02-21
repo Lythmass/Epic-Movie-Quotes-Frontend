@@ -13,8 +13,10 @@ import {
   addQuoteModal,
   editQuote,
   getQuotes,
+  getViewQuote,
   quoteDeleteConfirmationModal,
 } from 'slices/quotesSlice';
+import { getNotificationModal } from 'slices/newsFeedQuotesSlice';
 
 export default function useMoviePageConfig() {
   const router = useRouter();
@@ -26,10 +28,12 @@ export default function useMoviePageConfig() {
   const editMovie = useSelector(getEditValue);
   const addQuoteModalHere = useSelector(addQuoteModal);
   const getQuotesHere = useSelector(getQuotes);
+  const getNotificationsModalHere = useSelector(getNotificationModal);
   const quoteDeleteConfirmationModalHere = useSelector(
     quoteDeleteConfirmationModal
   );
   const editQuoteHere = useSelector(editQuote);
+  const viewQuote = useSelector(getViewQuote);
   const screenWidth = useWindowWidth();
   const movie = useSelector(getMovies)?.filter(
     (item: any) => item.id == router.query.id
@@ -46,5 +50,7 @@ export default function useMoviePageConfig() {
     getQuotesHere,
     quoteDeleteConfirmationModalHere,
     editQuoteHere,
+    viewQuote,
+    getNotificationsModalHere,
   };
 }

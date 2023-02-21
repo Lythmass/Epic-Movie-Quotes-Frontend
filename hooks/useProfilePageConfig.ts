@@ -12,6 +12,7 @@ import { ToastOptionsType } from 'types';
 import { setMobileConfirmationModal } from 'slices/mobileConfirmationModalSlice';
 import { showNewEmailModalMobile } from 'slices/newEmailModalSlice';
 import { useDispatch } from 'react-redux';
+import { getNotificationModal } from 'slices/newsFeedQuotesSlice';
 
 export default function useProfilePageConfig(response: string) {
   const { t } = useTranslation('profile');
@@ -84,6 +85,7 @@ export default function useProfilePageConfig(response: string) {
   };
   const showNewEmailModalHere = useSelector(showNewEmailModal);
   const showNewEmailModalMobileHere = useSelector(showNewEmailModalMobile);
+  const getNotificationsModalHere = useSelector(getNotificationModal);
   return {
     screenWidth,
     methods,
@@ -101,5 +103,6 @@ export default function useProfilePageConfig(response: string) {
     enableProfileModalEdit,
     setEnableProfileModalEdit,
     user,
+    getNotificationsModalHere,
   };
 }

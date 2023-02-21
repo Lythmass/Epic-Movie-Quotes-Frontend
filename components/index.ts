@@ -80,6 +80,8 @@ export {
   QuoteDeleteConfirmationModal,
   EditQuoteModal,
   EditQuoteModalHeader,
+  ViewQuoteModal,
+  ViewQuoteModalHeader,
 } from './MoviePageComponents';
 
 export {

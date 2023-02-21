@@ -6,6 +6,7 @@ import { getDeleteValue } from 'slices/moviesSlice';
 import {
   addQuoteModal,
   editQuote,
+  getViewQuote,
   quoteDeleteConfirmationModal,
 } from 'slices/quotesSlice';
 import {
@@ -27,6 +28,7 @@ export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
   const getAddPostModalHere = useSelector(getAddPostModal);
   const getSearchModalHere = useSelector(getSearchModal);
   const getNotificationModalHere = useSelector(getNotificationModal);
+  const viewQuote = useSelector(getViewQuote);
   const windowSize = useWindowWidth();
   return (
     <div
@@ -39,6 +41,7 @@ export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
           editQuoteHere ||
           getAddPostModalHere ||
           getSearchModalHere ||
+          viewQuote ||
           AddQuoteModalHere) &&
         'overflow-hidden h-screen'
       } w-full bg-global-layout-bg min-h-screen`}

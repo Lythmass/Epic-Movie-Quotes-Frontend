@@ -4,7 +4,8 @@ import { DisplayNotifications } from 'components';
 import { NotificationType } from 'types';
 
 export const NotificationsModal = () => {
-  const { notifications, t } = useNotificationsModalConfig();
+  const { notifications, t, markAllAsReadMutation } =
+    useNotificationsModalConfig();
   const displayNotifications = notifications?.map(
     (notification: NotificationType, index: number) => {
       return (
@@ -26,7 +27,10 @@ export const NotificationsModal = () => {
           <h1 className='text-xl font-medium'>
             {t('notifications.notifications')}
           </h1>
-          <p className='text-sm underline cursor-pointer'>
+          <p
+            onClick={() => markAllAsReadMutation.mutate()}
+            className='text-sm underline cursor-pointer'
+          >
             {t('notifications.mark')}
           </p>
         </div>
