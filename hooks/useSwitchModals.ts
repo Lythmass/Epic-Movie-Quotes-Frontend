@@ -15,7 +15,12 @@ export default function useSwitchModals(googleId: string) {
   const router = useRouter();
   useEffect(() => {
     if (hasCookie('XSRF-TOKEN')) {
-      router.push('/news-feed');
+      if (
+        router.query.email_verify_url == undefined &&
+        router.query.reset_token == undefined
+      ) {
+        router.push('/news-feed');
+      }
     }
   }, []);
   useEffect(() => {
