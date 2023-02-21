@@ -13,6 +13,7 @@ import { useProfilePageConfig } from 'hooks';
 import { FormProvider } from 'react-hook-form';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { verifySecondaryEmail } from 'services';
+import Head from 'next/head';
 
 export const Profile: React.FC<{ response: string }> = (props) => {
   const {
@@ -37,6 +38,9 @@ export const Profile: React.FC<{ response: string }> = (props) => {
   return (
     <GlobalLayout>
       <>
+        <Head>
+          <title>Profile</title>
+        </Head>
         {getNotificationsModalHere && <NotificationsModal />}
         <div className='inline-block w-full h-full'>
           {showNewEmailModalHere === true && <AddNewEmailModal />}
