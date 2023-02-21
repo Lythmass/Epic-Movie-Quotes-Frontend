@@ -32,15 +32,17 @@ export const ConditionalModals: React.FC<ConditionalModalsType> = (props) => {
           setShowLoginModal={props.setShowLoginModal}
         />
       )}
-      {props.response === '"Successfully verified!"' && (
-        <FeedbackModal
-          image='correct'
-          title={t('emailActivatedModal.title')}
-          description={t('emailActivatedModal.description')}
-          action={t('emailActivatedModal.action')}
-          route='#'
-        />
-      )}
+      {props.response === '"Successfully verified!"' &&
+        !props.showLoginModal && (
+          <FeedbackModal
+            image='correct'
+            title={t('emailActivatedModal.title')}
+            description={t('emailActivatedModal.description')}
+            action={t('emailActivatedModal.action')}
+            setShowLoginModal={props.setShowLoginModal}
+            route='login'
+          />
+        )}
       {props.passwordResetModal && (
         <PasswordResetModal
           setSuccessResetModal={props.setSuccessResetModal}

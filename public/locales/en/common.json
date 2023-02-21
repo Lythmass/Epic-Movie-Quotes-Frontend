@@ -66,7 +66,7 @@
         "emailActivatedModal": {
           "title": "Thank you!",
           "description": "Your account has been activated",
-          "action": "Go to my news feed"
+          "action": "Go to log in"
         },
         "emailSentModal": {
           "title": "Thank you!",

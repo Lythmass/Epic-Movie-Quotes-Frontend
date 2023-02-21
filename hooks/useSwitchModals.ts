@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useGoogleAuth } from 'hooks';
+import { hasCookie } from 'cookies-next';
+import { useRouter } from 'next/router';
 
 export default function useSwitchModals(googleId: string) {
   const [showRegistrationModal, setShowRegistrationModal] = useState(false);
@@ -10,6 +12,12 @@ export default function useSwitchModals(googleId: string) {
   const [passwordResetModal, setPasswordResetModal] = useState(false);
   const [successResetModal, setSuccessResetModal] = useState(false);
   useGoogleAuth(googleId);
+  const router = useRouter();
+  useEffect(() => {
+    if (hasCookie('XSRF-TOKEN')) {
+      router.push('/news-feed');
+    }
+  }, []);
   useEffect(() => {
     if (hasRegistered) {
       setShowRegistrationModal(false);

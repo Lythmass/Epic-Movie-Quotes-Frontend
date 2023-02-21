@@ -11,6 +11,7 @@ export default function NavBar() {
     dispatch,
     getNotificationModalHere,
     screenWidth,
+    logoutMutation,
   } = useAuthNavBarConfig();
   return (
     <div className='w-full z-[100] fixed top-0 flex justify-between px-9 items-center h-[5.35rem] bg-navbar-color'>
@@ -44,7 +45,10 @@ export default function NavBar() {
           )}
         </div>
         {screenWidth > 1024 && <LanguageChanger />}
-        <div className='text-white rounded cursor-pointer px-5 py-2 border border-white'>
+        <div
+          onClick={() => logoutMutation.mutate()}
+          className='text-white rounded cursor-pointer px-5 py-2 border border-white'
+        >
           {t('logout')}
         </div>
       </div>
