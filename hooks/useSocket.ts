@@ -46,7 +46,6 @@ export default function useSocket() {
           dispatch(setNotifications([...oldNotifications, e]));
         });
       echo.channel('refetch').listen('Refetch', (e: any) => {
-        console.log(e.refetch);
         if (e.refetch == 'refetch-likes') {
           refetchLikes();
         }
