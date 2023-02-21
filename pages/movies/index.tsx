@@ -9,6 +9,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useMoviesPageConfig } from 'hooks';
 import { getMovies } from 'slices/moviesSlice';
 import { useSelector } from 'react-redux';
+import Head from 'next/head';
 
 export const Movies = () => {
   const { i18n, addMovieModalHere, getNotificationsModalHere } =
@@ -30,6 +31,9 @@ export const Movies = () => {
   return (
     <GlobalLayout>
       <>
+        <Head>
+          <title>Movies list</title>
+        </Head>
         {addMovieModalHere && <AddMovieModal />}
         {getNotificationsModalHere && <NotificationsModal />}
         <div className='w-full px-[2.4rem] py-4 font-medium h-full mt-[5.35rem]'>

@@ -9,7 +9,7 @@ import {
 } from 'components';
 import { useNewsFeedConfig } from 'hooks';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
-
+import Head from 'next/head';
 import { PostType } from 'types';
 import InfiniteScroll from 'react-infinite-scroll-component';
 
@@ -41,6 +41,9 @@ export const NewsFeed = () => {
   return (
     <GlobalLayout>
       <>
+        <Head>
+          <title>News feed</title>
+        </Head>
         {getAddPostModalHere && <AddNewPostModal />}
         {getSearchModalHere && <SearchModal />}
         {getNotificationModalHere && <NotificationsModal />}

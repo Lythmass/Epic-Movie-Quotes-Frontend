@@ -16,6 +16,7 @@ import {
 } from 'components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useMoviePageConfig } from 'hooks';
+import Head from 'next/head';
 export const Movie = () => {
   const {
     t,
@@ -58,6 +59,9 @@ export const Movie = () => {
   return (
     <GlobalLayout>
       <>
+        <Head>
+          <title>{movie?.title[i18n.language]}</title>
+        </Head>
         {getNotificationsModalHere && <NotificationsModal />}
         {deleteMovie && <DeleteConfirmationModal />}
         {editMovie && <EditMovieModal />}

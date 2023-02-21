@@ -4,6 +4,7 @@ import { useSwitchModals } from 'hooks';
 import { useTranslation } from 'next-i18next';
 import { markEmailAsVerified } from 'services';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import Head from 'next/head';
 
 export const Home: React.FC<{
   response: string;
@@ -33,6 +34,9 @@ export const Home: React.FC<{
         i18n.language === 'ka' ? 'font-helvetica-geo' : 'font-helvetica-eng'
       } font-medium`}
     >
+      <Head>
+        <title>Landing page</title>
+      </Head>
       <ConditionalModals
         resetSentModal={resetSentModal}
         setResetSentModal={setResetSentModal}
