@@ -1,16 +1,16 @@
 import { useWindowWidth } from 'hooks';
 import { useTranslation } from 'next-i18next';
-import { useRef } from 'react';
+import { useRef, DragEvent } from 'react';
 import { useFormContext } from 'react-hook-form';
 
-export default function useAddMovieModalFormFileConfig(name: string) {
-  const methods: any = useFormContext();
+export default function useAddMovieModalFormFileConfig() {
+  const methods = useFormContext<{ thumbnail: FileList }>();
   const { t } = useTranslation('movies');
   const imageRef = useRef<HTMLInputElement>(null);
-  const dropHandler = (event: any) => {
+  const dropHandler = (event: DragEvent<HTMLDivElement>) => {
     event.preventDefault();
     imageRef.current!.files = event.dataTransfer.files;
-    methods.setValue(name, event.dataTransfer.files);
+    methods.setValue('thumbnail', event.dataTransfer.files);
   };
   const windowSize = useWindowWidth();
   return { methods, t, imageRef, dropHandler, windowSize };

@@ -6,7 +6,7 @@ export const AddMovieModalFormFile: React.FC<AddMovieModalInputType> = (
   props
 ) => {
   const { methods, t, imageRef, dropHandler, windowSize } =
-    useAddMovieModalFormFileConfig(props.name);
+    useAddMovieModalFormFileConfig();
   return (
     <div
       onDragOver={(event) => {
@@ -19,8 +19,8 @@ export const AddMovieModalFormFile: React.FC<AddMovieModalInputType> = (
       className='flex flex-col gap-1'
     >
       <input
-        {...methods.register(props.name, {
-          required: t('required'),
+        {...methods.register('thumbnail', {
+          required: { value: true, message: t('required') },
         })}
         className='hidden'
         ref={imageRef}
@@ -44,7 +44,7 @@ export const AddMovieModalFormFile: React.FC<AddMovieModalInputType> = (
         </label>
       </div>
       <p className='text-button-red h-3'>
-        {methods.formState.errors[props.name]?.message}
+        {methods.formState.errors['thumbnail']?.message}
       </p>
     </div>
   );
