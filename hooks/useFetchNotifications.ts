@@ -1,16 +1,22 @@
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { getNotifications } from 'services';
 import { setNotifications } from 'slices/newsFeedQuotesSlice';
-import { selectValue } from 'slices/userInfoSlice';
+import { deleteCookie } from 'cookies-next';
+import { useRouter } from 'next/router';
 
 export default function useFetchNotifications() {
-  const user = useSelector(selectValue);
   const dispatch = useDispatch();
-  const { data, refetch } = useQuery('get-notifications', () =>
-    getNotifications(user?.id)
-  );
+  const router = useRouter();
+  const { data, refetch } = useQuery('get-notifications', getNotifications, {
+    onError: (error: any) => {
+      if (error.response.status == 401) {
+        deleteCookie('XSRF-TOKEN');
+        router.push('/403');
+      }
+    },
+  });
   useEffect(() => {
     dispatch(setNotifications(data?.data.notifications));
   }, [data, dispatch]);

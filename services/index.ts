@@ -244,10 +244,8 @@ export const postUnlike = async (data: any) => {
   return response;
 };
 
-export const getNotifications = async (id: number) => {
-  const response = await instance.post('/api/notifications/get-messages', {
-    id: id,
-  });
+export const getNotifications = async () => {
+  const response = await instance.get('/api/notifications/get-messages');
   return response;
 };
 

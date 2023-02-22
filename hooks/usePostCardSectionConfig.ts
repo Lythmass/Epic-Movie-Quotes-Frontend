@@ -52,13 +52,13 @@ export default function usePostCardSectionConfig(quoteId?: number) {
         }
       }
     }
-  }, [likes]);
+  }, [likes, user?.id, quoteId]);
 
   useEffect(() => {
     setLikesCount(() => {
       return likes?.filter((like: any) => quoteId === like.quote_id).length;
     });
-  }, [likes]);
+  }, [likes, user?.id, quoteId]);
 
   return {
     likesCount,

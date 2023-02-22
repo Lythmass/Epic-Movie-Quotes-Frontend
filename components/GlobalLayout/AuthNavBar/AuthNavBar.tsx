@@ -12,6 +12,7 @@ export default function NavBar() {
     getNotificationModalHere,
     screenWidth,
     logoutMutation,
+    unreadNotifications,
   } = useAuthNavBarConfig();
   return (
     <div className='w-full z-[100] fixed top-0 flex justify-between px-9 items-center h-[5.35rem] bg-navbar-color'>
@@ -36,6 +37,11 @@ export default function NavBar() {
             src='/assets/images/ring.png'
             alt='notifications'
           />
+          {unreadNotifications > 0 && (
+            <div className='bg-button-red w-7 h-7 absolute top-[-0.4rem] left-[0.6rem] text-white flex justify-center items-center font-medium rounded-[50%]'>
+              {unreadNotifications}
+            </div>
+          )}
           {getNotificationModalHere && (
             <img
               className='absolute w-12 h-12 right-[7.2rem] lg:right-[13.4rem]'

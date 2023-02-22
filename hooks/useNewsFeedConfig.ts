@@ -29,7 +29,6 @@ export default function useNewsFeedConfig() {
 
   return {
     refetch,
-
     numberOfQuotes,
     quotes,
     i18n,

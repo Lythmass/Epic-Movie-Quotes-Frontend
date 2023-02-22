@@ -30,6 +30,7 @@ export default function useSocket() {
         broadcaster: 'pusher',
         cluster: 'eu',
         key: 'a43fe81dfe2a6ac9a5e6',
+        wsHost: true,
         encrypted: true,
         authorizer: (channel: any) => {
           return {
@@ -43,7 +44,11 @@ export default function useSocket() {
       echo
         .private(`App.Models.User.${user?.id}`)
         .listen('SendNotification', (e: any) => {
-          dispatch(setNotifications([...oldNotifications, e]));
+          if (oldNotifications != undefined) {
+            dispatch(setNotifications([e, ...oldNotifications]));
+            refetchLikes();
+            refetchComments();
+          }
         });
       echo.channel('refetch').listen('Refetch', (e: any) => {
         if (e.refetch == 'refetch-likes') {
@@ -57,5 +62,5 @@ export default function useSocket() {
         echo.disconnect();
       };
     }
-  }, [user]);
+  }, [user, oldNotifications]);
 }

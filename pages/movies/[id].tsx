@@ -17,6 +17,7 @@ import {
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useMoviePageConfig } from 'hooks';
 import Head from 'next/head';
+import { hasCookie } from 'cookies-next';
 export const Movie = () => {
   const {
     t,
@@ -104,6 +105,15 @@ export const Movie = () => {
 export default Movie;
 
 export async function getServerSideProps(context: any) {
+  const code = !hasCookie('XSRF-TOKEN', context) ? 403 : 200;
+  if (code == 403) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/403',
+      },
+    };
+  }
   return {
     props: {
       ...(await serverSideTranslations(context.locale, [
