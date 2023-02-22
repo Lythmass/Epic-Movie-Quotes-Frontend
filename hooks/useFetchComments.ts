@@ -11,7 +11,14 @@ export default function useFetchComments() {
   const { data, refetch } = useQuery('get-comments', getComments, {
     onError: (error: any) => {
       if (error.response.status == 401) {
-        deleteCookie('XSRF-TOKEN');
+        if (process.env.NEXT_PUBLIC_API_URL?.substring(0, 5) == 'http:') {
+          deleteCookie('XSRF-TOKEN');
+        } else {
+          deleteCookie('XSRF-TOKEN', {
+            path: '/',
+            domain: '.gigig.redberryinternship.ge',
+          });
+        }
         router.push('/403');
       }
     },
