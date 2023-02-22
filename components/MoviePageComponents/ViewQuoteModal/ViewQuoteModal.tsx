@@ -8,8 +8,9 @@ import {
 import { useViewQuoteModalConfig } from 'hooks';
 
 export const ViewQuoteModal = () => {
-  const { refetch, quote, comments, likesLength, quoteId } =
+  const { refetch, quote, comments, likesLength, quoteId, like, isLiked } =
     useViewQuoteModalConfig();
+
   const displayComments = comments?.map((comment, index: number) => {
     return (
       <DisplayComments
@@ -50,8 +51,13 @@ export const ViewQuoteModal = () => {
               <div className='flex gap-3 items-center'>
                 <p className='text-white text-xl'>{likesLength}</p>
                 <img
+                  onClick={like}
                   className='cursor-pointer transition-all w-6'
-                  src='/assets/images/heart.png'
+                  src={
+                    isLiked
+                      ? '/assets/images/liked.png'
+                      : '/assets/images/heart.png'
+                  }
                   alt='comments'
                 />
               </div>

@@ -12,6 +12,7 @@ import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 import { PostType } from 'types';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import { hasCookie } from 'cookies-next';
 
 export const NewsFeed = () => {
   const {
@@ -24,7 +25,6 @@ export const NewsFeed = () => {
     searchType,
     getNotificationModalHere,
   } = useNewsFeedConfig();
-
   const posts = quotes?.map((quote: PostType, index: number) => {
     return (
       <PostCard
@@ -89,6 +89,15 @@ export const NewsFeed = () => {
 };
 
 export async function getServerSideProps(context: any) {
+  const code = !hasCookie('XSRF-TOKEN', context) ? 403 : 200;
+  if (code == 403) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/403',
+      },
+    };
+  }
   return {
     props: {
       ...(await serverSideTranslations(context.locale, [

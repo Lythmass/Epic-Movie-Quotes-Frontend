@@ -10,6 +10,7 @@ import { useMoviesPageConfig } from 'hooks';
 import { getMovies } from 'slices/moviesSlice';
 import { useSelector } from 'react-redux';
 import Head from 'next/head';
+import { hasCookie } from 'cookies-next';
 
 export const Movies = () => {
   const { i18n, addMovieModalHere, getNotificationsModalHere } =
@@ -50,6 +51,15 @@ export const Movies = () => {
 };
 
 export async function getServerSideProps(context: any) {
+  const code = !hasCookie('XSRF-TOKEN', context) ? 403 : 200;
+  if (code == 403) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/403',
+      },
+    };
+  }
   return {
     props: {
       ...(await serverSideTranslations(context.locale, [

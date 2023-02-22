@@ -61,3 +61,5 @@ export { default as useNotificationsModalConfig } from './useNotificationsModalC
 export { default as useAuthNavBarConfig } from './useAuthNavBarConfig';
 export { default as useViewQuoteModalConfig } from './useViewQuoteModalConfig';
 export { default as useViewQuoteModalHeaderConfig } from './useViewQuoteModalHeaderConfig';
+export { default as useAddMovieModalFormFileConfig } from './useAddMovieModalFormFileConfig';
+export { default as useErrorPagesConfig } from './useErrorPagesConfig';

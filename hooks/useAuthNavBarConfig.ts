@@ -1,8 +1,11 @@
 import { useState } from 'react';
-import { useWindowWidth } from 'hooks';
+import { useFetchNotifications, useWindowWidth } from 'hooks';
 import { useTranslation } from 'next-i18next';
 import { useDispatch, useSelector } from 'react-redux';
-import { getNotificationModal } from 'slices/newsFeedQuotesSlice';
+import {
+  getNotificationModal,
+  getNotificationValues,
+} from 'slices/newsFeedQuotesSlice';
 import { useSocket } from 'hooks';
 import { useMutation } from 'react-query';
 import { logoutUser } from 'services';
@@ -28,6 +31,12 @@ export default function useAuthNavBarConfig() {
       },
     }
   );
+  useFetchNotifications();
+  const notifications = useSelector(getNotificationValues);
+  const unreadNotifications = notifications?.filter(
+    (notification) => !notification.is_read
+  ).length;
+
   return {
     burgerMenu,
     setBurgerMenu,
@@ -36,5 +45,6 @@ export default function useAuthNavBarConfig() {
     getNotificationModalHere,
     screenWidth,
     logoutMutation,
+    unreadNotifications,
   };
 }

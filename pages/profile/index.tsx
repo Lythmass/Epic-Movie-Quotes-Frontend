@@ -14,6 +14,7 @@ import { FormProvider } from 'react-hook-form';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { verifySecondaryEmail } from 'services';
 import Head from 'next/head';
+import { hasCookie } from 'cookies-next';
 
 export const Profile: React.FC<{ response: string }> = (props) => {
   const {
@@ -100,6 +101,15 @@ export const Profile: React.FC<{ response: string }> = (props) => {
 };
 
 export async function getServerSideProps(context: any) {
+  const code = !hasCookie('XSRF-TOKEN', context) ? 403 : 200;
+  if (code == 403) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/403',
+      },
+    };
+  }
   if (context.query.verify_secondary_email !== undefined) {
     const id = context.query.verify_secondary_email;
     const token = context.query.token;

@@ -2,6 +2,7 @@ import useFetchComments from 'hooks/useFetchComments';
 import { useSelector } from 'react-redux';
 import { getComments, getLikes } from 'slices/newsFeedQuotesSlice';
 import { getQuotes, getViewQuote } from 'slices/quotesSlice';
+import usePostCardSectionConfig from './usePostCardSectionConfig';
 
 export default function useViewQuoteModalConfig() {
   const quoteId = useSelector(getViewQuote);
@@ -16,5 +17,6 @@ export default function useViewQuoteModalConfig() {
     (like) => like.quote_id == quoteId
   ).length;
 
-  return { refetch, quote, comments, likesLength, quoteId };
+  const { like, isLiked } = usePostCardSectionConfig(quoteId);
+  return { refetch, quote, comments, likesLength, quoteId, like, isLiked };
 }

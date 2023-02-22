@@ -1,28 +1,40 @@
 /* eslint-disable @next/next/no-img-element */
-import { useTranslation } from 'next-i18next';
-import { useFormContext } from 'react-hook-form';
+import { useAddMovieModalFormFileConfig } from 'hooks';
 import { AddMovieModalInputType } from '../AddMovieModalInput';
 
 export const AddMovieModalFormFile: React.FC<AddMovieModalInputType> = (
   props
 ) => {
-  const methods: any = useFormContext();
-  const { t } = useTranslation('movies');
+  const { methods, t, imageRef, dropHandler, windowSize } =
+    useAddMovieModalFormFileConfig();
   return (
-    <div className='flex flex-col gap-1'>
+    <div
+      onDragOver={(event) => {
+        event?.preventDefault();
+      }}
+      onDragEnter={(event) => {
+        event?.preventDefault();
+      }}
+      onDrop={dropHandler}
+      className='flex flex-col gap-1'
+    >
       <input
-        {...methods.register(props.name, {
-          required: t('required'),
+        {...methods.register('thumbnail', {
+          required: { value: true, message: t('required') },
         })}
         className='hidden'
+        ref={imageRef}
         type={props.type}
         accept='image/jpg, image/png, image/jpg'
         id={props.name}
       />
-      <div className='text-white flex w-full justify-between items-center border border-[#6C757D] py-5 px-4 rounded'>
+      <div className='text-white flex w-full justify-between xl:justify-start xl:gap-2 items-center border border-[#6C757D] py-5 px-4 rounded'>
         <div className='flex gap-2 items-center'>
           <img src='/assets/images/photograph.png' alt='upload' />
-          <h1>{t('upload-image')}</h1>
+          <h1>
+            {windowSize >= 1280 && t('dragndrop')}
+            {windowSize < 1280 && t('upload-image')}
+          </h1>
         </div>
         <label
           className='bg-[#9747FF66] cursor-pointer p-3 bg-upload-file-bg rounded-sm'
@@ -32,7 +44,7 @@ export const AddMovieModalFormFile: React.FC<AddMovieModalInputType> = (
         </label>
       </div>
       <p className='text-button-red h-3'>
-        {methods.formState.errors[props.name]?.message}
+        {methods.formState.errors['thumbnail']?.message}
       </p>
     </div>
   );
