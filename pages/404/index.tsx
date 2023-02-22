@@ -1,19 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
-import { hasCookie } from 'cookies-next';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
-import { useTranslation } from 'next-i18next';
+import { useErrorPagesConfig } from 'hooks';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 
 export default function ForOhFour() {
-  const router = useRouter();
-  useEffect(() => {
-    if (hasCookie('XSRF-TOKEN')) {
-      router.push('/news-feed');
-    }
-  }, []);
-  const { t } = useTranslation('notfound');
+  const { router, t } = useErrorPagesConfig('notfound');
   return (
     <div className='w-full text-center h-screen flex flex-col justify-center items-center gap-5 bg-modal-bg text-white'>
       <Head>
