@@ -6,7 +6,7 @@ import { useTranslation } from 'next-i18next';
 export default function useErrorPagesConfig(namespace: string) {
   const router = useRouter();
   useEffect(() => {
-    if (hasCookie('XSRF-TOKEN')) {
+    if (namespace == 'forbidden' && hasCookie('XSRF-TOKEN')) {
       router.push('/news-feed');
     }
   }, []);
