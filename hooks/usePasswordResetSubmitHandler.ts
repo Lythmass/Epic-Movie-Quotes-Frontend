@@ -1,5 +1,6 @@
 import { fetchCSRFToken, sendPasswordReset } from 'services';
 import { useRouter } from 'next/router';
+import { deleteCookie } from 'cookies-next';
 
 export default function usePasswordResetSubmitHandler(
   methods: any,
@@ -25,6 +26,14 @@ export default function usePasswordResetSubmitHandler(
       methods.setError('password_confirmation', {
         type: 'manual',
         message: errors,
+      });
+    }
+    if (process.env.NEXT_PUBLIC_API_URL?.substring(0, 5) == 'http:') {
+      deleteCookie('XSRF-TOKEN');
+    } else {
+      deleteCookie('XSRF-TOKEN', {
+        path: '/',
+        domain: '.gigig.redberryinternship.ge',
       });
     }
   };

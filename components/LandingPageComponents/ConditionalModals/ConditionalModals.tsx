@@ -75,13 +75,14 @@ export const ConditionalModals: React.FC<ConditionalModalsType> = (props) => {
           route='https://gmail.com'
         />
       )}
-      {props.successResetModal && (
+      {props.successResetModal && !props.showLoginModal && (
         <FeedbackModal
           image='correct'
           title={t('successResetModal.title')}
           description={t('successResetModal.description')}
           action={t('successResetModal.action')}
-          route='#'
+          setShowLoginModal={props.setShowLoginModal}
+          route='login'
         />
       )}
     </>
