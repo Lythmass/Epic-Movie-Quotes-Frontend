@@ -38,6 +38,7 @@ export const NewsFeed = () => {
       />
     );
   });
+
   return (
     <GlobalLayout>
       <>
@@ -47,7 +48,7 @@ export const NewsFeed = () => {
         {getAddPostModalHere && <AddNewPostModal />}
         {getSearchModalHere && <SearchModal />}
         {getNotificationModalHere && <NotificationsModal />}
-        <div className='w-full h-full pt-[5.35rem]'>
+        <div className='w-full overflow-x-hidden h-full pt-[5.35rem]'>
           <WriteQuoteAndSearch />
           <div className='flex flex-col justify-center items-center pb-8 gap-8'>
             {quotes !== undefined && (

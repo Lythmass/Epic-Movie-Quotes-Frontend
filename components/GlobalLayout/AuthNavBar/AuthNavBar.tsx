@@ -14,6 +14,7 @@ export default function NavBar() {
     logoutMutation,
     unreadNotifications,
   } = useAuthNavBarConfig();
+
   return (
     <div className='w-full z-[100] fixed top-0 flex justify-between px-9 items-center h-[5.35rem] bg-navbar-color'>
       <div

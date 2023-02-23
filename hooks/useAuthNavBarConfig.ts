@@ -26,7 +26,14 @@ export default function useAuthNavBarConfig() {
     },
     {
       onSuccess: async () => {
-        deleteCookie('XSRF-TOKEN');
+        if (process.env.NEXT_PUBLIC_API_URL?.substring(0, 5) == 'http:') {
+          deleteCookie('XSRF-TOKEN');
+        } else {
+          deleteCookie('XSRF-TOKEN', {
+            path: '/',
+            domain: '.gigig.redberryinternship.ge',
+          });
+        }
         router.push('/');
       },
     }
