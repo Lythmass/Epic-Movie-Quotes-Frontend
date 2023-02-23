@@ -17,7 +17,8 @@ export default function useSwitchModals(googleId: string) {
     if (hasCookie('XSRF-TOKEN')) {
       if (
         router.query.email_verify_url == undefined &&
-        router.query.reset_token == undefined
+        router.query.reset_token == undefined &&
+        router.query.google_id == undefined
       ) {
         router.push('/news-feed');
       }
