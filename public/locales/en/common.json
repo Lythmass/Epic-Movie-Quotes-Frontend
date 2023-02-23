@@ -88,6 +88,6 @@
         "successResetModal": {
           "title": "Success!",
           "description": "Your password has been reset!",
-          "action": "Go to news feed"
+          "action": "Go to log in"
         }
 }
