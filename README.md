@@ -54,42 +54,29 @@ You can install my project by following instructions:
 ## Folder Structure
 ```bash
 ├── public
-│   └── assets
-│       ├── fonts
-│       └── images
-│       locales
-│       ├── en
-│       └── ka
+│   ├── assets
+│   │   ├── fonts
+│   │   └── images
+│   ├── locales
+│   │   ├── en
+│   │   └── ka
 ├── components
 │   ├── GlobalLayout
-│   │   └── index.ts
 │   ├── LandingPageComponents
-│   │   └── index.ts  
 │   ├── MoviePageComponents
-│   │   └── index.ts
 │   ├── MoviesPageComponents
-│   │   └── index.ts
 │   ├── NewsFeedComponents
-│   │   └── index.ts
 │   └── ProfilePageComponents
-│       └── index.ts
 ├── hooks
 ├── types
 ├── slices
 ├── services
 └── pages
     ├── 403
-    │   └── index.tsx
     ├── 404
-    │   └── index.tsx
     ├── movies
-    │   ├── [id].tsx
-    │   └── index.tsx
     ├── news-feed
-    │   └── index.tsx
-    ├── profile
-    │   └── index.tsx
-    └── index.tsx
+    └── profile
 
 - .eslintrc.json
 - .prettierrc.json
