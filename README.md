@@ -61,22 +61,13 @@ You can install my project by following instructions:
 │   │   ├── en
 │   │   └── ka
 ├── components
-│   ├── GlobalLayout
-│   ├── LandingPageComponents
-│   ├── MoviePageComponents
-│   ├── MoviesPageComponents
-│   ├── NewsFeedComponents
-│   └── ProfilePageComponents
+│   └── PageComponents
 ├── hooks
 ├── types
 ├── slices
 ├── services
 └── pages
-    ├── 403
-    ├── 404
-    ├── movies
-    ├── news-feed
-    └── profile
+    └── page
 
 - .eslintrc.json
 - .prettierrc.json
