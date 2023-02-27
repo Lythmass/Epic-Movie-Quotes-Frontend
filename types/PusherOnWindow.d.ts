@@ -1,5 +1,5 @@
 export declare global {
   interface Window {
-    Pusher: any;
+    Pusher: typeof Pusher;
   }
 }
