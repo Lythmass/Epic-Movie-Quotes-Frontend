@@ -10,3 +10,5 @@ export { QuoteDropdown } from './QuoteDropdown';
 export { QuoteDeleteConfirmationModal } from './QuoteDeleteConfirmationModal';
 export { EditQuoteModal, EditQuoteModalHeader } from './EditQuoteModal';
 export { ViewQuoteModal, ViewQuoteModalHeader } from './ViewQuoteModal';
+export { RenderQuotes } from './RenderQuotes';
+export { RenderGenres } from './RenderGenres';

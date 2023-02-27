@@ -82,6 +82,8 @@ export {
   EditQuoteModalHeader,
   ViewQuoteModal,
   ViewQuoteModalHeader,
+  RenderQuotes,
+  RenderGenres,
 } from './MoviePageComponents';
 
 export {
