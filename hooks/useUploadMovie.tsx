@@ -3,13 +3,12 @@ import { uploadMovie, updateMovie } from 'services';
 import { toast } from 'react-toastify';
 import { ToastOptionsType } from 'types';
 import { useFetchMovies } from 'hooks';
-import { useTranslation } from 'next-i18next';
 import { setAddMovieModal } from 'slices/addMovieModalSlice';
 import { useDispatch } from 'react-redux';
+import { ToastDesign } from 'helpers';
 
 export default function useUploadMovie(action: string, id: number) {
   const { refetch } = useFetchMovies();
-  const { t } = useTranslation('movies');
   const dispatch = useDispatch();
   const toastOptions: ToastOptionsType = {
     position: 'top-right',
@@ -27,7 +26,18 @@ export default function useUploadMovie(action: string, id: number) {
     },
     {
       onSuccess: (response) => {
-        toast.success(t(response.data.message), toastOptions);
+        toast.success(
+          <ToastDesign namespace='movies' message={response.data.message} />,
+          {
+            style: {
+              background: '#BADBCC',
+              color: '#0F5132',
+              marginBottom: '3rem',
+            },
+            icon: false,
+            ...toastOptions,
+          }
+        );
         dispatch(setAddMovieModal(false));
         refetch();
       },
@@ -42,7 +52,18 @@ export default function useUploadMovie(action: string, id: number) {
     },
     {
       onSuccess: (response) => {
-        toast.success(t(response.data.message), toastOptions);
+        toast.success(
+          <ToastDesign namespace='movies' message={response.data.message} />,
+          {
+            style: {
+              background: '#BADBCC',
+              color: '#0F5132',
+              marginBottom: '3rem',
+            },
+            icon: false,
+            ...toastOptions,
+          }
+        );
         refetch();
       },
       onError: (error: any) => {

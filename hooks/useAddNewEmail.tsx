@@ -1,3 +1,4 @@
+/* eslint-disable @next/next/no-img-element */
 import { useFetchUserInfo } from 'hooks';
 import { useTranslation } from 'next-i18next';
 import { useForm } from 'react-hook-form';
@@ -7,6 +8,7 @@ import { addNewEmail } from 'services';
 import { setShowNewEmailModal } from 'slices/newEmailModalSlice';
 import { toast } from 'react-toastify';
 import { ToastOptionsType } from 'types';
+import { ToastDesign } from 'helpers';
 
 export default function useAddNewEmail() {
   const refetch = useFetchUserInfo();
@@ -23,6 +25,7 @@ export default function useAddNewEmail() {
     progress: undefined,
     theme: 'colored',
   };
+
   const submitQuery = useMutation(
     (data: any) => {
       return addNewEmail({ ...data, locale: i18n.language });
@@ -30,7 +33,18 @@ export default function useAddNewEmail() {
     {
       onSuccess: (response) => {
         refetch();
-        toast.success(t(response.data.message), toastOptions);
+        toast.success(
+          <ToastDesign namespace='profile' message={response.data.message} />,
+          {
+            style: {
+              background: '#BADBCC',
+              color: '#0F5132',
+              marginBottom: '3rem',
+            },
+            icon: false,
+            ...toastOptions,
+          }
+        );
       },
       onError(error: any) {
         toast.error(t(error.response.data.message), toastOptions);

@@ -6,6 +6,7 @@ import { toast } from 'react-toastify';
 import { postComment } from 'services';
 import { selectValue } from 'slices/userInfoSlice';
 import { ToastOptionsType } from 'types';
+import { ToastDesign } from 'helpers';
 
 export default function useWriteComment(refetch: any, quoteId?: number) {
   const user = useSelector(selectValue);
@@ -27,7 +28,18 @@ export default function useWriteComment(refetch: any, quoteId?: number) {
     },
     {
       onSuccess: (response) => {
-        toast.success(t(response.data.message), toastOptions);
+        toast.success(
+          <ToastDesign namespace='news-feed' message={response.data.message} />,
+          {
+            style: {
+              background: '#BADBCC',
+              color: '#0F5132',
+              marginBottom: '3rem',
+            },
+            icon: false,
+            ...toastOptions,
+          }
+        );
         refetch();
       },
       onError: (error: any) => {

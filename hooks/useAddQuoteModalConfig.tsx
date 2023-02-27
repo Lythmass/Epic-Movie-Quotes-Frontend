@@ -7,6 +7,7 @@ import { uploadQuote } from 'services';
 import { toast } from 'react-toastify';
 import { ToastOptionsType } from 'types';
 import { useFetchQuotes } from 'hooks';
+import { ToastDesign } from 'helpers';
 
 export default function useAddQuoteModalConfig() {
   const { t } = useTranslation('movies');
@@ -30,7 +31,18 @@ export default function useAddQuoteModalConfig() {
     },
     {
       onSuccess: (response) => {
-        toast.success(t(response.data.message), toastOptions);
+        toast.success(
+          <ToastDesign namespace='movies' message={response.data.message} />,
+          {
+            style: {
+              background: '#BADBCC',
+              color: '#0F5132',
+              marginBottom: '3rem',
+            },
+            icon: false,
+            ...toastOptions,
+          }
+        );
         refetch();
       },
       onError: (error: any) => {

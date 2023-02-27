@@ -13,6 +13,7 @@ import { setMobileConfirmationModal } from 'slices/mobileConfirmationModalSlice'
 import { showNewEmailModalMobile } from 'slices/newEmailModalSlice';
 import { useDispatch } from 'react-redux';
 import { getNotificationModal } from 'slices/newsFeedQuotesSlice';
+import { ToastDesign } from 'helpers';
 
 export default function useProfilePageConfig(response: string) {
   const { t } = useTranslation('profile');
@@ -44,11 +45,27 @@ export default function useProfilePageConfig(response: string) {
     theme: 'colored',
   };
   const notify = (message: string) => {
-    toast.success(t(message), toastOptions);
+    toast.success(<ToastDesign namespace='profile' message={message} />, {
+      style: {
+        background: '#BADBCC',
+        color: '#0F5132',
+        marginBottom: '3rem',
+      },
+      icon: false,
+      ...toastOptions,
+    });
   };
   useEffect(() => {
     if (response === 'responses.verified-success') {
-      toast.success(t(response), toastOptions);
+      toast.success(<ToastDesign namespace='profile' message={response} />, {
+        style: {
+          background: '#BADBCC',
+          color: '#0F5132',
+          marginBottom: '3rem',
+        },
+        icon: false,
+        ...toastOptions,
+      });
     }
     if (response === 'responses.already-verified') {
       toast.error(t(response), toastOptions);

@@ -7,6 +7,7 @@ import { ToastOptionsType } from 'types';
 import { useRouter } from 'next/router';
 import { useTranslation } from 'next-i18next';
 import useFetchQuotes from './useFetchQuotes';
+import { ToastDesign } from 'helpers';
 
 export default function useDeleteConfirmationModalConfig() {
   const dispatch = useDispatch();
@@ -29,7 +30,18 @@ export default function useDeleteConfirmationModalConfig() {
     },
     {
       onSuccess: (response) => {
-        toast.success(t(response.data.message), toastOptions);
+        toast.success(
+          <ToastDesign namespace='movies' message={response.data.message} />,
+          {
+            style: {
+              background: '#BADBCC',
+              color: '#0F5132',
+              marginBottom: '3rem',
+            },
+            icon: false,
+            ...toastOptions,
+          }
+        );
         dispatch(setDeleteMovie(false));
         refetch();
         router.push('/movies');

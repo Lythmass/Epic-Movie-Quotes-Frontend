@@ -8,6 +8,7 @@ import { updateQuote } from 'services';
 import { editQuote, getQuotes, setEditQuote } from 'slices/quotesSlice';
 import { ToastOptionsType } from 'types';
 import { useFetchQuotes } from 'hooks';
+import { ToastDesign } from 'helpers';
 
 export default function useEditQuoteModalConfig() {
   const toastOptions: ToastOptionsType = {
@@ -37,7 +38,18 @@ export default function useEditQuoteModalConfig() {
     },
     {
       onSuccess: (response) => {
-        toast.success(t(response.data.message), toastOptions);
+        toast.success(
+          <ToastDesign namespace='movies' message={response.data.message} />,
+          {
+            style: {
+              background: '#BADBCC',
+              color: '#0F5132',
+              marginBottom: '3rem',
+            },
+            icon: false,
+            ...toastOptions,
+          }
+        );
         dispatch(setEditQuote(0));
         refetch();
       },
