@@ -8,14 +8,7 @@ import {
   getNotificationValues,
   setNotifications,
 } from 'slices/newsFeedQuotesSlice';
-import useFetchLikes from './useFetchLikes';
-import useFetchComments from './useFetchComments';
-
-declare global {
-  interface Window {
-    Pusher: any;
-  }
-}
+import { useFetchComments, useFetchLikes } from 'hooks';
 
 export default function useSocket() {
   const user = useSelector(selectValue);
