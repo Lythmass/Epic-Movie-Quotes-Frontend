@@ -27,6 +27,7 @@ export const ReactSelectStyles: StylesConfig = {
   placeholder: (base: CSSObjectWithLabel) => ({
     ...base,
     color: 'white',
+    opacity: '0.7',
   }),
 };
 
