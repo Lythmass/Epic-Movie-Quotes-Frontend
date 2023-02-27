@@ -4,10 +4,13 @@ import { toast } from 'react-toastify';
 import { ToastOptionsType } from 'types';
 import { useFetchMovies } from 'hooks';
 import { useTranslation } from 'next-i18next';
+import { setAddMovieModal } from 'slices/addMovieModalSlice';
+import { useDispatch } from 'react-redux';
 
 export default function useUploadMovie(action: string, id: number) {
   const { refetch } = useFetchMovies();
   const { t } = useTranslation('movies');
+  const dispatch = useDispatch();
   const toastOptions: ToastOptionsType = {
     position: 'top-right',
     autoClose: 5000,
@@ -25,6 +28,7 @@ export default function useUploadMovie(action: string, id: number) {
     {
       onSuccess: (response) => {
         toast.success(t(response.data.message), toastOptions);
+        dispatch(setAddMovieModal(false));
         refetch();
       },
       onError: (error: any) => {
