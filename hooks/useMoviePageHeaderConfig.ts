@@ -10,7 +10,7 @@ export default function useMoviePageHeaderConfig() {
   const movies = useSelector(getMovies);
   const windowWidth = useWindowWidth();
   const { t, i18n } = useTranslation('movies');
-  const [originalMovies, setOriginalMovies] = useState([]);
+  const [originalMovies, setOriginalMovies] = useState<MovieType[]>([]);
   useEffect(() => {
     if (movies?.length > originalMovies.length) {
       setOriginalMovies(movies);
