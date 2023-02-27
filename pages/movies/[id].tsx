@@ -1,18 +1,18 @@
 /* eslint-disable @next/next/no-img-element */
 import {
   GlobalLayout,
-  DisplayGenres,
   MovieDetails,
   MoviePageSection,
   UpdateDeleteMovie,
   DeleteConfirmationModal,
   EditMovieModal,
   AddQuoteModal,
-  QuoteCard,
   QuoteDeleteConfirmationModal,
   EditQuoteModal,
   ViewQuoteModal,
   NotificationsModal,
+  RenderQuotes,
+  RenderGenres,
 } from 'components';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useMoviePageConfig } from 'hooks';
@@ -20,48 +20,23 @@ import Head from 'next/head';
 import { hasCookie } from 'cookies-next';
 export const Movie = () => {
   const {
-    t,
     i18n,
     deleteMovie,
     screenWidth,
     movie,
     editMovie,
     addQuoteModalHere,
-    getQuotesHere,
     quoteDeleteConfirmationModalHere,
     editQuoteHere,
     viewQuote,
     getNotificationsModalHere,
   } = useMoviePageConfig();
-  const displayGenres = movie?.genres.map(
-    (genre: { name: string }, index: number) => {
-      return <DisplayGenres key={index} name={t('genres.' + genre.name)} />;
-    }
-  );
-  const displayQuotes = getQuotesHere?.map(
-    (
-      quote: {
-        thumbnail: string;
-        id: number;
-        quote: { en: string; ka: string };
-      },
-      index: number
-    ) => {
-      return (
-        <QuoteCard
-          key={index}
-          id={quote.id}
-          quote={quote.quote[i18n.language === 'en' ? 'en' : 'ka']}
-          thumbnail={quote.thumbnail}
-        />
-      );
-    }
-  );
+
   return (
     <GlobalLayout>
       <>
         <Head>
-          <title>{movie?.title[i18n.language]}</title>
+          <title>{movie?.title[i18n.language == 'en' ? 'en' : 'ka']}</title>
         </Head>
         {getNotificationsModalHere && <NotificationsModal />}
         {deleteMovie && <DeleteConfirmationModal />}
@@ -80,22 +55,27 @@ export const Movie = () => {
             <div className='flex flex-col w-1/2 gap-6'>
               <div className='flex flex-col items-start gap-2 sm:flex-row sm:items-center sm:justify-between w-full flex-wrap'>
                 <h1 className='text-[#DDCCAA] text-2xl'>
-                  {movie?.title[i18n.language]} ({movie?.year})
+                  {movie?.title[i18n.language == 'en' ? 'en' : 'ka']} (
+                  {movie?.year})
                 </h1>
                 <UpdateDeleteMovie />
               </div>
               <div className='w-screen 2xl:w-full flex gap-2 pr-[2rem] flex-wrap'>
-                {displayGenres}
+                <RenderGenres movie={movie} />
               </div>
               <MovieDetails
-                director={movie?.director[i18n.language]}
+                director={movie?.director[i18n.language == 'en' ? 'en' : 'ka']}
                 budget={movie?.budget}
-                description={movie?.description[i18n.language]}
+                description={
+                  movie?.description[i18n.language == 'en' ? 'en' : 'ka']
+                }
               />
             </div>
           </header>
           <MoviePageSection screenWidth={screenWidth} />
-          <div className='flex flex-col gap-8 mb-8'>{displayQuotes}</div>
+          <div className='flex flex-col gap-8 mb-8'>
+            <RenderQuotes />
+          </div>
         </div>
       </>
     </GlobalLayout>

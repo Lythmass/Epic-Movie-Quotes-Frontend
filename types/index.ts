@@ -30,3 +30,4 @@ export type { QuoteDropdownType } from './QuoteDropdownType';
 export type { PostType } from './PostType';
 export type { NotificationType } from './NotificationType';
 export type { Genre } from './Genre';
+export type { QuoteMap } from './QuoteMap';

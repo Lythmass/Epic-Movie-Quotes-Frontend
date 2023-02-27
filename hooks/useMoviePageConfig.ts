@@ -12,7 +12,6 @@ import { getDeleteValue, getEditValue } from 'slices/moviesSlice';
 import {
   addQuoteModal,
   editQuote,
-  getQuotes,
   getViewQuote,
   quoteDeleteConfirmationModal,
 } from 'slices/quotesSlice';
@@ -21,13 +20,12 @@ import { getNotificationModal } from 'slices/newsFeedQuotesSlice';
 export default function useMoviePageConfig() {
   const router = useRouter();
   useFetchMovies();
-  const { t, i18n } = useTranslation('movies');
+  const { i18n } = useTranslation('movies');
   useFetchUserInfo();
   useFetchQuotes();
   const deleteMovie = useSelector(getDeleteValue);
   const editMovie = useSelector(getEditValue);
   const addQuoteModalHere = useSelector(addQuoteModal);
-  const getQuotesHere = useSelector(getQuotes);
   const getNotificationsModalHere = useSelector(getNotificationModal);
   const quoteDeleteConfirmationModalHere = useSelector(
     quoteDeleteConfirmationModal
@@ -40,14 +38,12 @@ export default function useMoviePageConfig() {
   )[0];
 
   return {
-    t,
     i18n,
     deleteMovie,
     screenWidth,
     movie,
     editMovie,
     addQuoteModalHere,
-    getQuotesHere,
     quoteDeleteConfirmationModalHere,
     editQuoteHere,
     viewQuote,
