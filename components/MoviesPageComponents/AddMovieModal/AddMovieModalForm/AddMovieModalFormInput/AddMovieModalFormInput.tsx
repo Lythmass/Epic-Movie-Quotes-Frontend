@@ -22,7 +22,7 @@ export const AddMovieModalFormInput: React.FC<AddMovieModalInputType> = (
         placeholder={props.type === 'text' ? props.placeholder : t('budget')}
         autoComplete='off'
         type={props.type}
-        className={`w-full appearance-none bg-[right_1rem_center] bg-no-repeat text-white py-3 pl-4 pr-14 rounded-[0.3rem] focus:outline-none placeholder-white bg-[#11101A] border border-[#6C757D]`}
+        className={`w-full appearance-none bg-[right_1rem_center] bg-no-repeat text-white py-3 pl-4 pr-14 rounded-[0.3rem] focus:outline-none placeholder-white placeholder-opacity-70 bg-[#11101A] border border-[#6C757D]`}
       />
       <p className='text-button-red h-3'>
         {methods.formState.errors[props.name]?.message}
