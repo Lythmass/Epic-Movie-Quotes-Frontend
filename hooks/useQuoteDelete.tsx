@@ -9,6 +9,7 @@ import {
   setEditQuote,
   setQuoteDeleteConfirmationModal,
 } from 'slices/quotesSlice';
+import { ToastDesign } from 'helpers';
 
 export default function useQuoteDelete() {
   const dispatch = useDispatch();
@@ -30,7 +31,18 @@ export default function useQuoteDelete() {
     },
     {
       onSuccess: (response) => {
-        toast.success(t(response.data.message), toastOptions);
+        toast.success(
+          <ToastDesign namespace='movies' message={response.data.message} />,
+          {
+            style: {
+              background: '#BADBCC',
+              color: '#0F5132',
+              marginBottom: '3rem',
+            },
+            icon: false,
+            ...toastOptions,
+          }
+        );
         dispatch(setQuoteDeleteConfirmationModal(0));
         dispatch(setEditQuote(0));
         refetch();

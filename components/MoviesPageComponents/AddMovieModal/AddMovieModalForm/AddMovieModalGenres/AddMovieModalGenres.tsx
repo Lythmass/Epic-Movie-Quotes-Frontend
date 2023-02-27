@@ -28,7 +28,7 @@ export const AddMovieModalGenres: React.FC<{ placeholder: string }> = (
           )}
         />
       )}
-      {router.query.id !== undefined && movie.length > 1 && (
+      {router.query.id !== undefined && (
         <Controller
           control={methods.control}
           defaultValue={genres?.map((genre: any) => genre.value)}

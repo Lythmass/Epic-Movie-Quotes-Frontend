@@ -132,14 +132,10 @@ export const deleteMovie = async (id: any) => {
 export const updateMovie = async (id: any, data: any) => {
   const response = await instance.post(
     '/api/update-movie',
-    {
-      ...data,
-      id: id,
-    },
+    { ...data, id: id },
     {
       headers: {
         'Content-Type': 'multipart/form-data',
-        Accept: 'multipart/form-data',
       },
     }
   );

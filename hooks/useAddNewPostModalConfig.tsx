@@ -11,6 +11,7 @@ import { addNewPost } from 'services';
 import { toast } from 'react-toastify';
 import { ToastOptionsType } from 'types';
 import { useForm } from 'react-hook-form';
+import { ToastDesign } from 'helpers';
 
 export default function useAddNewPostModalConfig() {
   useFetchMovies();
@@ -43,7 +44,18 @@ export default function useAddNewPostModalConfig() {
     },
     {
       onSuccess: (response) => {
-        toast.success(t(response.data.message), toastOptions);
+        toast.success(
+          <ToastDesign namespace='news-feed' message={response.data.message} />,
+          {
+            style: {
+              background: '#BADBCC',
+              color: '#0F5132',
+              marginBottom: '3rem',
+            },
+            icon: false,
+            ...toastOptions,
+          }
+        );
         refetch();
         refetchPosts(true);
       },

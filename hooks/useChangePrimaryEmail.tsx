@@ -4,6 +4,7 @@ import { useMutation } from 'react-query';
 import { toast } from 'react-toastify';
 import { useTranslation } from 'next-i18next';
 import { ToastOptionsType } from 'types';
+import { ToastDesign } from 'helpers';
 
 export default function useChangePrimaryEmail(
   verified: boolean,
@@ -29,7 +30,18 @@ export default function useChangePrimaryEmail(
     {
       onSuccess: (response) => {
         refetch();
-        toast.success(t(response.data.message), toastOptions);
+        toast.success(
+          <ToastDesign namespace='profile' message={response.data.message} />,
+          {
+            style: {
+              background: '#BADBCC',
+              color: '#0F5132',
+              marginBottom: '3rem',
+            },
+            icon: false,
+            ...toastOptions,
+          }
+        );
         setPrimaryChanged !== undefined && setPrimaryChanged(true);
       },
       onError: (error: any) => {
