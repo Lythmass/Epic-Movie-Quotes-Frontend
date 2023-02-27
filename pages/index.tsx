@@ -95,11 +95,12 @@ export const Home: React.FC<{
 };
 
 export async function getServerSideProps(context: any) {
+  const translations = await serverSideTranslations(context.locale, ['common']);
   if (context.query.google_id !== undefined) {
     return {
       props: {
         googleId: context.query.google_id,
-        ...(await serverSideTranslations(context.locale, ['common'])),
+        ...translations,
       },
     };
   }
@@ -113,7 +114,7 @@ export async function getServerSideProps(context: any) {
     return {
       props: {
         response: JSON.stringify(response.data.message),
-        ...(await serverSideTranslations(context.locale, ['common'])),
+        ...translations,
       },
     };
   }
@@ -124,13 +125,13 @@ export async function getServerSideProps(context: any) {
     return {
       props: {
         response: 'Reset password',
-        ...(await serverSideTranslations(context.locale, ['common'])),
+        ...translations,
       },
     };
   }
   return {
     props: {
-      ...(await serverSideTranslations(context.locale, ['common'])),
+      ...translations,
     },
   };
 }

@@ -101,6 +101,10 @@ export const Profile: React.FC<{ response: string }> = (props) => {
 };
 
 export async function getServerSideProps(context: any) {
+  const translations = await serverSideTranslations(context.locale, [
+    'news-feed',
+    'profile',
+  ]);
   const code = !hasCookie('XSRF-TOKEN', context) ? 403 : 200;
   if (code == 403) {
     return {
@@ -118,19 +122,13 @@ export async function getServerSideProps(context: any) {
     return {
       props: {
         response: response.data.message,
-        ...(await serverSideTranslations(context.locale, [
-          'news-feed',
-          'profile',
-        ])),
+        ...translations,
       },
     };
   }
   return {
     props: {
-      ...(await serverSideTranslations(context.locale, [
-        'news-feed',
-        'profile',
-      ])),
+      ...translations,
     },
   };
 }
