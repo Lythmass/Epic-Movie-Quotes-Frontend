@@ -13,9 +13,11 @@ import { setMobileConfirmationModal } from 'slices/mobileConfirmationModalSlice'
 import { showNewEmailModalMobile } from 'slices/newEmailModalSlice';
 import { useDispatch } from 'react-redux';
 import { getNotificationModal } from 'slices/newsFeedQuotesSlice';
+import { useRouter } from 'next/router';
 
 export default function useProfilePageConfig(response: string) {
   const { t } = useTranslation('profile');
+  const router = useRouter();
   const screenWidth = useWindowWidth();
   const [showEmailsModal, setShowEmailsModal] = useState(false);
   const [enableProfileModalEdit, setEnableProfileModalEdit] = useState('');
@@ -49,9 +51,11 @@ export default function useProfilePageConfig(response: string) {
   useEffect(() => {
     if (response === 'responses.verified-success') {
       toast.success(t(response), toastOptions);
+      router.push('/profile');
     }
     if (response === 'responses.already-verified') {
       toast.error(t(response), toastOptions);
+      router.push('/profile');
     }
   }, []);
 
