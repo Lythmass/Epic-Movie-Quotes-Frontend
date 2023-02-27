@@ -1,10 +1,11 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { PayloadAction } from '@reduxjs/toolkit';
 import { RootState } from 'store';
+import { Genre, MovieType } from 'types';
 
 const initialState: {
-  value: any;
-  movies: any;
+  value: Genre[];
+  movies: MovieType[];
   deleteValue: boolean;
   editValue: boolean;
 } = {
@@ -18,10 +19,10 @@ export const moviesSlice = createSlice({
   name: 'movies',
   initialState,
   reducers: {
-    setGenres: (state, data: PayloadAction<object[]>) => {
+    setGenres: (state, data: PayloadAction<Genre[]>) => {
       state.value = data.payload;
     },
-    setMovies: (state, data: PayloadAction<object[]>) => {
+    setMovies: (state, data: PayloadAction<MovieType[]>) => {
       state.movies = data.payload;
     },
     setDeleteMovie: (state, value: PayloadAction<boolean>) => {

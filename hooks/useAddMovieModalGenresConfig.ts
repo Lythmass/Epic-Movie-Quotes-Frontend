@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react';
 export default function useAddMovieModalGenresConfig() {
   const router: any = useRouter();
   const movies = useSelector(getMovies);
-  const [movie, setMovie] = useState([]);
+  const [movie, setMovie] = useState<{ value: string; label: string }[]>([]);
   useEffect(() => {
     if (movies != undefined) {
       for (let i = 0; i < movies.length; i++) {

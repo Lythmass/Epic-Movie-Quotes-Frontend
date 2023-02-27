@@ -1,4 +1,5 @@
 export type MovieType = {
+  id?: number;
   title: {
     en: 'en';
     ka: 'ka';
