@@ -22,7 +22,7 @@ export const ProfileInputsForDesktop: React.FC<ProfileInputsType> = (props) => {
     <div className='flex flex-col gap-2'>
       <label>{props.label}</label>
       <div className='flex relative gap-5 items-center w-full'>
-        <div className='flex relative w-[72%] items-center flex-col justify-center'>
+        <div className='flex relative lg:w-[70%] xl:w-[60%] items-center flex-col justify-center'>
           <input
             {...methods.register(props.name, validation[validationName])}
             className={`${

@@ -9,9 +9,9 @@ export const EmailButtons: React.FC<EmailButtonsType> = (props) => {
     props.setPrimaryChanged
   );
   return (
-    <div className='flex justify-start items-center mb-3 w-[15rem] gap-5'>
+    <div className='flex justify-start items-center mb-3 gap-5'>
       <p
-        className='cursor-pointer'
+        className='cursor-pointer whitespace-nowrap'
         onClick={() => {
           primaryChangerHandler(props.value);
         }}
