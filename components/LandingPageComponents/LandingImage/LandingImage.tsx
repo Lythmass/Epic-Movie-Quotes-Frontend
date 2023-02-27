@@ -3,7 +3,7 @@ import { LandingImageType } from 'types';
 
 export const LandingImage: React.FC<LandingImageType> = (props) => {
   return (
-    <div className='w-full h-[27rem] lg:h-screen'>
+    <div className='w-full h-[27rem] lg:h-[75rem]'>
       <div
         style={{ backgroundImage: `url('/assets/images/${props.src}.png')` }}
         className='bg-fixed bg-cover bg-center w-full h-full flex flex-col justify-center items-center'

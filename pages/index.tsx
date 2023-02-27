@@ -72,7 +72,7 @@ export const Home: React.FC<{
             setShowLoginModal={setShowLoginModal}
             setShowRegistrationModal={setShowRegistrationModal}
           />
-          <div className='w-[75%] h-[50vh] 2xl:h-[70vh] 2xl:py-[20rem] text-center flex flex-col justify-center items-center gap-10'>
+          <div className='w-[75%] h-[50vh] 2xl:h-[50rem] 2xl:py-[20rem] text-center flex flex-col justify-center items-center gap-10'>
             <h1 className='text-skin-color text-2xl lg:text-3xl 2xl:text-6xl font-bold lg:px-[30%] 2xl:px-[13rem] lg:leading-[3rem] 2xl:leading-[5.8rem]'>
               {t('header')}
             </h1>
