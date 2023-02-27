@@ -5,17 +5,14 @@ import {
   ForgotPasswordModal,
   PasswordResetModal,
 } from 'components';
-import { useTranslation } from 'next-i18next';
-import { useEffect } from 'react';
 import { ConditionalModalsType } from 'types';
+import useConditionalModalsConfig from './useConditionalModalsConfig';
 
 export const ConditionalModals: React.FC<ConditionalModalsType> = (props) => {
-  const { t } = useTranslation('common');
-  useEffect(() => {
-    if (props.response === 'Reset password') {
-      props.setPasswordResetModal(true);
-    }
-  }, [props.response]);
+  const { t } = useConditionalModalsConfig(
+    props.response,
+    props.setPasswordResetModal
+  );
   return (
     <>
       {props.showRegistrationModal && (
