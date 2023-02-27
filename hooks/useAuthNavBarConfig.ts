@@ -31,7 +31,7 @@ export default function useAuthNavBarConfig() {
         } else {
           deleteCookie('XSRF-TOKEN', {
             path: '/',
-            domain: '.gigig.redberryinternship.ge',
+            domain: process.env.NEXT_PUBLIC_DOMAIN,
           });
         }
         router.push('/');

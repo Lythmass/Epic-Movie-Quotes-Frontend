@@ -33,7 +33,7 @@ export default function usePasswordResetSubmitHandler(
     } else {
       deleteCookie('XSRF-TOKEN', {
         path: '/',
-        domain: '.gigig.redberryinternship.ge',
+        domain: process.env.NEXT_PUBLIC_DOMAIN,
       });
     }
   };

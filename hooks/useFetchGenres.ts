@@ -16,7 +16,7 @@ export default function useFetchGenres() {
         } else {
           deleteCookie('XSRF-TOKEN', {
             path: '/',
-            domain: '.gigig.redberryinternship.ge',
+            domain: process.env.NEXT_PUBLIC_DOMAIN,
           });
         }
         router.push('/403');
