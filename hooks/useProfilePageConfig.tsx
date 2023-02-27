@@ -14,9 +14,11 @@ import { showNewEmailModalMobile } from 'slices/newEmailModalSlice';
 import { useDispatch } from 'react-redux';
 import { getNotificationModal } from 'slices/newsFeedQuotesSlice';
 import { ToastDesign } from 'helpers';
+import { useRouter } from 'next/router';
 
 export default function useProfilePageConfig(response: string) {
   const { t } = useTranslation('profile');
+  const router = useRouter();
   const screenWidth = useWindowWidth();
   const [showEmailsModal, setShowEmailsModal] = useState(false);
   const [enableProfileModalEdit, setEnableProfileModalEdit] = useState('');
@@ -66,9 +68,12 @@ export default function useProfilePageConfig(response: string) {
         icon: false,
         ...toastOptions,
       });
+      toast.success(t(response), toastOptions);
+      router.push('/profile');
     }
     if (response === 'responses.already-verified') {
       toast.error(t(response), toastOptions);
+      router.push('/profile');
     }
   }, []);
 

@@ -17,7 +17,7 @@ export const AddMovieModalFormTextarea: React.FC<AddMovieModalInputType> = (
           backgroundImage: `url('/assets/images/${props.language}.png')`,
         }}
         placeholder={props.placeholder}
-        className={`w-full h-[5.375rem] bg-[right_1rem_top_1rem] bg-no-repeat text-white py-3 pl-4 pr-14 rounded-[0.3rem] focus:outline-none placeholder-white bg-inherit border border-[#6C757D]`}
+        className={`w-full h-[5.375rem] bg-[right_1rem_top_1rem] bg-no-repeat text-white py-3 pl-4 pr-14 rounded-[0.3rem] focus:outline-none placeholder-white placeholder-opacity-70 bg-inherit border border-[#6C757D]`}
       />
       <p className='text-button-red h-3'>
         {methods.formState.errors[props.name]?.message}
