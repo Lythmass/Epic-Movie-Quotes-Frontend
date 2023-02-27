@@ -42,7 +42,7 @@ export default function useSocket() {
         },
       });
       echo
-        .private(`App.Models.User.${user?.id}`)
+        .private(`notification.${user?.id}`)
         .listen('SendNotification', (e: any) => {
           if (oldNotifications != undefined) {
             dispatch(setNotifications([e, ...oldNotifications]));
