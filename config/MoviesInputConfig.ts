@@ -1,4 +1,4 @@
-const MoviesInputData = [
+const MoviesInputConfig = [
   {
     name: 'title-en',
     placeholder: 'Movie name',
@@ -57,4 +57,4 @@ const MoviesInputData = [
   },
 ];
 
-export default MoviesInputData;
+export default MoviesInputConfig;

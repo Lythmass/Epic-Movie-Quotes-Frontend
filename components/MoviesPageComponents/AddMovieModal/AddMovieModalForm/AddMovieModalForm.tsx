@@ -1,6 +1,6 @@
 import { FormProvider } from 'react-hook-form';
 import { AddMovieModalInput } from 'components';
-import { MoviesInputData } from 'data';
+import { MoviesInputConfig } from 'config';
 import { useAddMovieModalFormConfig } from 'hooks';
 import { MovieType } from 'types';
 
@@ -12,7 +12,7 @@ export const AddMovieModalForm: React.FC<{
     props.action,
     props.movie
   );
-  const displayInputs = MoviesInputData.map((input, index) => {
+  const displayInputs = MoviesInputConfig.map((input, index) => {
     return (
       <AddMovieModalInput
         key={index}
