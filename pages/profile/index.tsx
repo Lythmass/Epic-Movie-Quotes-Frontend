@@ -52,7 +52,7 @@ export const Profile: React.FC<{ response: string }> = (props) => {
               setShowEmailsModal={setShowEmailsModal}
             />
           )}
-          <div className='w-full lg:w-[60%] m-auto lg:relative lg:bg-[#11101A] lg:rounded-xl min-h-[69vh] lg:mt-64 lg:min-h-[30rem] lg:pb-12 lg:mb-36 flex gap-16 flex-col justify-center items-center bg-navbar-color text-white'>
+          <div className='w-full lg:w-[63%] xl:w-[50%] m-auto lg:relative lg:bg-[#11101A] lg:rounded-xl min-h-[69vh] lg:mt-64 lg:min-h-[30rem] lg:pb-12 lg:mb-36 flex gap-16 flex-col justify-center items-center bg-navbar-color text-white'>
             <ProfileHeader
               setHasChanged={setHasChanged}
               setSaveProfilePicture={setSaveProfilePicture}
