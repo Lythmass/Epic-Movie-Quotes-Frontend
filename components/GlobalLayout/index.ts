@@ -1,7 +1,5 @@
 export { default as GlobalLayout } from './GlobalLayout';
-export {
-  AuthNavBar,
-  NotificationsModal,
-  DisplayNotifications,
-} from './AuthNavBar';
-export { BurgerMenu } from './AuthNavBar';
+export { AuthNavBar } from './AuthNavBar';
+export { NotificationsModal } from './NotificationsModal';
+export { DisplayNotifications } from './DisplayNotifications';
+export { BurgerMenu } from './BurgerMenu';
