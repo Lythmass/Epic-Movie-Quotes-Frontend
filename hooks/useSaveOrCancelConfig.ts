@@ -13,6 +13,7 @@ export default function useSaveOrCancelConfig(props: SaveOrCancelType) {
   const profilePictureHandler = () => {
     if (props.saveProfilePicture === 'prepare') {
       props.setSaveProfilePicture('yes');
+      props.setHasChanged(false);
     }
   };
 

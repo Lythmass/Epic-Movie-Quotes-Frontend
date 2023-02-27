@@ -99,6 +99,8 @@ export default function useProfilePageConfig(response: string) {
         refetch();
         notify(response.data.message);
         dispatch(setMobileConfirmationModal(false));
+        setHasChanged(false);
+        setClear(true);
       },
     }
   );
