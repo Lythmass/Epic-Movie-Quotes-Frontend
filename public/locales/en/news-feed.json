@@ -20,6 +20,7 @@
     "new": "New",
     "like": "Reacted to your quote",
     "comment": "Commented to your quote..",
-    "ago": "mins ago"
+    "ago": "mins ago",
+    "hours": "hours ago"
   }
 }

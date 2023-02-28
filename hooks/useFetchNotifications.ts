@@ -1,14 +1,16 @@
 import { useEffect } from 'react';
 import { useQuery } from 'react-query';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getNotifications } from 'services';
 import { setNotifications } from 'slices/newsFeedQuotesSlice';
 import { deleteCookie } from 'cookies-next';
 import { useRouter } from 'next/router';
+import { selectValue } from 'slices/userInfoSlice';
 
 export default function useFetchNotifications() {
   const dispatch = useDispatch();
   const router = useRouter();
+  const user = useSelector(selectValue);
   const { data, refetch } = useQuery('get-notifications', getNotifications, {
     onError: (error: any) => {
       if (error.response.status == 401) {
@@ -25,7 +27,14 @@ export default function useFetchNotifications() {
     },
   });
   useEffect(() => {
-    dispatch(setNotifications(data?.data.notifications));
-  }, [data, dispatch]);
+    dispatch(
+      setNotifications(
+        data?.data.notifications.filter(
+          (notification: { author: string }) =>
+            user?.name != notification.author
+        )
+      )
+    );
+  }, [data, dispatch, user]);
   return refetch;
 }
