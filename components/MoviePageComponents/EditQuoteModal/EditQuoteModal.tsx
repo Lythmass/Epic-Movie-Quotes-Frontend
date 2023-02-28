@@ -42,9 +42,7 @@ export const EditQuoteModal = () => {
                   alt='thumbnail'
                 />
                 <input
-                  {...methods.register('thumbnail', {
-                    required: t('required'),
-                  })}
+                  {...methods.register('thumbnail')}
                   accept='image/jpg, image/png, image/jpg'
                   type='file'
                   id='thumbnail'
