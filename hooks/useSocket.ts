@@ -37,7 +37,6 @@ export default function useSocket() {
       echo
         .private(`notification.${user?.id}`)
         .listen('SendNotification', (e: any) => {
-          console.log(e.notification.author, user?.name);
           if (
             oldNotifications != undefined &&
             e.notification.author != user?.name
