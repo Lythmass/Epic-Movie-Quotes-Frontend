@@ -29,7 +29,7 @@ export const QuoteCard: React.FC<QuoteCardType> = (props) => {
             src={props.thumbnail}
             alt='thumbnail'
           />
-          <i className='text-white text-2xl break-words'>
+          <i className='text-white text-2xl break-all'>
             &#34;{props.quote}&#34;
           </i>
         </div>
