@@ -2,7 +2,7 @@ import { NavBar, Button, LandingImages, ConditionalModals } from 'components';
 import { imagesData } from 'data';
 import { useSwitchModals } from 'hooks';
 import { useTranslation } from 'next-i18next';
-import { markEmailAsVerified } from 'services';
+import { markEmailAsVerified, verifySecondaryEmail } from 'services';
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Head from 'next/head';
 
@@ -100,6 +100,18 @@ export async function getServerSideProps(context: any) {
     return {
       props: {
         googleId: context.query.google_id,
+        ...translations,
+      },
+    };
+  }
+  if (context.query.verify_secondary_email !== undefined) {
+    const id = context.query.verify_secondary_email;
+    const token = context.query.token;
+    const email = context.query.email;
+    const response = await verifySecondaryEmail(id, token, email);
+    return {
+      props: {
+        response: JSON.stringify(response.data.message),
         ...translations,
       },
     };

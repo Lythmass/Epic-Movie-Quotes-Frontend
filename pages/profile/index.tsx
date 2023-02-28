@@ -107,6 +107,14 @@ export async function getServerSideProps(context: any) {
     'profile',
   ]);
   const code = !hasCookie('XSRF-TOKEN', context) ? 403 : 200;
+  if (code == 403 && context.query.verify_secondary_email != undefined) {
+    return {
+      redirect: {
+        permanent: false,
+        destination: '/' + context.req.url.substring(8),
+      },
+    };
+  }
   if (code == 403) {
     return {
       redirect: {
