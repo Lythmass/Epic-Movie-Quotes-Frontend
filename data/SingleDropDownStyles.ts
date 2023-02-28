@@ -23,7 +23,7 @@ export const SingleDropDownStyles: StylesConfig = {
   }),
   menu: (base: CSSObjectWithLabel) => ({
     ...base,
-    height: '200px',
+    minHeight: '1rem',
     overflow: 'auto',
   }),
 };
