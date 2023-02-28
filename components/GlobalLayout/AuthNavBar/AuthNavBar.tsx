@@ -16,7 +16,11 @@ export default function NavBar() {
   } = useAuthNavBarConfig();
 
   return (
-    <div className='w-full z-[100] fixed top-0 flex justify-between px-9 items-center h-[5.35rem] bg-navbar-color'>
+    <div
+      className={`w-full ${
+        burgerMenu == true ? 'z-[200]' : 'z-[100]'
+      } fixed top-0 flex justify-between px-9 items-center h-[5.35rem] bg-navbar-color`}
+    >
       <div
         onClick={() => setBurgerMenu(true)}
         className='cursor-pointer lg:cursor-default'

@@ -37,7 +37,7 @@ export const WriteQuoteAndSearch = () => {
           {windowWidth < 1024 && !searchModal && (
             <div
               onClick={() => dispatch(setSearchModal(true))}
-              className='flex gap-4 items-center absolute top-[2.1rem] z-[101] right-[13.5rem]'
+              className='flex gap-4 items-center fixed top-[2.1rem] z-[101] right-[13.5rem]'
             >
               <img
                 className='cursor-pointer'
