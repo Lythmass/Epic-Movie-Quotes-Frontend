@@ -5,12 +5,9 @@ import { changeProfilePicture } from 'services';
 import { useMutation } from 'react-query';
 import { useSelector } from 'react-redux';
 import { selectValue } from 'slices/userInfoSlice';
+import { ProfileHeaderType } from 'types';
 
-export default function useProfileHeaderConfig(props: {
-  setHasChanged: (value: boolean) => void;
-  setSaveProfilePicture: (value: string) => void;
-  saveProfilePicture: string;
-}) {
+export default function useProfileHeaderConfig(props: ProfileHeaderType) {
   const [file, setFile] = useState();
   const refetch = useFetchUserInfo();
   const changeProfilePictureMutation = useMutation(
@@ -33,7 +30,11 @@ export default function useProfileHeaderConfig(props: {
     setFile(event.target.files[0]);
   };
   useEffect(() => {
-    if (props.saveProfilePicture === 'no' && user !== undefined) {
+    if (
+      props.saveProfilePicture === 'no' &&
+      user !== undefined &&
+      !props.hasChanged
+    ) {
       if (user?.profile_picture !== null) {
         profileRef.current!.src = user?.profile_picture;
       } else {

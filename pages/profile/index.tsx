@@ -56,6 +56,7 @@ export const Profile: React.FC<{ response: string }> = (props) => {
             <ProfileHeader
               setHasChanged={setHasChanged}
               setSaveProfilePicture={setSaveProfilePicture}
+              hasChanged={hasChanged}
               saveProfilePicture={saveProfilePicture}
             />
             <FormProvider {...methods}>
