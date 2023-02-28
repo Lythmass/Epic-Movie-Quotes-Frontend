@@ -44,7 +44,9 @@ export const DisplayNotifications: React.FC<NotificationType> = (props) => {
           </div>
         )}
         <p className='text-[#D9D9D9]'>
-          {calculateDate} {t('notifications.ago')}
+          {calculateDate < 60 && `${calculateDate} ${t('notifications.ago')}`}
+          {calculateDate >= 60 &&
+            `${Math.floor(calculateDate / 60)} ${t('notifications.hours')}`}
         </p>
       </div>
     </div>

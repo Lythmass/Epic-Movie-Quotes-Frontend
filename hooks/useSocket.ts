@@ -37,7 +37,11 @@ export default function useSocket() {
       echo
         .private(`notification.${user?.id}`)
         .listen('SendNotification', (e: any) => {
-          if (oldNotifications != undefined) {
+          console.log(e.notification.author, user?.name);
+          if (
+            oldNotifications != undefined &&
+            e.notification.author != user?.name
+          ) {
             dispatch(setNotifications([e, ...oldNotifications]));
             refetchLikes();
             refetchComments();
