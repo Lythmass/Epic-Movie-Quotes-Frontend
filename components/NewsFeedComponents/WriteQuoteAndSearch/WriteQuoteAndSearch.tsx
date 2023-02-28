@@ -13,6 +13,7 @@ export const WriteQuoteAndSearch = () => {
     submit,
     searchHandler,
     dispatch,
+    searchModal,
   } = useWriteQuoteAndSearchConfig();
   return (
     <div className='w-full py-[1.5rem] gap-6 px-8 lg:px-0 flex flex-col justify-center items-start lg:flex-row lg:items-center'>
@@ -33,19 +34,16 @@ export const WriteQuoteAndSearch = () => {
               {t('new-quote')}
             </h1>
           </div>
-          {windowWidth < 1024 && (
+          {windowWidth < 1024 && !searchModal && (
             <div
               onClick={() => dispatch(setSearchModal(true))}
-              className='flex gap-4 items-center'
+              className='flex gap-4 items-center absolute top-[2.1rem] z-[101] right-[13.5rem]'
             >
               <img
                 className='cursor-pointer'
                 src='/assets/images/search.png'
                 alt='search'
               />
-              <h1 className='text-white lg:text-xl cursor-pointer'>
-                {t('search-by')}
-              </h1>
             </div>
           )}
           {windowWidth >= 1024 && (

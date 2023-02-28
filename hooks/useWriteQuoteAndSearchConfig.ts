@@ -4,8 +4,15 @@ import { useState } from 'react';
 export default function useWriteQuoteAndSearchConfig() {
   const windowWidth = useWindowWidth();
   const [searchGrow, setSearchGrow] = useState(false);
-  const { refetch, t, search, searchType, searchHandler, dispatch } =
-    useNewsFeedSearch();
+  const {
+    refetch,
+    t,
+    search,
+    searchType,
+    searchHandler,
+    dispatch,
+    searchModal,
+  } = useNewsFeedSearch();
   const submit = (event: any) => {
     event?.preventDefault();
     refetch(true);
@@ -21,5 +28,6 @@ export default function useWriteQuoteAndSearchConfig() {
     submit,
     searchHandler,
     dispatch,
+    searchModal,
   };
 }

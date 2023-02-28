@@ -1,6 +1,7 @@
 import { useFetchNewsFeedQuotes } from 'hooks';
 import { useTranslation } from 'next-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { getSearchModal } from 'slices/newsFeedQuotesSlice';
 import {
   getQuery,
   getSearchType,
@@ -14,6 +15,7 @@ export default function useNewsFeedSearch() {
   const { t } = useTranslation('news-feed');
   const search = useSelector(getQuery);
   const searchType = useSelector(getSearchType);
+  const searchModal = useSelector(getSearchModal);
   const searchHandler = (event: any) => {
     if (event.target.value[0] == '@') {
       dispatch(setSearchType('@'));
@@ -26,5 +28,13 @@ export default function useNewsFeedSearch() {
     }
   };
 
-  return { refetch, t, search, searchType, searchHandler, dispatch };
+  return {
+    refetch,
+    t,
+    search,
+    searchType,
+    searchHandler,
+    dispatch,
+    searchModal,
+  };
 }
