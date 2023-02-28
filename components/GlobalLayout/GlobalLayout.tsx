@@ -1,4 +1,4 @@
-import { AuthNavBar } from 'components';
+import { AuthNavBar, ViewQuoteModal } from 'components';
 import { useSelector } from 'react-redux';
 import { showNewEmailModal } from 'slices/newEmailModalSlice';
 import { addMovieModal } from 'slices/addMovieModalSlice';
@@ -14,7 +14,7 @@ import {
   getNotificationModal,
   getSearchModal,
 } from 'slices/newsFeedQuotesSlice';
-import { useWindowWidth } from 'hooks';
+import { useFetchAllQuotes, useWindowWidth } from 'hooks';
 
 export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
   const showNewEmailModalHere = useSelector(showNewEmailModal);
@@ -30,25 +30,33 @@ export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
   const getNotificationModalHere = useSelector(getNotificationModal);
   const viewQuote = useSelector(getViewQuote);
   const windowSize = useWindowWidth();
+  useFetchAllQuotes();
   return (
-    <div
-      className={` ${
-        (showNewEmailModalHere ||
-          (getNotificationModalHere && windowSize < 1024) ||
-          addMovieModalHere ||
-          getDeleteValueHere ||
-          quoteDeleteConfirmationModalHere ||
-          editQuoteHere ||
-          getAddPostModalHere ||
-          getSearchModalHere ||
-          viewQuote ||
-          AddQuoteModalHere) &&
-        'overflow-hidden h-screen'
-      } w-full bg-global-layout-bg min-h-screen`}
-    >
-      <AuthNavBar />
-      {props.children}
-    </div>
+    <>
+      {viewQuote > 0 && (
+        <div className='w-full h-screen absolute z-[200]'>
+          <ViewQuoteModal />
+        </div>
+      )}
+      <div
+        className={` ${
+          (showNewEmailModalHere ||
+            (getNotificationModalHere && windowSize < 1024) ||
+            addMovieModalHere ||
+            getDeleteValueHere ||
+            quoteDeleteConfirmationModalHere ||
+            editQuoteHere ||
+            getAddPostModalHere ||
+            getSearchModalHere ||
+            viewQuote ||
+            AddQuoteModalHere) &&
+          'overflow-hidden h-screen'
+        } w-full bg-global-layout-bg min-h-screen`}
+      >
+        <AuthNavBar />
+        {props.children}
+      </div>
+    </>
   );
 };
 

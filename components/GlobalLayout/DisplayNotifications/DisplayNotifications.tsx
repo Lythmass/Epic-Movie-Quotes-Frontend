@@ -1,4 +1,6 @@
 import { useTranslation } from 'next-i18next';
+import { useDispatch } from 'react-redux';
+import { setViewQuote } from 'slices/quotesSlice';
 import { NotificationType } from 'types';
 
 /* eslint-disable @next/next/no-img-element */
@@ -7,8 +9,12 @@ export const DisplayNotifications: React.FC<NotificationType> = (props) => {
   const givenDate = new Date(props.created_at).getTime();
   const calculateDate = Math.floor((now - givenDate) / 1000 / 60);
   const { t } = useTranslation('news-feed');
+  const dispatch = useDispatch();
   return (
-    <div className='w-full py-5 px-4 flex gap-3 rounded border border-[#6C757D80]'>
+    <div
+      onClick={() => dispatch(setViewQuote(props.quote_id))}
+      className='w-full cursor-pointer py-5 px-4 flex gap-3 rounded border border-[#6C757D80]'
+    >
       <div className='flex flex-col justify-center items-center gap-2'>
         <img
           className={`${

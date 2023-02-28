@@ -64,3 +64,4 @@ export { default as useViewQuoteModalHeaderConfig } from './useViewQuoteModalHea
 export { default as useAddMovieModalFormFileConfig } from './useAddMovieModalFormFileConfig';
 export { default as useErrorPagesConfig } from './useErrorPagesConfig';
 export { default as useFetchComments } from './useFetchComments';
+export { default as useFetchAllQuotes } from './useFetchAllQuotes';

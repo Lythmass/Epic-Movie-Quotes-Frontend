@@ -182,6 +182,11 @@ export const updateQuote = async (data: any, id: number) => {
   );
   return response;
 };
+
+export const getAllQuotes = async () => {
+  const response = await instance.get('/api/get-all-quotes');
+  return response;
+};
 //End of quotes
 
 //News feed
