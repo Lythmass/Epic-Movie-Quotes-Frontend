@@ -19,7 +19,7 @@ export default function NavBar() {
     <div
       className={`w-full ${
         burgerMenu == true ? 'z-[200]' : 'z-[100]'
-      } fixed top-0 flex justify-between px-9 items-center h-[5.35rem] bg-navbar-colo`}
+      } fixed top-0 flex justify-between px-9 items-center h-[5.35rem] bg-navbar-color`}
     >
       <div
         onClick={() => setBurgerMenu(true)}
