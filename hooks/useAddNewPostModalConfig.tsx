@@ -1,4 +1,5 @@
 import {
+  useCloseModal,
   useFetchMovies,
   useFetchNewsFeedQuotes,
   useFetchQuotesLength,
@@ -12,6 +13,7 @@ import { toast } from 'react-toastify';
 import { ToastOptionsType } from 'types';
 import { useForm } from 'react-hook-form';
 import { ToastDesign } from 'helpers';
+import { setAddPostModal } from 'slices/newsFeedQuotesSlice';
 
 export default function useAddNewPostModalConfig() {
   useFetchMovies();
@@ -73,12 +75,16 @@ export default function useAddNewPostModalConfig() {
     });
     addNewPostMutation.mutate(data);
   };
-
+  const { modalRef, closeModal } = useCloseModal((value: boolean) =>
+    dispatch(setAddPostModal(value))
+  );
   return {
     methods,
     t,
     movies,
     dispatch,
     submit,
+    modalRef,
+    closeModal,
   };
 }

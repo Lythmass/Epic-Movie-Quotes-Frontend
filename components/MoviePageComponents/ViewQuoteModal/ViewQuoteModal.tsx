@@ -8,8 +8,17 @@ import {
 import { useViewQuoteModalConfig } from 'hooks';
 
 export const ViewQuoteModal = () => {
-  const { refetch, quote, comments, likesLength, quoteId, like, isLiked } =
-    useViewQuoteModalConfig();
+  const {
+    refetch,
+    quote,
+    comments,
+    likesLength,
+    quoteId,
+    like,
+    isLiked,
+    modalRef,
+    closeModal,
+  } = useViewQuoteModalConfig();
 
   const displayComments = comments?.map((comment, index: number) => {
     return (
@@ -22,8 +31,14 @@ export const ViewQuoteModal = () => {
     );
   });
   return (
-    <div className='w-full h-screen flex justify-center absolute z-[100] top-0 bg-frozen-bg'>
-      <div className='w-full h-full bg-[#11101A] overflow-auto lg:w-[40rem] 2xl:w-[60rem] 2xl:h-[50rem] lg:rounded-xl lg:h-[45rem] lg:mt-[5rem]'>
+    <div
+      onClick={closeModal}
+      className='w-full h-screen flex justify-center absolute z-[100] top-0 bg-frozen-bg'
+    >
+      <div
+        ref={modalRef}
+        className='w-full h-full bg-[#11101A] overflow-auto lg:w-[40rem] 2xl:w-[60rem] 2xl:h-[50rem] lg:rounded-xl lg:h-[45rem] lg:mt-[5rem]'
+      >
         <ViewQuoteModalHeader quoteId={quoteId} />
         <div className='w-full px-8 py-10'>
           <AddMovieModalProfile />

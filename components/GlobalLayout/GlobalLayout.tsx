@@ -1,8 +1,13 @@
-import { AuthNavBar, ViewQuoteModal } from 'components';
+import {
+  AuthNavBar,
+  EditQuoteModal,
+  QuoteDeleteConfirmationModal,
+  ViewQuoteModal,
+} from 'components';
 import { useSelector } from 'react-redux';
 import { showNewEmailModal } from 'slices/newEmailModalSlice';
 import { addMovieModal } from 'slices/addMovieModalSlice';
-import { getDeleteValue } from 'slices/moviesSlice';
+import { getDeleteValue, getEditValue } from 'slices/moviesSlice';
 import {
   addQuoteModal,
   editQuote,
@@ -19,6 +24,7 @@ import { useFetchAllQuotes, useWindowWidth } from 'hooks';
 export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
   const showNewEmailModalHere = useSelector(showNewEmailModal);
   const addMovieModalHere = useSelector(addMovieModal);
+  const editMovieModalHere = useSelector(getEditValue);
   const getDeleteValueHere = useSelector(getDeleteValue);
   const AddQuoteModalHere = useSelector(addQuoteModal);
   const quoteDeleteConfirmationModalHere = useSelector(
@@ -38,12 +44,23 @@ export const GlobalLayout: React.FC<{ children: JSX.Element }> = (props) => {
           <ViewQuoteModal />
         </div>
       )}
+      {editQuoteHere > 0 && (
+        <div className='w-full h-screen absolute z-[200]'>
+          <EditQuoteModal />
+        </div>
+      )}
+      {quoteDeleteConfirmationModalHere > 0 && (
+        <div className='w-full h-screen absolute z-[200]'>
+          <QuoteDeleteConfirmationModal />
+        </div>
+      )}
       <div
         className={` ${
           (showNewEmailModalHere ||
             (getNotificationModalHere && windowSize < 1024) ||
             addMovieModalHere ||
             getDeleteValueHere ||
+            editMovieModalHere ||
             quoteDeleteConfirmationModalHere ||
             editQuoteHere ||
             getAddPostModalHere ||

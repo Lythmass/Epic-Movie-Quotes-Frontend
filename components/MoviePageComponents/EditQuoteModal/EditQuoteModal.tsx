@@ -8,11 +8,17 @@ import { FormProvider } from 'react-hook-form';
 import { useEditQuoteModalConfig } from 'hooks';
 
 export const EditQuoteModal = () => {
-  const { submit, t, methods, quote, imageRef } = useEditQuoteModalConfig();
-
+  const { submit, t, methods, quote, imageRef, modalRef, closeModal } =
+    useEditQuoteModalConfig();
   return (
-    <div className='h-screen flex justify-center w-full absolute bg-frozen-bg z-[100]'>
-      <div className='w-full lg:mt-[3rem] lg:w-[50%] lg:h-[85%] overflow-auto h-screen bg-[#11101A]'>
+    <div
+      onClick={closeModal}
+      className='h-screen flex justify-center w-full absolute bg-frozen-bg z-[100]'
+    >
+      <div
+        ref={modalRef}
+        className='w-full lg:mt-[3rem] lg:w-[50%] lg:h-[85%] overflow-auto h-screen bg-[#11101A]'
+      >
         <EditQuoteModalHeader quote={quote} />
         <hr className='w-full bg-[#EFEFEF33] opacity-20' />
         <div className='p-8'>
