@@ -1,14 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
-import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
-import { useSelector } from 'react-redux';
-import { selectValue } from 'slices/userInfoSlice';
 import { BurgerMenuType } from 'types';
+import useBurgerMenuConfig from './useBurgerMenuConfig';
 
 export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
-  const { t } = useTranslation('profile');
-  const username = useSelector(selectValue);
-  const router = useRouter();
+  const { t, router, image, name } = useBurgerMenuConfig();
   return (
     <div
       className={`w-full transition-all text-white gap-8 flex flex-col justify-start items-start px-11 pt-11 absolute lg:fixed lg:top-[4rem] lg:w-[20%] lg:left-0 h-screen bg-[#11101A] lg:bg-transparent top-0 ${
@@ -20,11 +15,7 @@ export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
           className={`w-12 h-12 rounded-[50%] object-cover ${
             router.pathname == '/profile' && 'border border-button-red'
           }`}
-          src={
-            username?.profile_picture !== null
-              ? username?.profile_picture
-              : '/assets/images/tlotr.png'
-          }
+          src={image !== null ? image : '/assets/images/tlotr.png'}
           alt='profile picture'
         />
         <div
@@ -34,7 +25,7 @@ export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
           }}
           className='cursor-pointer'
         >
-          <h1 className='text-xl'>{username?.name} </h1>
+          <h1 className='text-xl'>{name} </h1>
           <p className='text-sm text-[#CED4DA]'>{t('edit-profile')}</p>
         </div>
       </div>
