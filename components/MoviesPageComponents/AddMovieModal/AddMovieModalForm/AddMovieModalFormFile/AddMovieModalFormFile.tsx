@@ -5,7 +5,7 @@ import { AddMovieModalInputType } from '../AddMovieModalInput';
 export const AddMovieModalFormFile: React.FC<AddMovieModalInputType> = (
   props
 ) => {
-  const { methods, t, imageRef, dropHandler, windowSize } =
+  const { methods, t, imageRef, dropHandler, windowSize, image } =
     useAddMovieModalFormFileConfig();
   return (
     <div
@@ -46,6 +46,7 @@ export const AddMovieModalFormFile: React.FC<AddMovieModalInputType> = (
       <p className='text-button-red h-3'>
         {methods.formState.errors['thumbnail']?.message}
       </p>
+      {image && <img src={image} alt={'thumbnail'} />}
     </div>
   );
 };
