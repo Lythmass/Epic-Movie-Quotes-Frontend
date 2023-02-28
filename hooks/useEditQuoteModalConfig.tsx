@@ -5,9 +5,9 @@ import { useMutation } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { updateQuote } from 'services';
-import { editQuote, getQuotes, setEditQuote } from 'slices/quotesSlice';
+import { editQuote, getAllQuotes, setEditQuote } from 'slices/quotesSlice';
 import { ToastOptionsType } from 'types';
-import { useFetchQuotes } from 'hooks';
+import { useCloseModal, useFetchQuotes } from 'hooks';
 import { ToastDesign } from 'helpers';
 
 export default function useEditQuoteModalConfig() {
@@ -23,7 +23,7 @@ export default function useEditQuoteModalConfig() {
   };
   const methods: any = useForm();
   const imageRef = useRef<HTMLImageElement>(null);
-  const getQuotesHere = useSelector(getQuotes);
+  const getQuotesHere = useSelector(getAllQuotes);
   const getId = useSelector(editQuote);
   const dispatch = useDispatch();
   const { t } = useTranslation('movies');
@@ -82,6 +82,8 @@ export default function useEditQuoteModalConfig() {
     });
     updateQuoteMutation.mutate(data);
   };
-
-  return { submit, t, methods, quote, imageRef };
+  const { modalRef, closeModal } = useCloseModal(() =>
+    dispatch(setEditQuote(0))
+  );
+  return { submit, t, methods, quote, imageRef, modalRef, closeModal };
 }

@@ -11,10 +11,17 @@ import { useAddNewPostModalConfig } from 'hooks';
 import { SingleDropDownStyles } from 'data';
 
 export const AddNewPostModal = () => {
-  const { methods, t, movies, dispatch, submit } = useAddNewPostModalConfig();
+  const { methods, t, movies, dispatch, submit, modalRef, closeModal } =
+    useAddNewPostModalConfig();
   return (
-    <div className='absolute z-[100] flex xl:pt-[4rem] justify-center bg-frozen-bg w-full h-full'>
-      <div className='absolute lg:w-[70%] rounded-xl xl:w-[50%] lg:h-[50rem] overflow-x-hidden px-11 bg-modal-bg w-full h-screen'>
+    <div
+      onClick={closeModal}
+      className='absolute z-[100] flex xl:pt-[4rem] justify-center bg-frozen-bg w-full h-full'
+    >
+      <div
+        ref={modalRef}
+        className='absolute lg:w-[70%] rounded-xl xl:w-[50%] lg:h-[50rem] overflow-x-hidden px-11 bg-modal-bg w-full h-screen'
+      >
         <header className='flex justify-center items-center py-8'>
           <h1 className='text-white font-medium text-xl flex justify-center w-full'>
             {t('new-quote')}

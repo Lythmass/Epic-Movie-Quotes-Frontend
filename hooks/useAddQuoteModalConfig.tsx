@@ -1,6 +1,10 @@
 import { useTranslation } from 'next-i18next';
 import { useDispatch } from 'react-redux';
-import { useFetchNewsFeedQuotes, useGetSingleMovie } from 'hooks';
+import {
+  useCloseModal,
+  useFetchNewsFeedQuotes,
+  useGetSingleMovie,
+} from 'hooks';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { uploadQuote } from 'services';
@@ -8,6 +12,7 @@ import { toast } from 'react-toastify';
 import { ToastOptionsType } from 'types';
 import { useFetchQuotes } from 'hooks';
 import { ToastDesign } from 'helpers';
+import { setAddQuoteModal } from 'slices/quotesSlice';
 
 export default function useAddQuoteModalConfig() {
   const { t } = useTranslation('movies');
@@ -60,6 +65,8 @@ export default function useAddQuoteModalConfig() {
     });
     uploadQuoteMutation.mutate(data);
   };
-
-  return { dispatch, methods, submit, t, movie };
+  const { modalRef, closeModal } = useCloseModal((value: boolean) =>
+    dispatch(setAddQuoteModal(value))
+  );
+  return { dispatch, methods, submit, t, movie, modalRef, closeModal };
 }
