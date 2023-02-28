@@ -40,7 +40,10 @@ export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
       </div>
       <div className='flex flex-col gap-8 w-full pl-[0.35rem]'>
         <div
-          onClick={() => router.push('/news-feed')}
+          onClick={() => {
+            props.setBurgerMenu(false);
+            router.push('/news-feed');
+          }}
           className='flex cursor-pointer gap-10 items-center'
         >
           <img
@@ -53,7 +56,10 @@ export const BurgerMenu: React.FC<BurgerMenuType> = (props) => {
           <p className='text-xl'>{t('news-feed')}</p>
         </div>
         <div
-          onClick={() => router.push('/movies')}
+          onClick={() => {
+            props.setBurgerMenu(false);
+            router.push('/movies');
+          }}
           className='cursor-pointer flex gap-10 items-center'
         >
           <img
