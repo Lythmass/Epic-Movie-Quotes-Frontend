@@ -29,7 +29,8 @@ export const ConditionalModals: React.FC<ConditionalModalsType> = (props) => {
           setShowLoginModal={props.setShowLoginModal}
         />
       )}
-      {props.response === '"Successfully verified!"' &&
+      {(props.response === '"Successfully verified!"' ||
+        props.response == '"responses.verified-success"') &&
         !props.showLoginModal && (
           <FeedbackModal
             image='correct'

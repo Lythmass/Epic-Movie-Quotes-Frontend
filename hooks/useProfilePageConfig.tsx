@@ -68,7 +68,6 @@ export default function useProfilePageConfig(response: string) {
         icon: false,
         ...toastOptions,
       });
-      toast.success(t(response), toastOptions);
       router.push('/profile');
     }
     if (response === 'responses.already-verified') {
