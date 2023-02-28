@@ -1,6 +1,6 @@
 import { useTranslation } from 'next-i18next';
 import { useDispatch } from 'react-redux';
-import { useGetSingleMovie } from 'hooks';
+import { useFetchNewsFeedQuotes, useGetSingleMovie } from 'hooks';
 import { useForm } from 'react-hook-form';
 import { useMutation } from 'react-query';
 import { uploadQuote } from 'services';
@@ -25,6 +25,7 @@ export default function useAddQuoteModalConfig() {
     theme: 'colored',
   };
   const refetch = useFetchQuotes();
+  const { refetch: refetchPosts } = useFetchNewsFeedQuotes();
   const uploadQuoteMutation = useMutation(
     (data) => {
       return uploadQuote(data, movie?.id);
@@ -44,6 +45,7 @@ export default function useAddQuoteModalConfig() {
           }
         );
         refetch();
+        refetchPosts(true);
       },
       onError: (error: any) => {
         toast.error(error.response.data.message, toastOptions);
