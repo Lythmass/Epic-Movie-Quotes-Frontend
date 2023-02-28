@@ -8,12 +8,14 @@ const initialState: {
   delete: number;
   edit: number;
   viewQuote: number;
+  allQuotes: any;
 } = {
   value: false,
   quotes: [],
   delete: 0,
   edit: 0,
   viewQuote: 0,
+  allQuotes: [],
 };
 
 export const quotesSlice = createSlice({
@@ -35,6 +37,9 @@ export const quotesSlice = createSlice({
     setViewQuote: (state, value: PayloadAction<number>) => {
       state.viewQuote = value.payload;
     },
+    setAllQuotes: (state, value: PayloadAction<object[]>) => {
+      state.allQuotes = value.payload;
+    },
   },
 });
 
@@ -44,9 +49,11 @@ export const {
   setQuoteDeleteConfirmationModal,
   setEditQuote,
   setViewQuote,
+  setAllQuotes,
 } = quotesSlice.actions;
 export const addQuoteModal = (state: RootState) => state.quotes.value;
 export const getQuotes = (state: RootState) => state.quotes.quotes;
+export const getAllQuotes = (state: RootState) => state.quotes.allQuotes;
 export const quoteDeleteConfirmationModal = (state: RootState) =>
   state.quotes.delete;
 export const editQuote = (state: RootState) => state.quotes.edit;

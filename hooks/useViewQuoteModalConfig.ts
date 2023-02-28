@@ -1,13 +1,13 @@
 import useFetchComments from 'hooks/useFetchComments';
 import { useSelector } from 'react-redux';
 import { getComments, getLikes } from 'slices/newsFeedQuotesSlice';
-import { getQuotes, getViewQuote } from 'slices/quotesSlice';
+import { getAllQuotes, getViewQuote } from 'slices/quotesSlice';
 import usePostCardSectionConfig from './usePostCardSectionConfig';
 
 export default function useViewQuoteModalConfig() {
   const quoteId = useSelector(getViewQuote);
   const refetch = useFetchComments();
-  const quote = useSelector(getQuotes)?.filter(
+  const quote = useSelector(getAllQuotes)?.filter(
     (quote: { id: number }) => quoteId == quote.id
   )[0];
   const comments = useSelector(getComments)?.filter(

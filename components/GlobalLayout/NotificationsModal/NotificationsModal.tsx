@@ -11,6 +11,8 @@ export const NotificationsModal = () => {
       return (
         <DisplayNotifications
           key={index}
+          quote_id={notification.quote_id}
+          quote={notification.quote}
           author_profile_picture={notification.author_profile_picture}
           author={notification.author}
           is_read={notification.is_read}
