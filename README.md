@@ -1,7 +1,6 @@
 
 # Epic movies quotes
-This repository is created for front-end side of "Epic Movies Quotes" project, where the user can create movies and add famous quotes to them, which will be posted in news feed for other people to see. 
-Link to the live version: https://epic-movies.gigig.redberryinternship.ge/
+This repository is created for front-end side of "Epic Movies Quotes" project, where the user can create movies and add famous quotes to them, which will be posted in news feed for other people to see.
 
 ## Table of contents
 * [Features](#features)
